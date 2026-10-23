@@ -1,0 +1,719 @@
+# OpenAPI description of the Runway REST API (IIE, 2026).
+# Reference List
+# IIE, 2026.
+
+openapi: 3.0.3
+
+info:
+  title: Runway API
+  version: 1.0.0
+  description: >
+    Wardrobe, outfit and settings endpoints for the Runway Android app
+    (PROG7314 POE Part 2, Group 11). Every endpoint except /health requires a
+    Firebase ID token; the server derives the user from that token and never
+    from the request body.
+
+servers:
+  - url: /
+    description: This API server (local or hosted)
+
+tags:
+  - name: Health
+  - name: Items
+  - name: Outfits
+  - name: Ratings
+  - name: Planner
+  - name: Wardrobe
+  - name: Users
+
+paths:
+
+  /health:
+    get:
+      tags: [Health]
+      summary: Liveness check
+      description: Requires no token. Used by the hosting platform to decide whether the instance is up.
+      security: []
+      responses:
+        '200':
+          description: The server is running
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status: { type: string, example: ok }
+                  version: { type: string, example: 1.0.0 }
+
+  /api/v1/items:
+    get:
+      tags: [Items]
+      summary: List the caller's clothing items
+      description: >
+        Returns items owned by the token holder, most recently changed first.
+        Supplying updatedSince returns only what has changed after that instant,
+        including soft-deleted items, which is how the app syncs incrementally.
+      security:
+        - firebaseAuth: []
+      parameters:
+        - name: category
+          in: query
+          schema: { type: string, example: OUTERWEAR }
+        - name: updatedSince
+          in: query
+          description: ISO-8601 instant
+          schema: { type: string, format: date-time }
+        - name: limit
+          in: query
+          schema: { type: integer, default: 50, maximum: 100 }
+        - name: cursor
+          in: query
+          description: nextCursor from the previous page
+          schema: { type: string }
+      responses:
+        '200':
+          description: A page of items
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/Item' }
+                  nextCursor:
+                    type: string
+                    nullable: true
+        '401': { $ref: '#/components/responses/Unauthorized' }
+
+    post:
+      tags: [Items]
+      summary: Create a clothing item
+      security:
+        - firebaseAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CreateItem' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Item' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+
+  /api/v1/items/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema: { type: string }
+
+    get:
+      tags: [Items]
+      summary: Fetch one item
+      security:
+        - firebaseAuth: []
+      responses:
+        '200':
+          description: The item
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Item' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+    patch:
+      tags: [Items]
+      summary: Update part of an item
+      description: Only the fields present in the body are changed.
+      security:
+        - firebaseAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/UpdateItem' }
+      responses:
+        '200':
+          description: The updated item
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Item' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+    delete:
+      tags: [Items]
+      summary: Delete an item
+      description: A soft delete - the document is flagged, not removed, so offline devices can learn about it.
+      security:
+        - firebaseAuth: []
+      responses:
+        '204': { description: Deleted }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /api/v1/items/{id}/wears:
+    post:
+      tags: [Items]
+      summary: Log that the item was worn
+      description: Creates a wear-history entry and increments wearCount atomically.
+      security:
+        - firebaseAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                outfitId: { type: string, nullable: true }
+                wornOn:
+                  type: string
+                  format: date-time
+                  nullable: true
+                  description: Defaults to now when omitted
+      responses:
+        '201':
+          description: The wear was recorded
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Wear' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /api/v1/wardrobe/summary:
+    get:
+      tags: [Wardrobe]
+      summary: Counts and totals across the caller's whole wardrobe
+      description: Backs the home and profile screens, so every client shows the same figures.
+      security:
+        - firebaseAuth: []
+      responses:
+        '200':
+          description: The totals
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/WardrobeSummary' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+
+  /api/v1/outfits:
+    get:
+      tags: [Outfits]
+      summary: List the caller's outfits with their item placements
+      security:
+        - firebaseAuth: []
+      parameters:
+        - name: limit
+          in: query
+          schema: { type: integer, default: 20, maximum: 50 }
+        - name: cursor
+          in: query
+          schema: { type: string }
+      responses:
+        '200':
+          description: A page of outfits
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items: { $ref: '#/components/schemas/Outfit' }
+                  nextCursor: { type: string, nullable: true }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+
+    post:
+      tags: [Outfits]
+      summary: Create an outfit and its placements
+      security:
+        - firebaseAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name]
+              properties:
+                name: { type: string, example: Friday dinner }
+                occasion: { type: string, nullable: true }
+                season: { type: string, nullable: true }
+                items:
+                  type: array
+                  items: { $ref: '#/components/schemas/OutfitItem' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Outfit' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+
+  /api/v1/outfits/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema: { type: string }
+    get:
+      tags: [Outfits]
+      summary: Fetch one outfit
+      security:
+        - firebaseAuth: []
+      responses:
+        '200':
+          description: The outfit
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Outfit' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    patch:
+      tags: [Outfits]
+      summary: Update an outfit
+      description: >
+        A partial update. Sending items replaces every placement on the outfit,
+        because editing the canvas both moves and removes pieces.
+      security:
+        - firebaseAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name: { type: string, example: Friday dinner }
+                occasion: { type: string, nullable: true }
+                season: { type: string, nullable: true }
+                items:
+                  type: array
+                  items: { $ref: '#/components/schemas/OutfitItem' }
+      responses:
+        '200':
+          description: The updated outfit
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Outfit' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    delete:
+      tags: [Outfits]
+      summary: Delete an outfit
+      security:
+        - firebaseAuth: []
+      responses:
+        '204': { description: Deleted }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /api/v1/outfits/{id}/wears:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema: { type: string }
+    post:
+      tags: [Outfits]
+      summary: Record that the outfit was worn
+      description: Counts one wear against every garment in the outfit, in a single batch.
+      security:
+        - firebaseAuth: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                wornOn:
+                  type: string
+                  format: date-time
+                  description: Defaults to now.
+      responses:
+        '201':
+          description: The wear, with each garment's new count
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/OutfitWear' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /api/v1/outfits/{id}/ratings:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema: { type: string }
+    get:
+      tags: [Ratings]
+      summary: Every confidence rating on this outfit
+      description: Returns the ratings newest first, with the count and average.
+      security:
+        - firebaseAuth: []
+      responses:
+        '200':
+          description: The outfit's ratings
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/RatingSummary' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    post:
+      tags: [Ratings]
+      summary: Rate how confident the outfit felt
+      description: >
+        Scored 1 to 5. The rating is attached to the caller from their token, and
+        the outfit must belong to them.
+      security:
+        - firebaseAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [score]
+              properties:
+                score: { type: integer, minimum: 1, maximum: 5, example: 4 }
+                note: { type: string, nullable: true, maxLength: 280 }
+      responses:
+        '201':
+          description: The rating that was stored
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Rating' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '404': { $ref: '#/components/responses/NotFound' }
+
+  /api/v1/plans:
+    get:
+      tags: [Planner]
+      summary: Planned outfits between two days
+      description: Both days are included. A range can cover at most 62 days.
+      security:
+        - firebaseAuth: []
+      parameters:
+        - name: from
+          in: query
+          required: true
+          schema: { type: string, format: date, example: '2026-09-01' }
+        - name: to
+          in: query
+          required: true
+          schema: { type: string, format: date, example: '2026-10-12' }
+      responses:
+        '200':
+          description: The plans in the range, earliest first
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Plan' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+
+  /api/v1/plans/{date}:
+    parameters:
+      - name: date
+        in: path
+        required: true
+        schema: { type: string, format: date, example: '2026-09-22' }
+    put:
+      tags: [Planner]
+      summary: Plan an outfit for a day
+      description: >
+        Replaces whatever was planned for that day. The outfit must belong to the
+        caller.
+      security:
+        - firebaseAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [outfitId]
+              properties:
+                outfitId: { type: string }
+      responses:
+        '200':
+          description: The plan that was stored
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Plan' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '404': { $ref: '#/components/responses/NotFound' }
+    delete:
+      tags: [Planner]
+      summary: Clear a day
+      description: Clearing a day that has nothing planned still succeeds.
+      security:
+        - firebaseAuth: []
+      responses:
+        '204':
+          description: The day is clear
+        '400': { $ref: '#/components/responses/BadRequest' }
+
+  /api/v1/users/me:
+    get:
+      tags: [Users]
+      summary: The profile of the token holder
+      description: Creates the profile document on the user's first authenticated request.
+      security:
+        - firebaseAuth: []
+      responses:
+        '200':
+          description: The profile
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/User' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+
+  /api/v1/users/me/settings:
+    get:
+      tags: [Users]
+      summary: Read settings
+      description: Returns defaults for a user who has never saved any.
+      security:
+        - firebaseAuth: []
+      responses:
+        '200':
+          description: The settings
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Settings' }
+    put:
+      tags: [Users]
+      summary: Replace settings
+      security:
+        - firebaseAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/Settings' }
+      responses:
+        '200':
+          description: The saved settings
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Settings' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+
+components:
+
+  schemas:
+
+    Item:
+      type: object
+      required: [id, name, category]
+      properties:
+        id: { type: string, example: 8fK2mQpLr3 }
+        name: { type: string, example: Black wool coat }
+        category: { type: string, example: OUTERWEAR }
+        colour: { type: string, nullable: true, example: Black }
+        brand: { type: string, nullable: true, example: Country Road }
+        size: { type: string, nullable: true, example: M }
+        purchasePrice: { type: number, format: double, nullable: true, example: 1299.00 }
+        wearCount: { type: integer, example: 14 }
+        wearLimit:
+          type: integer
+          example: 3
+          description: Wears allowed before the garment is due a wash.
+        costPerWear:
+          type: number
+          format: double
+          nullable: true
+          example: 92.79
+          description: Computed on the server. Null until the garment has been worn once.
+        needsWash:
+          type: boolean
+          example: false
+          description: True once wearCount has reached wearLimit.
+        archived: { type: boolean, example: false }
+        deleted: { type: boolean, example: false }
+        createdAt: { type: string, format: date-time }
+        updatedAt: { type: string, format: date-time }
+
+    CreateItem:
+      type: object
+      required: [name, category]
+      properties:
+        name: { type: string, example: Black wool coat }
+        category: { type: string, example: OUTERWEAR }
+        colour: { type: string, nullable: true }
+        brand: { type: string, nullable: true }
+        size: { type: string, nullable: true }
+        purchasePrice: { type: number, format: double, nullable: true }
+
+    UpdateItem:
+      type: object
+      description: Every field is optional. Omitting one leaves it unchanged.
+      properties:
+        name: { type: string }
+        category: { type: string }
+        colour: { type: string }
+        brand: { type: string }
+        size: { type: string }
+        purchasePrice: { type: number, format: double }
+        archived: { type: boolean }
+
+    OutfitItem:
+      type: object
+      required: [clothingItemId]
+      description: Where one garment sits on the outfit canvas.
+      properties:
+        id: { type: string }
+        clothingItemId: { type: string }
+        x: { type: number, format: double, example: 120.5 }
+        y: { type: number, format: double, example: 240.0 }
+        scale: { type: number, format: double, example: 1.0 }
+        rotation: { type: number, format: double, example: 0.0 }
+        zIndex: { type: integer, example: 2 }
+
+    Outfit:
+      type: object
+      required: [id, name]
+      properties:
+        id: { type: string }
+        name: { type: string, example: Friday dinner }
+        occasion: { type: string, nullable: true, example: Evening }
+        season: { type: string, nullable: true, example: Winter }
+        items:
+          type: array
+          items: { $ref: '#/components/schemas/OutfitItem' }
+        createdAt: { type: string, format: date-time }
+        updatedAt: { type: string, format: date-time }
+
+    User:
+      type: object
+      properties:
+        uid: { type: string }
+        displayName: { type: string }
+        email: { type: string, format: email }
+        photoUrl: { type: string, nullable: true }
+        createdAt: { type: string, format: date-time }
+
+    Settings:
+      type: object
+      properties:
+        theme: { type: string, enum: [LIGHT, DARK, SYSTEM], default: SYSTEM }
+        language: { type: string, default: en }
+        units: { type: string, enum: [METRIC, IMPERIAL], default: METRIC }
+        notificationsEnabled: { type: boolean, default: true }
+        biometricEnabled: { type: boolean, default: false }
+        defaultWearLimit:
+          type: integer
+          default: 3
+          minimum: 1
+          maximum: 60
+          description: Applied to a new item that does not name its own limit.
+
+    WardrobeSummary:
+      type: object
+      properties:
+        itemCount: { type: integer, example: 26 }
+        outfitCount: { type: integer, example: 12 }
+        totalWears: { type: integer, example: 184 }
+        totalValue: { type: number, format: double, example: 18450.00 }
+        needsWashCount: { type: integer, example: 3 }
+
+    Rating:
+      type: object
+      properties:
+        id: { type: string }
+        outfitId: { type: string }
+        score: { type: integer, example: 4 }
+        note: { type: string, nullable: true }
+        ratedAt: { type: string, format: date-time }
+
+    RatingSummary:
+      type: object
+      properties:
+        outfitId: { type: string }
+        count: { type: integer, example: 5 }
+        average:
+          type: number
+          format: double
+          nullable: true
+          example: 4.2
+          description: Null until the outfit has been rated once.
+        ratings:
+          type: array
+          items: { $ref: '#/components/schemas/Rating' }
+
+    Plan:
+      type: object
+      properties:
+        id: { type: string }
+        date: { type: string, format: date, example: '2026-09-22' }
+        outfitId: { type: string }
+        status: { type: string, example: PLANNED }
+
+    Wear:
+      type: object
+      properties:
+        id: { type: string }
+        clothingItemId: { type: string }
+        outfitId: { type: string, nullable: true }
+        wornOn: { type: string, format: date-time }
+        newWearCount: { type: integer, example: 15 }
+
+    OutfitWear:
+      type: object
+      properties:
+        outfitId: { type: string }
+        wornOn: { type: string, format: date-time }
+        items:
+          type: array
+          items: { $ref: '#/components/schemas/Wear' }
+
+    ApiError:
+      type: object
+      properties:
+        code: { type: string, example: validation_failed }
+        message: { type: string, example: name is required }
+
+  responses:
+
+    BadRequest:
+      description: The request failed validation
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ApiError' }
+
+    Unauthorized:
+      description: The Firebase ID token was missing, expired or invalid
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ApiError' }
+
+    NotFound:
+      description: >
+        No such resource, or it belongs to another user. Both cases return 404
+        deliberately - a 403 would confirm that the id exists.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ApiError' }
+
+  securitySchemes:
+    firebaseAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: >
+        A Firebase ID token from the signed-in user. In Swagger UI, click
+        Authorize and paste the token; it is then sent as
+        "Authorization: Bearer <token>" on every request.
+
+security:
+  - firebaseAuth: []
+
+# Reference List
+# IIE, 2026. PROG7314 Module Manual. The Independent Institute of Education (Pty) Ltd.

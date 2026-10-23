@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Internals of FieldView: a label above a text input, with optional helper or error text. -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="android.widget.LinearLayout"
+    tools:orientation="vertical">
+
+    <TextView
+        android:id="@+id/fieldLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/rw_space_6"
+        android:textAppearance="@style/TextAppearance.Runway.Label"
+        tools:text="Brand" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fieldInputLayout"
+        style="@style/Widget.Runway.TextField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fieldInput"
+            style="@style/Widget.Runway.TextField.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:importantForAutofill="no"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/fieldHint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/rw_space_4"
+        android:textAppearance="@style/TextAppearance.Runway.Micro"
+        android:visibility="gone"
+        tools:text="Optional"
+        tools:visibility="visible" />
+
+</merge>

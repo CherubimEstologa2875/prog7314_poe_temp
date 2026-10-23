@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Either a list of outfits for one day, or a list of days for one outfit. Rows are added in PickOutfitSheet. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/pickSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.Runway.Secondary"
+        tools:text="For Mon 22 Sep" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/pickLoading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/rw_space_12"
+        android:indeterminate="true"
+        app:indicatorColor="?attr/colorPrimary"
+        app:trackColor="?attr/rwSurface" />
+
+    <LinearLayout
+        android:id="@+id/pickOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/rw_space_8"
+        android:orientation="vertical" />
+
+    <com.example.runway.ui.components.EmptyStateView
+        android:id="@+id/pickEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:rwIcon="@drawable/ic_rw_sparkles" />
+
+</LinearLayout>

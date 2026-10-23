@@ -1,0 +1,117 @@
+{
+  "_comment": [
+    "Composite indexes for the Runway API, SCRUM-103 (IIE, 2026).",
+    "Firestore indexes single fields automatically, but a query that filters on",
+    "one field and orders by another needs the combination declared in advance,",
+    "otherwise it fails at run time with FAILED_PRECONDITION (Google, 2026).",
+    "",
+    "Each definition was confirmed against the index Firestore actually asked for",
+    "at run time, not guessed from the query - every equality filter in the query",
+    "has to appear in the index, including the soft-delete flag.",
+    "",
+    "If 'firebase deploy --only firestore:indexes' rejects this file, delete every",
+    "_comment key: JSON has no comment syntax and the CLI may not ignore unknown fields.",
+    "",
+    "Reference List",
+    "IIE, 2026. PROG7314 Module Manual. The Independent Institute of Education (Pty) Ltd.",
+    "Google, 2026. Index types in Cloud Firestore. [online] Available at: <https://firebase.google.com/docs/firestore/query-data/index-overview> [Accessed 11 September 2026]."
+  ],
+  "indexes": [
+    {
+      "_comment": "GET /api/v1/items - the default wardrobe listing, hiding soft-deleted rows.",
+      "collectionGroup": "clothingItems",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "ownerUid",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "deleted",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "updatedAt",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "_comment": "GET /api/v1/items?updatedSince= - the incremental sync (SCRUM-82). No deleted filter here: a sync needs to hear about deletions.",
+      "collectionGroup": "clothingItems",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "ownerUid",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "updatedAt",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "_comment": "GET /api/v1/items?category= - the wardrobe category filter.",
+      "collectionGroup": "clothingItems",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "category",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "deleted",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "ownerUid",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "updatedAt",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "_comment": "GET /api/v1/outfits.",
+      "collectionGroup": "outfits",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "ownerUid",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "deleted",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "updatedAt",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "_comment": "Public swap and donate listings, newest first.",
+      "collectionGroup": "listings",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "status",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "deleted",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "createdAt",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mixes a colour by hue, saturation and lightness, then names it. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/rw_space_24"
+    android:paddingEnd="@dimen/rw_space_24"
+    android:paddingTop="@dimen/rw_space_8">
+
+    <com.example.runway.ui.components.SwatchView
+        android:id="@+id/pickerPreview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/rw_space_16"
+        app:rwSwatchSize="@dimen/rw_swatch_preview" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rw_colour_picker_hue"
+        android:textAppearance="@style/TextAppearance.Runway.Caption" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/pickerHue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stepSize="1"
+        android:valueFrom="0"
+        android:valueTo="360"
+        android:value="210" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rw_colour_picker_saturation"
+        android:textAppearance="@style/TextAppearance.Runway.Caption" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/pickerSaturation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stepSize="1"
+        android:valueFrom="0"
+        android:valueTo="100"
+        android:value="60" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rw_colour_picker_lightness"
+        android:textAppearance="@style/TextAppearance.Runway.Caption" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/pickerLightness"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stepSize="1"
+        android:valueFrom="0"
+        android:valueTo="100"
+        android:value="50" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pickerNameLayout"
+        style="@style/Widget.Runway.TextField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/rw_space_8"
+        android:hint="@string/rw_colour_picker_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pickerName"
+            style="@style/Widget.Runway.TextField.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:maxLength="24" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Input border, normal state. TextInputLayout only resolves its own internal
+  states, so the error case swaps in rw_field_stroke_error instead.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="?attr/colorPrimary" android:state_focused="true" />
+    <item android:color="?attr/colorOutline" android:state_enabled="true" />
+    <item android:alpha="0.45" android:color="?attr/colorOutline" />
+</selector>

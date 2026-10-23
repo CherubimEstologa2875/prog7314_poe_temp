@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Staggers rw_rise across a container's children. Set on a list with
+  android:layoutAnimation="@anim/rw_rise_layout".
+-->
+<layoutAnimation xmlns:android="http://schemas.android.com/apk/res/android"
+    android:animation="@anim/rw_rise"
+    android:animationOrder="normal"
+    android:delay="12%" />

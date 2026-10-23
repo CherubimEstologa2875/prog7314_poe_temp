@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">RUNWAY</string>
+
+    <!--Shared actions-->
+    <string name="rw_action_back">Back</string>
+    <string name="rw_action_close">Close</string>
+    <string name="rw_action_save">Save</string>
+    <string name="rw_action_cancel">Cancel</string>
+    <string name="rw_action_delete">Delete</string>
+    <string name="rw_action_add">Add item</string>
+    <string name="rw_action_edit">Edit</string>
+    <string name="rw_action_favourite">Favourite</string>
+
+    <!--Navigation-->
+    <string name="rw_nav_home">Home</string>
+    <string name="rw_nav_wardrobe">Wardrobe</string>
+    <string name="rw_nav_outfits">Outfits</string>
+    <string name="rw_nav_profile">Profile</string>
+
+    <!--Authentication-->
+    <string name="rw_auth_login_title">Sign in to Runway</string>
+    <string name="rw_auth_login_body">Use your Google account to sync your wardrobe across devices.</string>
+    <string name="rw_auth_fingerprint">Unlock with fingerprint next time</string>
+    <string name="rw_auth_google_button">Continue with Google</string>
+    <string name="rw_auth_terms">By continuing you agree to the Runway terms and privacy policy.</string>
+    <string name="rw_auth_sign_in_failed">We could not sign you in. Please try again.</string>
+    <string name="rw_auth_cancelled">Sign-in was cancelled. Please try again.</string>
+    <string name="rw_auth_no_account">No Google account is available on this device. Add one in Settings, then try again.</string>
+    <string name="rw_auth_config_error">Sign-in is temporarily unavailable. Please try again later.</string>
+    <string name="rw_auth_unregistered">Google would not accept this build of Runway. Its signing certificate needs to be registered in the Firebase project before sign-in will work on this device.</string>
+    <string name="rw_auth_network_error">We could not reach Google. Check your connection and try again.</string>
+    <string name="rw_auth_invalid_account">Google returned an incomplete account. Please choose another account.</string>
+    <string name="rw_auth_sign_out_failed">You were signed out locally, but Google sign-out could not finish.</string>
+    <string name="rw_auth_no_session">Your session is no longer available. Please sign in again.</string>
+    <string name="rw_auth_logo_content_description">Runway logo</string>
+    <string name="rw_auth_fingerprint_unavailable">Fingerprint unlock is not available on this device.</string>
+    <string name="rw_auth_signing_in">Signing in…</string>
+
+    <string name="rw_profile_sign_out">Sign out</string>
+    <string name="rw_profile_sign_out_title">Sign out of Runway?</string>
+    <string name="rw_profile_sign_out_body">You will need to choose your Google account again next time.</string>
+
+    <!--Component accessibility-->
+    <!-- StarRatingView announces each star individually, so screen-reader users
+         can hear which value a tap will set. -->
+    <plurals name="rw_star_rating">
+        <item quantity="one">%d star</item>
+        <item quantity="other">%d stars</item>
+    </plurals>
+    <string name="rw_rating_current" tools:ignore="PluralsCandidate">Rated %1$d out of %2$d</string>
+
+    <!--Sync banner-->
+    <string name="rw_sync_offline">You are offline</string>
+    <plurals name="rw_sync_queued">
+        <item quantity="one">Offline — %d change queued</item>
+        <item quantity="other">Offline — %d changes queued</item>
+    </plurals>
+    <string name="rw_sync_syncing">Syncing…</string>
+
+    <!--Stub screens-->
+    <!-- Placeholders proving the shell works. Each is replaced by the teammate
+         who owns that screen's ticket. -->
+    <string name="rw_stub_wardrobe_title">Wardrobe</string>
+    <string name="rw_stub_wardrobe_body">Your wardrobe grid, search and filters land here.</string>
+    <string name="rw_stub_outfits_title">Outfits</string>
+    <string name="rw_stub_outfits_body">Saved outfits, the builder and the weekly planner land here.</string>
+    <string name="rw_stub_profile_title">Profile</string>
+    <string name="rw_stub_profile_body">Your stats, swap listings and settings land here.</string>
+    <string name="rw_stub_add">Add-item flow — camera, cutout and tagging.</string>
+
+    <!--Onboarding-->
+    <string name="rw_onboarding_title">Welcome to Runway</string>
+    <string name="rw_onboarding_body">Your digital closet — snap your clothes, plan outfits and never wonder what to wear. The three intro slides land here.</string>
+    <string name="rw_onboarding_continue">Get started</string>
+
+    <!--Biometric unlock-->
+    <string name="rw_biometric_title">Unlock Runway</string>
+    <string name="rw_biometric_body">Use your fingerprint or face to confirm it\'s you.</string>
+    <string name="rw_biometric_continue">Unlock</string>
+    <string name="rw_biometric_helper">Touch the sensor to confirm it\'s you.</string>
+    <string name="rw_biometric_use_account">Use account instead</string>
+    <string name="rw_biometric_failed">We could not verify your fingerprint. Try again or use your account.</string>
+    <string name="rw_biometric_avatar_content_description">Signed-in account</string>
+
+    <!--Home tab pushes-->
+    <string name="rw_stub_coming_soon">Coming soon</string>
+    <string name="rw_stub_weather_title">Weather suggestions</string>
+    <string name="rw_stub_weather_body">Outfit picks based on today\'s forecast land here.</string>
+
+    <!--Wardrobe tab pushes-->
+    <string name="rw_stub_item_detail_title">Item detail</string>
+    <string name="rw_stub_item_detail_body">Photos, tags, wear count and cost-per-wear land here.</string>
+    <string name="rw_item_detail_loading">Loading item…</string>
+    <string name="rw_item_detail_not_found">This item could not be found.</string>
+
+    <!-- Item detail. -->
+    <string name="rw_item_detail_size">size %1$s</string>
+    <string name="rw_item_detail_wears">Times worn</string>
+    <string name="rw_item_detail_cost_per_wear">Cost per wear</string>
+    <string name="rw_item_detail_rand">R%1$.2f</string>
+    <string name="rw_item_detail_no_cost">\u2014</string>
+    <string name="rw_item_detail_paid">Paid R%1$.2f</string>
+    <string name="rw_item_detail_use_in_outfit">Use in an outfit</string>
+    <string name="rw_item_detail_find_matches">Find matches</string>
+    <string name="rw_item_detail_delete">Remove from wardrobe</string>
+    <string name="rw_item_detail_delete_title">Remove this item?</string>
+    <string name="rw_item_detail_delete_body">It will be taken out of your wardrobe on every device.</string>
+    <string name="rw_stub_item_edit_title">Edit item</string>
+    <string name="rw_stub_item_edit_body">Editing category, colour, brand, size, material and price lands here.</string>
+    <!-- Smart colour matcher. -->
+    <string name="rw_colour_matcher_title">Smart colour matcher</string>
+    <string name="rw_colour_matcher_lead">Pieces in your wardrobe that complement %1$s.</string>
+    <string name="rw_colour_matcher_empty_title">No matches yet</string>
+    <string name="rw_colour_matcher_empty_body">Add more items and their colours will be compared against this one.</string>
+    <string name="rw_colour_matcher_score">%1$d%% match</string>
+    <string name="rw_colour_matcher_use_in_outfit">Use in outfit</string>
+    <string name="rw_colour_matcher_unknown_colour">Colour unavailable</string>
+    <string name="rw_colour_matcher_unknown_body">This item has no recognised colour, so matching is unavailable. Edit the item to add a supported colour.</string>
+
+    <string name="rw_stub_laundry_title">Laundry basket</string>
+    <string name="rw_stub_laundry_body">Wear limits and wash reminders land here.</string>
+
+    <!--Add-item modal flow-->
+    <string name="rw_stub_camera_title">Camera</string>
+    <string name="rw_stub_camera_body">Capturing a clothing photo, or picking one from the gallery, lands here.</string>
+    <string name="rw_camera_continue">Use photo</string>
+    <string name="rw_stub_cutout_title">Cutout preview</string>
+    <string name="rw_stub_cutout_body">The automatic background-removal preview lands here.</string>
+    <string name="rw_cutout_continue">Looks good</string>
+    <string name="rw_stub_tag_item_title">Tag item</string>
+    <string name="rw_stub_tag_item_body">Category, colour, brand, size, material and price fields land here.</string>
+    <string name="rw_tag_item_continue">Save item</string>
+
+    <!-- Add-item flow: photograph the garment, cut it out, tag it, save it. -->
+    <string name="rw_camera_title">Photograph the item</string>
+    <string name="rw_camera_take">Take a photo</string>
+    <string name="rw_camera_retake">Take another</string>
+    <string name="rw_camera_pick">Choose a photo</string>
+    <string name="rw_camera_empty">Lay the garment flat, or hang it against a plain wall, and take a photo.</string>
+    <string name="rw_camera_preview_description">The photo you just took</string>
+
+    <string name="rw_cutout_title">Check the cut-out</string>
+    <string name="rw_cutout_use">Use the cut-out instead of the photo</string>
+    <string name="rw_cutout_failed">The background could not be removed. The photo will be saved as it is.</string>
+    <string name="rw_cutout_retry">Try again</string>
+    <string name="rw_cutout_preview_description">The garment with its background removed</string>
+
+    <string name="rw_tag_item_title">Tag the item</string>
+    <string name="rw_tag_name">Name</string>
+    <string name="rw_tag_category">Category</string>
+    <string name="rw_tag_colour">Colour</string>
+    <string name="rw_tag_brand">Brand</string>
+    <string name="rw_tag_size">Size</string>
+    <string name="rw_tag_price">Price</string>
+
+    <!-- Bold label above each text field. -->
+    <string name="rw_tag_name_label">Name</string>
+    <string name="rw_tag_colour_label">Colour</string>
+    <string name="rw_tag_brand_label">Brand</string>
+    <string name="rw_tag_size_label">Size</string>
+    <string name="rw_tag_price_label">Price</string>
+
+    <!-- Helper text under each field, visible at all times. -->
+    <string name="rw_tag_name_example">For example: Blue oxford shirt</string>
+    <string name="rw_colour_picker_add">Custom</string>
+    <string name="rw_colour_picker_title">Mix a colour</string>
+    <string name="rw_colour_picker_save">Add to palette</string>
+    <string name="rw_colour_picker_name">Name this colour</string>
+    <string name="rw_colour_picker_name_required">Give the colour a name</string>
+    <string name="rw_colour_picker_hue">Hue</string>
+    <string name="rw_colour_picker_saturation">Saturation</string>
+    <string name="rw_colour_picker_lightness">Lightness</string>
+    <string name="rw_tag_colour_none">Pick the closest colour</string>
+    <string name="rw_tag_hint">Only the name is required</string>
+    <string name="rw_tag_wear_limit">Wears before washing</string>
+    <string name="rw_tag_wear_limit_hint">You\'ll get a laundry reminder once it\'s been worn this many times.</string>
+    <string name="rw_tag_wear_less">Fewer wears</string>
+    <string name="rw_tag_wear_more">More wears</string>
+    <string name="rw_tag_name_required">Required</string>
+    <string name="rw_tag_error_name_long">Keep the name under %1$d characters</string>
+    <string name="rw_tag_error_price_number">Use numbers only, like 349.99</string>
+    <string name="rw_tag_error_price_negative">A price can\'t be negative</string>
+    <string name="rw_tag_brand_example">For example: Uniqlo</string>
+    <string name="rw_tag_size_example">For example: M or 32</string>
+    <string name="rw_tag_price_example">For example: 349.99</string>
+    <string name="rw_tag_save">Save item</string>
+    <string name="rw_tag_saving">Saving\u2026</string>
+    <string name="rw_tag_saved">Item added to your wardrobe</string>
+
+    <string name="rw_category_top">Top</string>
+    <string name="rw_category_bottom">Bottom</string>
+    <string name="rw_category_outerwear">Outerwear</string>
+    <string name="rw_category_shoes">Shoes</string>
+    <string name="rw_category_other">Other</string>
+
+    <!-- Wardrobe tab. -->
+    <string name="rw_wardrobe_refresh">Refresh</string>
+    <string name="rw_wardrobe_empty_title">Your wardrobe is empty</string>
+    <string name="rw_wardrobe_empty_body">Tap the + button to photograph your first garment.</string>
+    <string name="rw_wardrobe_cost_per_wear">R%1$.2f per wear</string>
+    <string name="rw_wardrobe_worn">Worn %1$d times</string>
+    <string name="rw_wardrobe_never_worn">Not worn yet</string>
+    <string name="rw_wardrobe_pending">Not synced</string>
+    <string name="rw_wardrobe_unsynced">Some items are only on this phone so far.</string>
+    <string name="rw_wardrobe_item_image">Photo of this garment</string>
+    <string name="rw_wardrobe_search">Search by name, brand or colour</string>
+    <string name="rw_wardrobe_filter">Filter wardrobe</string>
+    <string name="rw_wardrobe_sort">Sort wardrobe</string>
+    <string name="rw_wardrobe_no_matches">No items match your search or category.</string>
+    <string name="rw_wardrobe_price">R%1$.0f</string>
+
+    <plurals name="rw_wardrobe_count">
+        <item quantity="one">%1$d item</item>
+        <item quantity="other">%1$d items</item>
+    </plurals>
+
+    <!--Outfits tab pushes-->
+    <string name="rw_stub_outfit_detail_title">Outfit detail</string>
+    <string name="rw_stub_outfit_detail_body">Outfit pieces, wear tracking and the confidence rating land here.</string>
+
+    <!--Profile tab pushes-->
+    <string name="rw_stub_stats_title">Stats &amp; insights</string>
+    <string name="rw_stub_stats_body">Most/least worn and cost-per-wear insights land here.</string>
+    <string name="rw_stub_notifications_title">Notifications</string>
+    <string name="rw_stub_notifications_body">Wash reminders and swap-request alerts land here.</string>
+    <string name="rw_stub_settings_title">Settings</string>
+    <string name="rw_stub_settings_body">Theme, biometrics, offline sync and language live here.</string>
+    <string name="rw_stub_language_title">Language</string>
+    <string name="rw_stub_language_body">English, Afrikaans and isiZulu land here.</string>
+
+    <!--Swap market-->
+    <string name="rw_stub_swap_market_title">Swap market</string>
+    <string name="rw_stub_swap_market_body">Items listed for swap or donation land here.</string>
+    <string name="rw_stub_listing_detail_title">Listing detail</string>
+    <string name="rw_stub_listing_detail_body">Listing photos, condition and swap requests land here.</string>
+    <string name="rw_stub_my_listings_title">My listings</string>
+    <string name="rw_stub_my_listings_body">Items you have listed, and requests on them, land here.</string>
+    <string name="rw_stub_create_listing_title">List for swap</string>
+    <string name="rw_stub_create_listing_body">Choosing an item and listing it for swap or donation lands here.</string>
+
+    <!--Bottom sheets-->
+    <string name="rw_sheet_filter_title">Filter</string>
+    <string name="rw_sheet_filter_body">Category, colour and other wardrobe filters land here.</string>
+    <string name="rw_sheet_sort_title">Sort</string>
+    <string name="rw_sheet_sort_body">Sort order options land here.</string>
+    <string name="rw_sheet_day_detail_title">Day detail</string>
+    <string name="rw_sheet_pick_outfit_title">Pick an outfit</string>
+    <string name="rw_sheet_confidence_title">Rate today\'s confidence</string>
+    <string name="rw_sheet_confidence_body">The confidence-rating control lands here.</string>
+    <string name="rw_sheet_confirm_title">Are you sure?</string>
+    <string name="rw_sheet_confirm_body">A generic confirm/cancel action lands here.</string>
+
+    <!--Component catalog-->
+    <string name="rw_catalog_title">Component catalog</string>
+    <string name="rw_catalog_subtitle">Runway design system</string>
+    <string name="rw_catalog_open">Open component catalog</string>
+
+    <string name="rw_catalog_buttons">Buttons</string>
+    <string name="rw_catalog_icon_buttons">Icon buttons</string>
+    <string name="rw_catalog_chips">Chips</string>
+    <string name="rw_catalog_inputs">Inputs</string>
+    <string name="rw_catalog_selection">Selection controls</string>
+    <string name="rw_catalog_data">Data display</string>
+    <string name="rw_catalog_rows">List rows</string>
+    <string name="rw_catalog_feedback">Feedback</string>
+    <string name="rw_catalog_empty">Empty states</string>
+    <string name="rw_catalog_identity">Identity</string>
+    <string name="rw_catalog_typography">Typography</string>
+    <string name="rw_catalog_icons">Icons</string>
+
+    <string name="rw_catalog_primary">Primary</string>
+    <string name="rw_catalog_secondary">Secondary</string>
+    <string name="rw_catalog_outline">Outline</string>
+    <string name="rw_catalog_ghost">Ghost</string>
+    <string name="rw_catalog_danger">Delete item</string>
+    <string name="rw_catalog_small">Small</string>
+    <string name="rw_catalog_block">Full width</string>
+    <string name="rw_catalog_disabled">Disabled</string>
+
+    <string name="rw_catalog_show_sheet">Show bottom sheet</string>
+    <string name="rw_catalog_show_dialog">Show confirm dialog</string>
+    <string name="rw_catalog_show_destructive">Show destructive dialog</string>
+    <string name="rw_catalog_show_toast">Show toast</string>
+    <string name="rw_catalog_toast_text">Saved to your wardrobe</string>
+    <string name="rw_catalog_sheet_title">Filter wardrobe</string>
+    <string name="rw_catalog_sheet_body">Bottom sheets carry the same 24dp top corners and drag handle everywhere they appear.</string>
+    <string name="rw_catalog_dialog_title">Discard changes?</string>
+    <string name="rw_catalog_dialog_body">Anything you have edited on this screen will be lost.</string>
+    <string name="rw_catalog_dialog_confirm">Discard</string>
+    <string name="rw_catalog_delete_title">Delete this item?</string>
+    <string name="rw_catalog_delete_body">It will be removed from your wardrobe and from any outfits that use it.</string>
+
+    <string name="rw_catalog_field_label">Brand</string>
+    <string name="rw_catalog_field_hint">Optional</string>
+    <string name="rw_catalog_field_placeholder">e.g. Country Road</string>
+    <string name="rw_catalog_notes_label">Notes</string>
+    <string name="rw_catalog_error_label">Price</string>
+    <string name="rw_catalog_error_text">Enter a price above zero</string>
+
+    <string name="rw_catalog_section_action">See all</string>
+    <string name="rw_catalog_empty_title">Your wardrobe is empty</string>
+    <string name="rw_catalog_empty_body">Add your first piece and it will show up here.</string>
+    <string name="rw_catalog_empty_action">Add an item</string>
+
+    <string name="rw_catalog_segment_day">Day</string>
+    <string name="rw_catalog_segment_night">Night</string>
+    <string name="rw_catalog_segment_system">System</string>
+
+    <string name="rw_catalog_stat_items">Items owned</string>
+    <string name="rw_catalog_stat_delta">+3 this month</string>
+    <string name="rw_catalog_stat_outfits">Outfits built</string>
+    <string name="rw_catalog_stat_cpw">Avg cost per wear</string>
+
+    <string name="rw_catalog_row_notifications">Notifications</string>
+    <string name="rw_catalog_row_language">Language</string>
+    <string name="rw_catalog_row_language_value">English</string>
+    <string name="rw_catalog_row_wash">Wash reminders</string>
+    <string name="rw_catalog_row_signout">Sign out</string>
+
+    <string name="rw_catalog_stars_value">Confidence: %1$d / %2$d</string>
+
+    <!-- Specimen text for the type scale. Each names the style it is set in, so a
+         screenshot of the catalog doubles as the typography reference. -->
+    <string name="rw_type_display_large">Display Large · 22sp serif</string>
+    <string name="rw_type_display">Display · 17sp serif</string>
+    <string name="rw_type_label">Label · 12sp uppercase</string>
+    <string name="rw_type_body">Body · 14sp — the default for row labels and input text.</string>
+    <string name="rw_type_secondary">Secondary · 13sp — subtitles and supporting copy.</string>
+    <string name="rw_type_micro">Micro · 11sp — tile captions and the smallest supporting text.</string>
+
+    <string name="rw_catalog_wear_meter">Wears before wash</string>
+    <string name="rw_catalog_badge_new">New</string>
+    <string name="rw_catalog_badge_wash">Wash</string>
+    <string name="rw_catalog_badge_swap">Swap</string>
+
+    <!--Settings-->
+    <string name="rw_settings_title">Settings</string>
+
+    <string name="rw_settings_appearance">Appearance</string>
+    <string name="rw_settings_theme">Theme</string>
+    <string name="rw_settings_theme_day">Day</string>
+    <string name="rw_settings_theme_night">Night</string>
+    <string name="rw_settings_theme_system">System</string>
+    <string name="rw_settings_theme_confirm_title">Change theme?</string>
+    <string name="rw_settings_theme_confirm_day">The app will switch to the day theme.</string>
+    <string name="rw_settings_theme_confirm_night">The app will switch to the night theme.</string>
+    <string name="rw_settings_theme_confirm_system">The app will follow your device theme.</string>
+    <string name="rw_settings_theme_apply">Apply</string>
+
+    <string name="rw_settings_language">Language</string>
+    <string name="rw_settings_language_en">English</string>
+    <string name="rw_settings_language_af">Afrikaans</string>
+    <string name="rw_settings_language_zu">isiZulu</string>
+
+    <string name="rw_settings_security">Security</string>
+    <string name="rw_settings_biometrics">Biometric unlock</string>
+    <string name="rw_settings_biometrics_hint">Use your fingerprint or face to open Runway.</string>
+    <string name="rw_settings_biometrics_off_title">Turn off biometric unlock?</string>
+    <string name="rw_settings_biometrics_off_body">You will sign in with your Google account instead.</string>
+    <string name="rw_settings_biometrics_off_confirm">Turn off</string>
+    <string name="rw_settings_biometrics_on">Biometric unlock on</string>
+
+    <string name="rw_settings_notifications">Notifications</string>
+    <string name="rw_settings_notify_wash">Wash reminders</string>
+    <string name="rw_settings_notify_swap">Swap requests</string>
+    <string name="rw_settings_notify_weather">Weather suggestions</string>
+    <string name="rw_settings_notify_on">%1$s on</string>
+    <string name="rw_settings_notify_off">%1$s off</string>
+
+    <string name="rw_settings_wardrobe">Wardrobe</string>
+    <string name="rw_settings_wear_limit">Default wear limit</string>
+    <string name="rw_settings_wear_limit_hint">How many wears before an item goes in the laundry basket.</string>
+    <string name="rw_settings_wear_limit_less">Decrease wear limit</string>
+    <string name="rw_settings_wear_limit_more">Increase wear limit</string>
+
+    <string name="rw_settings_about">About</string>
+    <string name="rw_settings_version">Runway version %1$s</string>
+    <string name="rw_settings_reset">Reset to defaults</string>
+    <string name="rw_settings_reset_title">Reset all settings?</string>
+    <string name="rw_settings_reset_body">Every setting goes back to the way it started. Your wardrobe is not affected.</string>
+    <string name="rw_settings_reset_done">Settings reset</string>
+
+    <!-- Photo-based model. The image stays on this device. -->
+
+    <!-- The outfits tab and the outfit editor. -->
+    <string name="rw_outfits_empty_title">No saved outfits yet</string>
+    <string name="rw_outfit_loading">Loading outfit\u2026</string>
+    <string name="rw_outfit_no_preview">Add garments to see this outfit laid out.</string>
+    <string name="rw_outfit_item_with_size">%1$s (%2$s)</string>
+    <string name="rw_outfit_name">Name</string>
+    <string name="rw_outfit_garments">Garments</string>
+    <string name="rw_outfit_no_garments">This outfit has no garments left in it.</string>
+    <string name="rw_outfit_save_changes">Save changes</string>
+    <string name="rw_outfit_saving">Saving\u2026</string>
+    <string name="rw_outfit_saved">Outfit updated</string>
+    <string name="rw_outfit_delete">Delete outfit</string>
+    <string name="rw_outfit_delete_title">Delete this outfit?</string>
+    <string name="rw_outfit_delete_body">The outfit is removed everywhere. Your garments stay in your wardrobe.</string>
+
+    <plurals name="rw_outfit_garment_count">
+        <item quantity="one">%1$d garment</item>
+        <item quantity="other">%1$d garments</item>
+    </plurals>
+
+    <!--Confidence rating-->
+    <string name="rw_confidence_prompt">How did you feel in %1$s?</string>
+    <string name="rw_confidence_prompt_generic">How did you feel in this outfit?</string>
+    <string name="rw_confidence_note_label">Note</string>
+    <string name="rw_confidence_note_hint">Optional</string>
+    <string name="rw_confidence_later">Not now</string>
+    <string name="rw_confidence_save">Save rating</string>
+    <string name="rw_confidence_saving">Saving…</string>
+    <string name="rw_confidence_saved">Rating saved</string>
+    <string name="rw_confidence_1">Not my best</string>
+    <string name="rw_confidence_2">A bit off</string>
+    <string name="rw_confidence_3">Comfortable</string>
+    <string name="rw_confidence_4">Confident</string>
+    <string name="rw_confidence_5">Unstoppable</string>
+
+    <!--Wearing an outfit-->
+    <string name="rw_outfit_wear">Wore this today</string>
+    <string name="rw_outfit_wear_logged">Wear logged</string>
+    <string name="rw_outfit_confidence">Confidence</string>
+    <string name="rw_outfit_confidence_failed">Ratings could not be loaded. Pull down or reopen to try again.</string>
+    <string name="rw_outfit_confidence_none">Not rated yet</string>
+    <plurals name="rw_outfit_confidence_count">
+        <item quantity="one">%1$s from %2$d rating</item>
+        <item quantity="other">%1$s from %2$d ratings</item>
+    </plurals>
+
+    <!--Home-->
+    <string name="rw_home_greeting_morning">Good morning</string>
+    <string name="rw_home_greeting_afternoon">Good afternoon</string>
+    <string name="rw_home_greeting_evening">Good evening</string>
+    <string name="rw_home_notifications">Notifications</string>
+    <string name="rw_home_weather_title">Weather suggestions</string>
+    <string name="rw_home_weather_body">See what to wear for today\'s weather</string>
+    <plurals name="rw_home_laundry_alert">
+        <item quantity="one">%d item needs a wash</item>
+        <item quantity="other">%d items need a wash</item>
+    </plurals>
+    <string name="rw_home_laundry_body">Tap to open your laundry basket</string>
+    <string name="rw_home_todays_pick">Today\'s pick</string>
+    <plurals name="rw_home_pieces">
+        <item quantity="one">%d piece</item>
+        <item quantity="other">%d pieces</item>
+    </plurals>
+    <string name="rw_home_suggest_another">Suggest another</string>
+    <string name="rw_home_wear_this">Wear this</string>
+    <string name="rw_home_wearing">Logging…</string>
+    <string name="rw_home_empty_wardrobe_title">Your wardrobe is empty</string>
+    <string name="rw_home_empty_wardrobe_body">Add your first piece to start getting outfit picks.</string>
+    <string name="rw_home_add_first_item">Add your first item</string>
+    <string name="rw_home_no_outfits_title">No outfits yet</string>
+    <string name="rw_home_no_outfits_body">Put an outfit together and it will show up here as a daily pick.</string>
+    <string name="rw_home_go_to_outfits">Go to outfits</string>
+    <string name="rw_home_outfits_failed_title">Couldn\'t load your outfits</string>
+    <string name="rw_home_outfits_failed_body">Check your connection and try again.</string>
+    <string name="rw_home_retry">Try again</string>
+    <string name="rw_home_quick_stats">Quick stats</string>
+    <string name="rw_home_recently_added">Recently added</string>
+    <string name="rw_home_see_all">See all</string>
+    <string name="rw_stat_items">Items</string>
+    <string name="rw_stat_outfits">Outfits</string>
+    <string name="rw_stat_wears">Wears</string>
+    <string name="rw_stat_value">Value</string>
+    <string name="rw_stat_unknown">–</string>
+
+    <!--Profile-->
+    <string name="rw_profile_member_since">Member since %1$s</string>
+    <string name="rw_profile_insights">Insights</string>
+    <string name="rw_profile_swap_market">Swap market</string>
+    <string name="rw_profile_my_listings">My listings</string>
+    <string name="rw_profile_notifications">Notifications</string>
+    <string name="rw_profile_laundry">Laundry basket</string>
+
+    <!--Outfit builder-->
+    <string name="rw_builder_new_title">New outfit</string>
+    <string name="rw_builder_edit_title">Edit outfit</string>
+    <string name="rw_builder_hint">Drag pieces around to lay the outfit out</string>
+    <string name="rw_builder_save">Save outfit</string>
+    <string name="rw_builder_saving">Saving…</string>
+    <string name="rw_builder_saved">Outfit saved</string>
+    <string name="rw_builder_default_name">New outfit</string>
+    <string name="rw_builder_empty_title">Start with a piece</string>
+    <string name="rw_builder_empty_body">Pick something from your wardrobe below and it lands here.</string>
+    <string name="rw_builder_layer_up">Bring forward</string>
+    <string name="rw_builder_layer_down">Send backward</string>
+    <string name="rw_builder_remove">Take off the canvas</string>
+    <string name="rw_builder_size">Size</string>
+    <string name="rw_builder_rotate">Rotate</string>
+    <string name="rw_builder_name">Name</string>
+    <string name="rw_builder_name_placeholder">For example: Friday dinner</string>
+    <string name="rw_builder_occasion">Occasion</string>
+    <string name="rw_builder_add_pieces">Add pieces</string>
+    <string name="rw_builder_add_new">New item</string>
+    <string name="rw_builder_tray_empty">Nothing in this category yet.</string>
+    <string name="rw_builder_load_failed_title">Couldn\'t open this outfit</string>
+    <string name="rw_builder_load_failed_body">Check your connection and try again.</string>
+    <string name="rw_occasion_casual">Casual</string>
+    <string name="rw_occasion_work">Work</string>
+    <string name="rw_occasion_evening">Evening</string>
+    <string name="rw_occasion_sport">Sport</string>
+    <string name="rw_occasion_formal">Formal</string>
+
+    <!--Planner-->
+    <string name="rw_outfits_tab_outfits">Outfits</string>
+    <string name="rw_outfits_tab_planner">Planner</string>
+    <string name="rw_outfits_new">New outfit</string>
+    <string name="rw_outfits_failed_title">Couldn\'t load your outfits</string>
+    <string name="rw_outfits_failed_body">Check your connection and try again.</string>
+    <string name="rw_outfits_empty_body_builder">Build one from the garments in your wardrobe.</string>
+    <plurals name="rw_outfits_pieces">
+        <item quantity="one">%d piece</item>
+        <item quantity="other">%d pieces</item>
+    </plurals>
+    <string name="rw_planner_previous_month">Previous month</string>
+    <string name="rw_planner_next_month">Next month</string>
+    <string name="rw_planner_upcoming">Upcoming</string>
+    <string name="rw_planner_nothing_upcoming">Nothing planned yet. Tap a day to plan an outfit.</string>
+    <string name="rw_planner_failed_title">Couldn\'t load your planner</string>
+    <string name="rw_planner_failed_body">Check your connection and try again.</string>
+    <string name="rw_plan_today">Today</string>
+    <string name="rw_plan_tomorrow">Tomorrow</string>
+    <string name="rw_plan_nothing_title">Nothing planned</string>
+    <string name="rw_plan_nothing_body">Pick an outfit for this day.</string>
+    <string name="rw_plan_pick">Pick an outfit</string>
+    <string name="rw_plan_change">Change outfit</string>
+    <string name="rw_plan_clear">Clear day</string>
+    <string name="rw_plan_cleared">Day cleared</string>
+    <string name="rw_plan_planned_for">Planned for %1$s</string>
+    <string name="rw_plan_replaces">Replaces %1$s</string>
+    <string name="rw_plan_schedule_title">Schedule this outfit</string>
+    <string name="rw_plan_no_outfits_title">No outfits to plan yet</string>
+    <string name="rw_plan_no_outfits_body">Save an outfit first, then plan it here.</string>
+    <string name="rw_plan_load_failed">Couldn\'t load this. Check your connection and try again.</string>
+    <string name="rw_plan_saving">Saving…</string>
+    <string name="rw_home_planned_today">Planned for today</string>
+    <string name="rw_outfit_schedule">Schedule</string>
+    <string name="rw_outfit_edit">Edit outfit</string>
+
+    <string name="rw_outfit_load_failed_title">Couldn\'t open this outfit</string>
+    <string name="rw_outfit_load_failed_body">Check your connection and try again.</string>
+
+</resources>

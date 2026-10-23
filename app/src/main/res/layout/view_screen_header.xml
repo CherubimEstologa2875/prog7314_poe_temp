@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Internals of ScreenHeaderView: optional back button, title and an action slot. -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="android.widget.LinearLayout"
+    tools:layout_height="@dimen/rw_header_height"
+    tools:orientation="horizontal">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/headerBack"
+        style="@style/Widget.Runway.Button.Icon"
+        android:contentDescription="@string/rw_action_back"
+        app:icon="@drawable/ic_rw_chevron_left"
+        tools:visibility="visible" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="@dimen/rw_space_4"
+        android:layout_marginEnd="@dimen/rw_space_4"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/headerTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.Runway.Display"
+            tools:text="Wardrobe" />
+
+        <TextView
+            android:id="@+id/headerSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.Runway.Caption"
+            android:visibility="gone"
+            tools:text="26 items"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+    <!-- Icon buttons are added here at runtime by ScreenHeaderView.addAction(). -->
+    <LinearLayout
+        android:id="@+id/headerActions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" />
+
+</merge>

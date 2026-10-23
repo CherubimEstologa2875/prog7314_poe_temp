@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pinned footer, demonstrating RunwayBottomSheet's optional footer slot. -->
+<com.google.android.material.button.MaterialButton
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sheetApply"
+    style="@style/Widget.Runway.Button.Large"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/rw_action_save" />

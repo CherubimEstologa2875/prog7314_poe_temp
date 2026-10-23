@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One outfit in the two-column grid on the Outfits tab. -->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.Runway.Card.Flush"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.example.runway.ui.outfits.OutfitThumbnailView
+            android:id="@+id/outfitCardThumb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/outfitCardName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingHorizontal="10dp"
+            android:paddingTop="8dp"
+            android:textAppearance="@style/TextAppearance.Runway.Body"
+            tools:text="Friday dinner" />
+
+        <TextView
+            android:id="@+id/outfitCardMeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingHorizontal="10dp"
+            android:paddingBottom="10dp"
+            android:textAppearance="@style/TextAppearance.Runway.Caption"
+            tools:text="Evening · 3 pieces" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

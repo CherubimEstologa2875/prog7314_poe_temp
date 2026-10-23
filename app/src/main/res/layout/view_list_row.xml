@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Internals of ListRowView. Ids are prefixed `listRow` so they don't clash with ids in screen layouts. -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="android.widget.LinearLayout"
+    tools:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/listRowIcon"
+        android:layout_width="@dimen/rw_icon_well_size"
+        android:layout_height="@dimen/rw_icon_well_size"
+        android:layout_marginEnd="@dimen/rw_space_12"
+        android:background="@drawable/rw_bg_icon_well"
+        android:contentDescription="@null"
+        android:padding="@dimen/rw_space_8"
+        android:scaleType="fitCenter"
+        android:visibility="gone"
+        app:tint="?attr/colorOnSurface"
+        tools:src="@drawable/ic_rw_settings"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/listRowLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.Runway.Body"
+        tools:text="Notifications" />
+
+    <TextView
+        android:id="@+id/listRowValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/rw_space_8"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.Runway.Secondary"
+        android:visibility="gone"
+        tools:text="English"
+        tools:visibility="visible" />
+
+    <!-- Holds a switch or similar control; the chevron hides when it is used. -->
+    <FrameLayout
+        android:id="@+id/listRowTrailingSlot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/rw_space_8"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/listRowChevron"
+        android:layout_width="@dimen/rw_icon_size"
+        android:layout_height="@dimen/rw_icon_size"
+        android:layout_marginStart="@dimen/rw_space_6"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_rw_chevron_right"
+        android:visibility="gone"
+        app:tint="?attr/colorOnSurfaceVariant"
+        tools:visibility="visible" />
+
+</merge>

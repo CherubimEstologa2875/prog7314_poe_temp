@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Shows every component in the Runway library on one scrolling screen. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/catalogRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.catalog.CatalogActivity"
+    tools:ignore="TooManyViews">
+
+    <com.example.runway.ui.components.ScreenHeaderView
+        android:id="@+id/catalogHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:rwLarge="true"
+        app:rwShowBack="true"
+        app:rwSubtitle="@string/rw_catalog_subtitle"
+        app:rwTitle="@string/rw_catalog_title" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/catalogScroll"
+        style="@style/Widget.Runway.ScreenContent"
+        android:layout_weight="1">
+
+        <!-- layoutAnimation staggers the children in as the screen opens. -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutAnimation="@anim/rw_rise_layout"
+            android:orientation="vertical">
+
+            <!--Buttons-->
+            <com.example.runway.ui.components.SectionHeaderView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwTitle="@string/rw_catalog_buttons" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPrimary"
+                style="@style/Widget.Runway.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rw_catalog_primary" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Runway.Button.Secondary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_8"
+                android:text="@string/rw_catalog_secondary" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Runway.Button.Outline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_8"
+                android:text="@string/rw_catalog_outline" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Runway.Button.Ghost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_8"
+                android:text="@string/rw_catalog_ghost" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Runway.Button.Danger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_8"
+                android:text="@string/rw_catalog_danger"
+                app:icon="@drawable/ic_rw_trash" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_12"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Runway.Button.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rw_catalog_small" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Runway.Button.Secondary.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/rw_space_8"
+                    android:text="@string/rw_catalog_secondary"
+                    app:icon="@drawable/ic_rw_filter" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Runway.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/rw_space_8"
+                    android:enabled="false"
+                    android:text="@string/rw_catalog_disabled" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Runway.Button.Large"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_12"
+                android:text="@string/rw_catalog_block"
+                app:icon="@drawable/ic_rw_camera" />
+
+            <!--Icon buttons-->
+            <com.example.runway.ui.components.SectionHeaderView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwTitle="@string/rw_catalog_icon_buttons" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Runway.Button.Icon"
+                    android:contentDescription="@string/rw_action_edit"
+                    app:icon="@drawable/ic_rw_edit" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Runway.Button.Icon"
+                    android:contentDescription="@string/rw_action_delete"
+                    app:icon="@drawable/ic_rw_trash" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Runway.Button.Icon.Accent"
+                    android:contentDescription="@string/rw_action_favourite"
+                    app:icon="@drawable/ic_rw_heart_filled" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.Runway.Button.Icon"
+                    android:contentDescription="@string/rw_action_close"
+                    app:icon="@drawable/ic_rw_close" />
+            </LinearLayout>
+
+            <!--Chips-->
+            <com.example.runway.ui.components.SectionHeaderView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwTitle="@string/rw_catalog_chips" />
+
+            <!-- Widget.Runway.Rail lets the chips scroll out to the screen edge. -->
+            <HorizontalScrollView
+                style="@style/Widget.Runway.Rail"
+                android:layout_marginStart="-16dp"
+                android:layout_marginEnd="-16dp">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/catalogChips"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:singleLine="true"
+                    app:singleSelection="true" />
+            </HorizontalScrollView>
+
+            <!--Selection controls-->
+            <com.example.runway.ui.components.SectionHeaderView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwTitle="@string/rw_catalog_selection" />
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/catalogSegmented"
+                style="@style/Widget.Runway.SegmentedGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/segmentDay"
+                    style="@style/Widget.Runway.SegmentedButton"
+                    android:text="@string/rw_catalog_segment_day" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/segmentNight"
+                    style="@style/Widget.Runway.SegmentedButton"
+                    android:text="@string/rw_catalog_segment_night" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/segmentSystem"
+                    style="@style/Widget.Runway.SegmentedButton"
+                    android:text="@string/rw_catalog_segment_system" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <com.example.runway.ui.components.StarRatingView
+                android:id="@+id/catalogStars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_16"
+                app:rwEditable="true"
+                app:rwRating="3"
+                app:rwStarSize="large" />
+
+            <TextView
+                android:id="@+id/catalogStarsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_4"
+                android:textAppearance="@style/TextAppearance.Runway.Micro"
+                tools:text="Confidence: 3 / 5" />
+
+            <!--Inputs-->
+            <com.example.runway.ui.components.SectionHeaderView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwTitle="@string/rw_catalog_inputs" />
+
+            <com.example.runway.ui.components.FieldView
+                android:id="@+id/catalogField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwHint="@string/rw_catalog_field_hint"
+                app:rwLabel="@string/rw_catalog_field_label" />
+
+            <com.example.runway.ui.components.FieldView
+                android:id="@+id/catalogFieldError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_12"
+                app:rwLabel="@string/rw_catalog_error_label" />
+
+            <com.example.runway.ui.components.FieldView
+                android:id="@+id/catalogNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_12"
+                app:rwLabel="@string/rw_catalog_notes_label" />
+
+            <!--Data display-->
+            <com.example.runway.ui.components.SectionHeaderView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwActionText="@string/rw_catalog_section_action"
+                app:rwTitle="@string/rw_catalog_data" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <com.example.runway.ui.components.StatTileView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rwLabel="@string/rw_catalog_stat_items"
+                    app:rwSubLabel="@string/rw_catalog_stat_delta"
+                    app:rwValue="26" />
+
+                <com.example.runway.ui.components.StatTileView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/rw_space_8"
+                    android:layout_weight="1"
+                    app:rwLabel="@string/rw_catalog_stat_outfits"
+                    app:rwValue="12" />
+
+                <com.example.runway.ui.components.StatTileView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/rw_space_8"
+                    android:layout_weight="1"
+                    app:rwLabel="@string/rw_catalog_stat_cpw"
+                    app:rwValue="R32" />
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Runway.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_12"
+                app:contentPadding="@dimen/rw_space_16">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rw_catalog_wear_meter"
+                        android:textAppearance="@style/TextAppearance.Runway.Body" />
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        style="@style/Widget.Runway.Meter"
+                        android:layout_marginTop="@dimen/rw_space_8"
+                        android:progress="40" />
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        style="@style/Widget.Runway.Meter.Accent"
+                        android:layout_marginTop="@dimen/rw_space_8"
+                        android:progress="90" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/rw_space_12"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Widget.Runway.Badge"
+                            android:text="@string/rw_catalog_badge_new" />
+
+                        <TextView
+                            style="@style/Widget.Runway.Badge.Accent"
+                            android:layout_marginStart="@dimen/rw_space_6"
+                            android:text="@string/rw_catalog_badge_wash" />
+
+                        <TextView
+                            style="@style/Widget.Runway.Badge.Muted"
+                            android:layout_marginStart="@dimen/rw_space_6"
+                            android:text="@string/rw_catalog_badge_swap" />
+
+                        <com.example.runway.ui.components.StarRatingView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/rw_space_12"
+                            app:rwRating="4"
+                            app:rwStarSize="small" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.example.runway.ui.components.ProgressRingView
+                android:id="@+id/catalogRing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/rw_space_16"
+                app:rwProgress="0.65" />
+
+            <!--List rows-->
+            <com.example.runway.ui.components.SectionHeaderView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwTitle="@string/rw_catalog_rows" />
+
+            <com.example.runway.ui.components.ListRowView
+                android:id="@+id/catalogRowNavigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwIcon="@drawable/ic_rw_bell"
+                app:rwLabel="@string/rw_catalog_row_notifications"
+                app:rwShowChevron="true" />
+
+            <com.google.android.material.divider.MaterialDivider
+                style="@style/Widget.Runway.Divider" />
+
+            <com.example.runway.ui.components.ListRowView
+                android:id="@+id/catalogRowValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwIcon="@drawable/ic_rw_globe"
+                app:rwLabel="@string/rw_catalog_row_language"
+                app:rwShowChevron="true"
+                app:rwValue="@string/rw_catalog_row_language_value" />
+
+            <com.google.android.material.divider.MaterialDivider
+                style="@style/Widget.Runway.Divider" />
+
+            <com.example.runway.ui.components.ListRowView
+                android:id="@+id/catalogRowSwitch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwIcon="@drawable/ic_rw_droplet"
+                app:rwLabel="@string/rw_catalog_row_wash" />
+
+            <com.google.android.material.divider.MaterialDivider
+                style="@style/Widget.Runway.Divider" />
+
+            <com.example.runway.ui.components.ListRowView
+                android:id="@+id/catalogRowDanger"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwDanger="true"
+                app:rwIcon="@drawable/ic_rw_logout"
+                app:rwLabel="@string/rw_catalog_row_signout" />
+
+            <!--Identity-->
+            <com.example.runway.ui.components.SectionHeaderView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwTitle="@string/rw_catalog_identity" />
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/rw_logo" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_12"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.example.runway.ui.components.AvatarView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:rwInitials="DF" />
+
+                <com.example.runway.ui.components.SwatchView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/rw_space_16"
+                    app:rwSwatchColor="#CE0E2D"
+                    app:rwSwatchSize="28dp" />
+
+                <com.example.runway.ui.components.SwatchView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/rw_space_8"
+                    app:rwSwatchColor="#FFFFFF"
+                    app:rwSwatchSize="28dp" />
+
+                <com.example.runway.ui.components.SwatchView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/rw_space_8"
+                    app:rwSwatchColor="#1B3A5C"
+                    app:rwSwatchSize="28dp" />
+
+                <com.example.runway.ui.components.SwatchView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/rw_space_8"
+                    app:rwSwatchColor="#0A0A0B"
+                    app:rwSwatchSize="28dp" />
+            </LinearLayout>
+
+            <!--Feedback-->
+            <com.example.runway.ui.components.SectionHeaderView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwTitle="@string/rw_catalog_feedback" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnToast"
+                style="@style/Widget.Runway.Button.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rw_catalog_show_toast" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSheet"
+                style="@style/Widget.Runway.Button.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_8"
+                android:text="@string/rw_catalog_show_sheet" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDialog"
+                style="@style/Widget.Runway.Button.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_8"
+                android:text="@string/rw_catalog_show_dialog" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDestructive"
+                style="@style/Widget.Runway.Button.Danger"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_8"
+                android:text="@string/rw_catalog_show_destructive"
+                app:icon="@drawable/ic_rw_trash" />
+
+            <com.example.runway.ui.components.SyncBannerView
+                android:id="@+id/catalogBanner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_12" />
+
+            <!--Empty state-->
+            <com.example.runway.ui.components.SectionHeaderView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwTitle="@string/rw_catalog_empty" />
+
+            <com.example.runway.ui.components.EmptyStateView
+                android:id="@+id/catalogEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwBody="@string/rw_catalog_empty_body"
+                app:rwIcon="@drawable/ic_rw_hanger"
+                app:rwTitle="@string/rw_catalog_empty_title" />
+
+            <!--Typography-->
+            <com.example.runway.ui.components.SectionHeaderView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwTitle="@string/rw_catalog_typography" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rw_type_display_large"
+                android:textAppearance="@style/TextAppearance.Runway.Display.Large" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rw_type_display"
+                android:textAppearance="@style/TextAppearance.Runway.Display" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_4"
+                android:text="@string/rw_type_label"
+                android:textAppearance="@style/TextAppearance.Runway.Label" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rw_type_body"
+                android:textAppearance="@style/TextAppearance.Runway.Body" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rw_type_secondary"
+                android:textAppearance="@style/TextAppearance.Runway.Secondary" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rw_type_micro"
+                android:textAppearance="@style/TextAppearance.Runway.Micro" />
+
+            <!--Icons-->
+            <com.example.runway.ui.components.SectionHeaderView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwTitle="@string/rw_catalog_icons" />
+
+            <!-- Rows of icons are added in CatalogActivity. -->
+            <LinearLayout
+                android:id="@+id/catalogIcons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/rw_space_24"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

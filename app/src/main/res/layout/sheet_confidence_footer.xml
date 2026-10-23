@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pinned footer for the confidence sheet. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/confidenceLater"
+        style="@style/Widget.Runway.Button.Secondary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/rw_confidence_later" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/confidenceSave"
+        style="@style/Widget.Runway.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/rw_space_8"
+        android:layout_weight="1"
+        android:enabled="false"
+        android:text="@string/rw_confidence_save" />
+
+</LinearLayout>

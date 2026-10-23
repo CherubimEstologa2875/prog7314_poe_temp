@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One saved outfit, editable: rename it, take garments out of it, or delete it. -->
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.example.runway.ui.components.ScreenHeaderView
+            android:id="@+id/outfitDetailHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.example.runway.ui.components.EmptyStateView
+            android:id="@+id/outfitLoadFailed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:rwBody="@string/rw_outfit_load_failed_body"
+            app:rwIcon="@drawable/ic_rw_wifi_off"
+            app:rwTitle="@string/rw_outfit_load_failed_title" />
+
+
+        <!-- The outfit drawn the way it was laid out in the builder. -->
+        <com.example.runway.ui.outfits.OutfitThumbnailView
+            android:id="@+id/outfitCollage"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/outfitNoGarmentsPreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="24dp"
+            android:text="@string/rw_outfit_no_preview"
+            android:textColor="?android:attr/textColorSecondary"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="12dp"
+            android:text="@string/rw_outfit_name"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/outfitNameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp"
+            android:text="@string/rw_outfit_garments"
+            android:textStyle="bold" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/outfitGarmentsGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp" />
+
+        <TextView
+            android:id="@+id/outfitNoGarments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="4dp"
+            android:text="@string/rw_outfit_no_garments"
+            android:textColor="?android:attr/textColorSecondary"
+            android:visibility="gone" />
+
+        <!-- Confidence, and the action that asks for it. -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp"
+            android:text="@string/rw_outfit_confidence"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="4dp">
+
+            <com.example.runway.ui.components.StarRatingView
+                android:id="@+id/outfitConfidenceStars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:rwStarSize="small" />
+
+            <TextView
+                android:id="@+id/outfitConfidenceLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:textColor="?android:attr/textColorSecondary"
+                tools:text="4.2 from 5 ratings" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/outfitWearButton"
+            style="@style/Widget.Runway.Button.Secondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/rw_outfit_wear"
+            app:icon="@drawable/ic_rw_check" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/outfitScheduleButton"
+            style="@style/Widget.Runway.Button.Secondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/rw_outfit_schedule"
+            app:icon="@drawable/ic_rw_calendar" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/outfitSaveButton"
+            style="@style/Widget.Runway.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/rw_outfit_save_changes" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/outfitDeleteButton"
+            style="@style/Widget.Runway.Button.Secondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/rw_outfit_delete" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

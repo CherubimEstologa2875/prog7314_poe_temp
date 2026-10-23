@@ -1,0 +1,16 @@
+# Server configuration for the Runway REST API.
+
+ktor:
+  deployment:
+    # "$PORT:8080" means: use the PORT environment variable if the hosting platform supplies one, otherwise fall back to 8080 locally.
+    port: "$PORT:8080"
+
+    # Bind to every network interface, not just loopback.
+    host: "0.0.0.0"
+
+  application:
+    modules:
+      - com.example.ApplicationKt.module
+
+# Reference List
+# IIE, 2026. PROG7314 Module Manual. The Independent Institute of Education (Pty) Ltd.

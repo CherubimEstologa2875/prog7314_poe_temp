@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Profile tab. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.profile.ProfileFragment">
+
+    <com.example.runway.ui.components.ScreenHeaderView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:rwLarge="true"
+        app:rwShowBack="false"
+        app:rwTitle="@string/rw_nav_profile" />
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/Widget.Runway.ScreenContent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Who is signed in -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Runway.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_16"
+                app:contentPadding="@dimen/rw_space_16">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.example.runway.ui.components.AvatarView
+                        android:id="@+id/profileAvatar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:rwAvatarSize="52dp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/rw_space_16"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/profileName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:textAppearance="@style/TextAppearance.Runway.Display"
+                            tools:text="Divan Fourie" />
+
+                        <TextView
+                            android:id="@+id/profileEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:textAppearance="@style/TextAppearance.Runway.Secondary"
+                            tools:text="divan@example.com" />
+
+                        <TextView
+                            android:id="@+id/profileMemberSince"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.Runway.Caption"
+                            android:visibility="gone"
+                            tools:text="Member since September 2026"
+                            tools:visibility="visible" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_12"
+                android:orientation="horizontal">
+
+                <com.example.runway.ui.components.StatTileView
+                    android:id="@+id/profileStatItems"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rwLabel="@string/rw_stat_items" />
+
+                <com.example.runway.ui.components.StatTileView
+                    android:id="@+id/profileStatOutfits"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/rw_space_8"
+                    android:layout_weight="1"
+                    app:rwLabel="@string/rw_stat_outfits" />
+
+                <com.example.runway.ui.components.StatTileView
+                    android:id="@+id/profileStatValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/rw_space_8"
+                    android:layout_weight="1"
+                    app:rwLabel="@string/rw_stat_value" />
+            </LinearLayout>
+
+            <!-- Places to go from here -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Runway.Card.Flush"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_16">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/rw_space_12">
+
+                    <com.example.runway.ui.components.ListRowView
+                        android:id="@+id/profileInsightsRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:rwIcon="@drawable/ic_rw_chart"
+                        app:rwLabel="@string/rw_profile_insights"
+                        app:rwShowChevron="true" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        style="@style/Widget.Runway.Divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                    <com.example.runway.ui.components.ListRowView
+                        android:id="@+id/profileSwapRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:rwIcon="@drawable/ic_rw_swap"
+                        app:rwLabel="@string/rw_profile_swap_market"
+                        app:rwShowChevron="true" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        style="@style/Widget.Runway.Divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.example.runway.ui.components.ListRowView
+                        android:id="@+id/profileListingsRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:rwIcon="@drawable/ic_rw_gift"
+                        app:rwLabel="@string/rw_profile_my_listings"
+                        app:rwShowChevron="true" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        style="@style/Widget.Runway.Divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.example.runway.ui.components.ListRowView
+                        android:id="@+id/profileNotificationsRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:rwIcon="@drawable/ic_rw_bell"
+                        app:rwLabel="@string/rw_profile_notifications"
+                        app:rwShowChevron="true" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        style="@style/Widget.Runway.Divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.example.runway.ui.components.ListRowView
+                        android:id="@+id/profileLaundryRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:rwIcon="@drawable/ic_rw_droplet"
+                        app:rwLabel="@string/rw_profile_laundry"
+                        app:rwShowChevron="true" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Runway.Card.Flush"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_12"
+                app:contentPaddingLeft="@dimen/rw_space_12"
+                app:contentPaddingRight="@dimen/rw_space_12">
+
+                <com.example.runway.ui.components.ListRowView
+                    android:id="@+id/profileSettingsRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rwIcon="@drawable/ic_rw_settings"
+                    app:rwLabel="@string/rw_settings_title"
+                    app:rwShowChevron="true" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Runway.Card.Flush"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_12"
+                app:contentPaddingLeft="@dimen/rw_space_12"
+                app:contentPaddingRight="@dimen/rw_space_12">
+
+                <com.example.runway.ui.components.ListRowView
+                    android:id="@+id/profileSignOutRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rwDanger="true"
+                    app:rwIcon="@drawable/ic_rw_logout"
+                    app:rwLabel="@string/rw_profile_sign_out" />
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

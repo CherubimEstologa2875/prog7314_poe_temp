@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Corner shapes. The three component sizes are wired into the theme; the rest are used directly. -->
+<resources>
+
+    <!-- Inputs, tiles, thumbnails -->
+    <style name="ShapeAppearance.Runway.SmallComponent" parent="ShapeAppearance.Material3.Corner.Small">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/rw_radius_input</item>
+    </style>
+
+    <!-- Cards -->
+    <style name="ShapeAppearance.Runway.MediumComponent" parent="ShapeAppearance.Material3.Corner.Medium">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/rw_radius_card</item>
+    </style>
+
+    <!-- Dialogs and modals -->
+    <style name="ShapeAppearance.Runway.LargeComponent" parent="ShapeAppearance.Material3.Corner.Large">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/rw_radius_sheet</item>
+    </style>
+
+    <!-- Buttons, chips, avatars -->
+    <style name="ShapeAppearance.Runway.Pill" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- Bottom sheets, rounded on the top edge only -->
+    <style name="ShapeAppearance.Runway.BottomSheet" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">@dimen/rw_radius_sheet</item>
+        <item name="cornerSizeTopRight">@dimen/rw_radius_sheet</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+</resources>

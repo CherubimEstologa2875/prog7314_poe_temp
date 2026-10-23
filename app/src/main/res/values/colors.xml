@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Light theme colours. values-night/colors.xml redefines the same names for dark mode. -->
+<resources>
+
+    <color name="rw_bg">#FFFFFFFF</color>
+    <color name="rw_surface">#FFF5F5F6</color>
+    <color name="rw_elevated">#FFFFFFFF</color>
+    <color name="rw_border">#FFE5E5E7</color>
+    <color name="rw_fg">#FF0A0A0B</color>
+    <color name="rw_muted">#FF6B6B70</color>
+    <color name="rw_accent">#FFCE0E2D</color>
+    <color name="rw_accent_soft">#FFFDECEF</color>
+    <color name="rw_on_accent">#FFFFFFFF</color>
+    <!-- Dimming layer behind sheets and dialogs. -->
+    <color name="rw_scrim">#730A0A0B</color>
+    <!-- Ripple colour for touch feedback. -->
+    <color name="rw_ripple">#140A0A0B</color>
+
+    <!-- Fixed values that must not follow the theme. -->
+    <color name="rw_white">#FFFFFFFF</color>
+
+    <!-- Launcher icon background. Must be a literal, since mipmap-anydpi-v26 cannot use theme attributes. -->
+    <color name="ic_launcher_background">#0A0A0B</color>
+
+</resources>

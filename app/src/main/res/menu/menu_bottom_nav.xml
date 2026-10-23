@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Bottom navigation tabs. Each id must match a destination id in runway_nav_graph.xml. -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_rw_home"
+        android:title="@string/rw_nav_home" />
+
+    <item
+        android:id="@+id/wardrobeFragment"
+        android:icon="@drawable/ic_rw_hanger"
+        android:title="@string/rw_nav_wardrobe" />
+
+    <!-- Empty disabled item that reserves the gap for the centre FAB. -->
+    <item
+        android:id="@+id/fabSpacer"
+        android:enabled="false"
+        android:title="" />
+
+    <item
+        android:id="@+id/outfitsFragment"
+        android:icon="@drawable/ic_rw_sparkles"
+        android:title="@string/rw_nav_outfits" />
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_rw_user"
+        android:title="@string/rw_nav_profile" />
+
+</menu>

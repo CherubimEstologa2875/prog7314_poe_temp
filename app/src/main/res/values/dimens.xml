@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Spacing, control sizes and corner radii. Layouts should use these instead of raw dp values. -->
+<resources>
+
+    <!-- Spacing -->
+    <dimen name="rw_space_2">2dp</dimen>
+    <dimen name="rw_space_4">4dp</dimen>
+    <dimen name="rw_space_6">6dp</dimen>
+    <dimen name="rw_space_8">8dp</dimen>
+    <dimen name="rw_space_10">10dp</dimen>
+    <dimen name="rw_space_12">12dp</dimen>
+    <dimen name="rw_space_16">16dp</dimen>
+    <dimen name="rw_space_20">20dp</dimen>
+    <dimen name="rw_space_24">24dp</dimen>
+    <dimen name="rw_space_32">32dp</dimen>
+
+    <dimen name="rw_screen_padding_horizontal">16dp</dimen>
+    <dimen name="rw_screen_padding_bottom">24dp</dimen>
+
+    <!-- Controls -->
+    <dimen name="rw_button_height_small">36dp</dimen>
+    <dimen name="rw_button_height">44dp</dimen>
+    <dimen name="rw_button_height_large">52dp</dimen>
+    <dimen name="rw_button_padding_horizontal_small">14dp</dimen>
+    <dimen name="rw_button_padding_horizontal">20dp</dimen>
+    <dimen name="rw_button_padding_horizontal_large">24dp</dimen>
+
+    <dimen name="rw_chip_height">32dp</dimen>
+    <dimen name="rw_icon_button_size">40dp</dimen>
+    <dimen name="rw_segmented_height">32dp</dimen>
+
+    <!-- Icons -->
+    <dimen name="rw_icon_size">18dp</dimen>
+    <dimen name="rw_icon_size_small">14dp</dimen>
+    <dimen name="rw_icon_size_tab">22dp</dimen>
+
+    <!-- Circular well behind a list row icon. -->
+    <dimen name="rw_icon_well_size">36dp</dimen>
+    <dimen name="rw_icon_well_size_large">56dp</dimen>
+
+    <!-- Components -->
+    <dimen name="rw_avatar_size">44dp</dimen>
+    <dimen name="rw_auth_logo_size">112dp</dimen>
+    <dimen name="rw_swatch_size">18dp</dimen>
+    <!-- The preview circle in the colour picker. -->
+    <dimen name="rw_swatch_preview">64dp</dimen>
+    <dimen name="rw_meter_height">6dp</dimen>
+    <dimen name="rw_divider_height">1dp</dimen>
+    <dimen name="rw_border_width">1dp</dimen>
+    <dimen name="rw_progress_ring_size">72dp</dimen>
+    <dimen name="rw_progress_ring_width">4dp</dimen>
+
+    <dimen name="rw_star_size_small">14dp</dimen>
+    <dimen name="rw_star_size_medium">20dp</dimen>
+    <dimen name="rw_star_size_large">32dp</dimen>
+
+    <!-- Shell -->
+    <dimen name="rw_header_height">52dp</dimen>
+    <dimen name="rw_bottom_nav_height">64dp</dimen>
+    <dimen name="rw_fab_size">52dp</dimen>
+    <!-- Negative because it is applied as a translationY to lift the FAB above the bar. -->
+    <dimen name="rw_fab_lift">-6dp</dimen>
+
+    <!-- Corner radii -->
+    <dimen name="rw_radius_pill">999dp</dimen>
+    <dimen name="rw_radius_sheet">24dp</dimen>
+    <dimen name="rw_radius_card">16dp</dimen>
+    <dimen name="rw_radius_input">12dp</dimen>
+
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Placeholder for a screen that is not built yet. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.example.runway.ui.components.ScreenHeaderView
+        android:id="@+id/stubHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:rwLarge="true"
+        app:rwShowBack="true"
+        tools:rwTitle="@string/rw_nav_wardrobe" />
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/Widget.Runway.ScreenContent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.example.runway.ui.components.EmptyStateView
+                android:id="@+id/stubEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwIcon="@drawable/ic_rw_sparkles"
+                tools:rwBody="@string/rw_stub_wardrobe_body"
+                tools:rwTitle="@string/rw_nav_wardrobe" />
+
+            <TextView
+                android:id="@+id/stubComingSoon"
+                style="@style/Widget.Runway.Badge.Muted"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/rw_space_8"
+                android:text="@string/rw_stub_coming_soon" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

@@ -1,0 +1,16 @@
+# The service account key grants full access to the Firebase project.
+serviceAccountKey.json
+
+# Safety net: Firebase downloads the key under its own long name (runway-part2-group11-firebase-adminsdk-fbsvc-xxxx.json).
+*firebase-adminsdk*.json
+*-service-account*.json
+
+*.env
+local.properties
+
+build/
+.gradle/
+.idea/
+
+# Reference List
+# IIE, 2026. PROG7314 Module Manual. The Independent Institute of Education (Pty) Ltd.

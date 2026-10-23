@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    What the app is willing to hand to another app through the FileProvider.
+    Only the folder garment photos are written into, and nothing else.
+-->
+<paths>
+    <files-path
+        name="item_images"
+        path="items/" />
+</paths>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Internals of StatTileView: a value with a label underneath. -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="android.widget.LinearLayout"
+    tools:orientation="vertical">
+
+    <TextView
+        android:id="@+id/statValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.Runway.Display.Stat"
+        app:autoSizeMaxTextSize="19sp"
+        app:autoSizeMinTextSize="11sp"
+        app:autoSizeTextType="uniform"
+        tools:text="26" />
+
+    <TextView
+        android:id="@+id/statLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/rw_space_6"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textAppearance="@style/TextAppearance.Runway.Micro"
+        tools:text="Items owned" />
+
+    <TextView
+        android:id="@+id/statSubLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.Runway.Micro"
+        android:textColor="?attr/colorPrimary"
+        android:visibility="gone"
+        tools:text="+3 this month"
+        tools:visibility="visible" />
+
+</merge>

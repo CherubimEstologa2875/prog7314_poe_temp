@@ -1,0 +1,7 @@
+.gradle/
+build/
+.idea/
+serviceAccountKey.json
+*firebase-adminsdk*.json
+*-service-account*.json
+*.env

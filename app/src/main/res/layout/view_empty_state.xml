@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Internals of EmptyStateView: icon, title, body and an optional action button. -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="android.widget.LinearLayout"
+    tools:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/emptyIcon"
+        android:layout_width="@dimen/rw_icon_well_size_large"
+        android:layout_height="@dimen/rw_icon_well_size_large"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rw_bg_icon_well"
+        android:contentDescription="@null"
+        android:padding="@dimen/rw_space_16"
+        android:scaleType="fitCenter"
+        app:tint="?attr/colorOnSurfaceVariant"
+        tools:src="@drawable/ic_rw_hanger" />
+
+    <TextView
+        android:id="@+id/emptyTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/rw_space_16"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.Runway.Display"
+        tools:text="Your wardrobe is empty" />
+
+    <TextView
+        android:id="@+id/emptyBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/rw_space_6"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.35"
+        android:textAppearance="@style/TextAppearance.Runway.Secondary"
+        android:visibility="gone"
+        tools:text="Add your first piece and it will show up here."
+        tools:visibility="visible" />
+
+    <!-- Stays gone until a caller adds an action. -->
+    <FrameLayout
+        android:id="@+id/emptyActionSlot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/rw_space_20"
+        android:visibility="gone" />
+
+</merge>

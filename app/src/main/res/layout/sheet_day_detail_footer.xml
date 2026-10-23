@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/dayDetailClear"
+        style="@style/Widget.Runway.Button.Secondary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/rw_space_8"
+        android:layout_weight="1"
+        android:text="@string/rw_plan_clear" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/dayDetailPick"
+        style="@style/Widget.Runway.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/rw_plan_pick" />
+</LinearLayout>

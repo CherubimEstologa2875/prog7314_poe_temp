@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- The default: a solid accent pill. Applied theme-wide via
+         materialButtonStyle, so a bare MaterialButton is already this. -->
+    <style name="Widget.Runway.Button" parent="Widget.Material3.Button">
+        <item name="android:minHeight">@dimen/rw_button_height</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingStart">@dimen/rw_button_padding_horizontal</item>
+        <item name="android:paddingEnd">@dimen/rw_button_padding_horizontal</item>
+        <item name="android:textAppearance">@style/TextAppearance.Runway.Button</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Runway.Pill</item>
+        <item name="backgroundTint">@color/rw_accent_state</item>
+        <item name="android:textColor">@color/rw_on_accent_state</item>
+        <item name="iconTint">@color/rw_on_accent_state</item>
+        <item name="iconSize">@dimen/rw_icon_size</item>
+        <item name="iconPadding">@dimen/rw_space_8</item>
+        <item name="iconGravity">textStart</item>
+        <item name="elevation">0dp</item>
+        <item name="rippleColor">@color/rw_ripple</item>
+    </style>
+
+    <!-- Secondary: recessed fill, hairline border. The most common variant in
+         the prototype after primary (14 uses). -->
+    <style name="Widget.Runway.Button.Secondary" parent="Widget.Runway.Button">
+        <item name="backgroundTint">@color/rw_surface_state</item>
+        <item name="android:textColor">@color/rw_fg_state</item>
+        <item name="iconTint">@color/rw_fg_state</item>
+        <item name="strokeColor">@color/rw_outline_state</item>
+        <item name="strokeWidth">@dimen/rw_border_width</item>
+    </style>
+
+    <!-- Outline: foreground-coloured border, no fill. Unused by the prototype
+         today; kept so the variant exists when a screen needs it. -->
+    <style name="Widget.Runway.Button.Outline" parent="Widget.Runway.Button">
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="android:textColor">@color/rw_fg_state</item>
+        <item name="iconTint">@color/rw_fg_state</item>
+        <item name="strokeColor">@color/rw_fg_state</item>
+        <item name="strokeWidth">@dimen/rw_border_width</item>
+    </style>
+
+    <!-- Ghost: text only. Unused by the prototype today, as above. -->
+    <style name="Widget.Runway.Button.Ghost" parent="Widget.Runway.Button">
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="android:textColor">@color/rw_fg_state</item>
+        <item name="iconTint">@color/rw_fg_state</item>
+    </style>
+
+    <!-- Danger: destructive actions. Accent text inside a soft accent border,
+         rather than a solid red fill - a filled red button reads as the
+         *recommended* action, which a delete never is. -->
+    <style name="Widget.Runway.Button.Danger" parent="Widget.Runway.Button">
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="android:textColor">@color/rw_accent_state</item>
+        <item name="iconTint">@color/rw_accent_state</item>
+        <item name="strokeColor">@color/rw_accent_state</item>
+        <item name="strokeWidth">@dimen/rw_border_width</item>
+        <item name="rippleColor">?attr/rwAccentSoft</item>
+    </style>
+
+    <!-- Size overlays. Apply alongside a variant, e.g.
+         style="@style/Widget.Runway.Button.Secondary" + the Small metrics. -->
+    <style name="Widget.Runway.Button.Small" parent="Widget.Runway.Button">
+        <item name="android:minHeight">@dimen/rw_button_height_small</item>
+        <item name="android:paddingStart">@dimen/rw_button_padding_horizontal_small</item>
+        <item name="android:paddingEnd">@dimen/rw_button_padding_horizontal_small</item>
+        <item name="android:textAppearance">@style/TextAppearance.Runway.Button.Small</item>
+        <item name="iconSize">@dimen/rw_icon_size_small</item>
+        <item name="iconPadding">@dimen/rw_space_6</item>
+    </style>
+
+    <style name="Widget.Runway.Button.Large" parent="Widget.Runway.Button">
+        <item name="android:minHeight">@dimen/rw_button_height_large</item>
+        <item name="android:paddingStart">@dimen/rw_button_padding_horizontal_large</item>
+        <item name="android:paddingEnd">@dimen/rw_button_padding_horizontal_large</item>
+        <item name="android:textAppearance">@style/TextAppearance.Runway.Button.Large</item>
+    </style>
+
+    <!-- Secondary at the small size - the pairing the prototype uses most. -->
+    <style name="Widget.Runway.Button.Secondary.Small" parent="Widget.Runway.Button.Secondary">
+        <item name="android:minHeight">@dimen/rw_button_height_small</item>
+        <item name="android:paddingStart">@dimen/rw_button_padding_horizontal_small</item>
+        <item name="android:paddingEnd">@dimen/rw_button_padding_horizontal_small</item>
+        <item name="android:textAppearance">@style/TextAppearance.Runway.Button.Small</item>
+        <item name="iconSize">@dimen/rw_icon_size_small</item>
+        <item name="iconPadding">@dimen/rw_space_6</item>
+    </style>
+
+    <!-- Icon-only, 40dp, circular. Header actions and toolbar affordances.
+         contentDescription is mandatory at every call site. -->
+    <style name="Widget.Runway.Button.Icon" parent="Widget.Material3.Button.IconButton">
+        <item name="android:layout_width">@dimen/rw_icon_button_size</item>
+        <item name="android:layout_height">@dimen/rw_icon_button_size</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="iconSize">22dp</item>
+        <item name="iconTint">?attr/colorOnSurface</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">0dp</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Runway.Pill</item>
+        <item name="rippleColor">@color/rw_ripple</item>
+    </style>
+
+    <!-- The active state of a toggling icon button, e.g. the favourite heart. -->
+    <style name="Widget.Runway.Button.Icon.Accent" parent="Widget.Runway.Button.Icon">
+        <item name="iconTint">?attr/colorPrimary</item>
+    </style>
+
+
+    <style name="Widget.Runway.Chip" parent="Widget.Material3.Chip.Filter">
+        <item name="android:minHeight">@dimen/rw_chip_height</item>
+        <item name="chipMinHeight">@dimen/rw_chip_height</item>
+        <item name="chipCornerRadius">@dimen/rw_radius_pill</item>
+        <item name="chipBackgroundColor">@color/rw_chip_background_state</item>
+        <item name="chipStrokeColor">@color/rw_chip_stroke</item>
+        <item name="chipStrokeWidth">@dimen/rw_border_width</item>
+        <item name="android:textColor">@color/rw_chip_text</item>
+        <item name="android:textAppearance">@style/TextAppearance.Runway.Button.Small</item>
+        <item name="chipStartPadding">@dimen/rw_space_12</item>
+        <item name="chipEndPadding">@dimen/rw_space_12</item>
+        <!-- Material draws a check inside a selected filter chip; Runway does not. -->
+        <item name="checkedIconVisible">false</item>
+        <item name="chipIconVisible">false</item>
+        <item name="closeIconVisible">false</item>
+        <item name="ensureMinTouchTargetSize">false</item>
+        <item name="rippleColor">@color/rw_ripple</item>
+    </style>
+
+
+
+    <style name="Widget.Runway.Card" parent="Widget.Material3.CardView.Outlined">
+        <item name="cardBackgroundColor">?attr/rwElevated</item>
+        <item name="strokeColor">?attr/colorOutline</item>
+        <item name="strokeWidth">@dimen/rw_border_width</item>
+        <item name="cardCornerRadius">@dimen/rw_radius_card</item>
+        <!-- Runway separates surfaces with a hairline, never with a shadow. -->
+        <item name="cardElevation">0dp</item>
+        <item name="rippleColor">@color/rw_ripple</item>
+    </style>
+
+    <style name="Widget.Runway.Card.Flush" parent="Widget.Runway.Card" tools:ignore="UnusedResources">
+        <item name="contentPadding">0dp</item>
+    </style>
+
+    <style name="Widget.Runway.TextField" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">?attr/rwSurface</item>
+        <item name="boxStrokeColor">@color/rw_field_stroke</item>
+        <item name="boxStrokeWidth">@dimen/rw_border_width</item>
+        <item name="boxStrokeWidthFocused">@dimen/rw_border_width</item>
+        <item name="boxCornerRadiusTopStart">@dimen/rw_radius_input</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/rw_radius_input</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/rw_radius_input</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/rw_radius_input</item>
+        <item name="hintTextColor">?attr/colorOnSurfaceVariant</item>
+        <item name="android:textColorHint">?attr/colorOnSurfaceVariant</item>
+
+        <item name="hintEnabled">false</item>
+        <item name="errorTextColor">?attr/colorError</item>
+    </style>
+
+    <style name="Widget.Runway.TextField.EditText" parent="Widget.Material3.TextInputEditText.OutlinedBox">
+        <item name="android:textAppearance">@style/TextAppearance.Runway.Body</item>
+        <item name="android:paddingTop">@dimen/rw_space_10</item>
+        <item name="android:paddingBottom">@dimen/rw_space_10</item>
+    </style>
+
+    <style name="Widget.Runway.TextField.EditText.Multiline" parent="Widget.Runway.TextField.EditText" tools:ignore="UnusedResources">
+        <item name="android:gravity">top|start</item>
+        <item name="android:minLines">3</item>
+        <item name="android:inputType">textMultiLine|textCapSentences</item>
+    </style>
+
+
+
+    <style name="Widget.Runway.Switch" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="trackTint">@color/rw_switch_track</item>
+        <item name="thumbTint">@color/rw_switch_thumb</item>
+        <!-- The prototype's switch has no glyph inside the thumb. -->
+        <item name="thumbIcon">@null</item>
+    </style>
+
+    <style name="Widget.Runway.Divider" parent="Widget.Material3.MaterialDivider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/rw_divider_height</item>
+        <item name="dividerColor">?attr/colorOutline</item>
+        <item name="dividerThickness">@dimen/rw_divider_height</item>
+    </style>
+
+
+    <style name="Widget.Runway.Meter" parent="Widget.Material3.LinearProgressIndicator">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="trackThickness">@dimen/rw_meter_height</item>
+        <item name="trackCornerRadius">@dimen/rw_meter_height</item>
+        <item name="trackColor">?attr/rwSurface</item>
+        <item name="indicatorColor">?attr/colorOnSurface</item>
+        <item name="android:indeterminate">false</item>
+        <!-- Material 3 draws a dot at the end of the track. The prototype's meter
+             is a plain bar, so the stop indicator is sized away. -->
+        <item name="trackStopIndicatorSize">0dp</item>
+    </style>
+
+    <!-- Accent-filled: the prototype switches to this once an item is at or
+         over its wear limit. -->
+    <style name="Widget.Runway.Meter.Accent" parent="Widget.Runway.Meter">
+        <item name="indicatorColor">?attr/colorPrimary</item>
+    </style>
+
+
+    <style name="Widget.Runway.SegmentedGroup" parent="Widget.Material3.MaterialButtonToggleGroup">
+        <item name="android:background">@drawable/rw_bg_segmented_track</item>
+        <item name="android:padding">@dimen/rw_space_4</item>
+        <item name="singleSelection">true</item>
+        <item name="selectionRequired">true</item>
+    </style>
+
+    <style name="Widget.Runway.SegmentedButton" parent="Widget.Material3.Button.TextButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/rw_segmented_height</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingStart">@dimen/rw_space_8</item>
+        <item name="android:paddingEnd">@dimen/rw_space_8</item>
+        <item name="android:textAppearance">@style/TextAppearance.Runway.Button.Small</item>
+        <item name="android:textColor">@color/rw_segmented_text</item>
+        <item name="backgroundTint">@color/rw_segmented_background</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Runway.Pill</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="Widget.Runway.Badge" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">@dimen/rw_space_8</item>
+        <item name="android:paddingEnd">@dimen/rw_space_8</item>
+        <item name="android:paddingTop">@dimen/rw_space_2</item>
+        <item name="android:paddingBottom">@dimen/rw_space_2</item>
+        <item name="android:textAppearance">@style/TextAppearance.Runway.Label.Badge</item>
+        <!-- Neutral inverts against the page, so it carries the most weight. -->
+        <item name="android:background">@drawable/rw_bg_badge_neutral</item>
+        <item name="android:textColor">?android:attr/colorBackground</item>
+    </style>
+
+    <style name="Widget.Runway.Badge.Accent" parent="Widget.Runway.Badge">
+        <item name="android:background">@drawable/rw_bg_badge_accent</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="Widget.Runway.Badge.Muted" parent="Widget.Runway.Badge">
+        <item name="android:background">@drawable/rw_bg_badge_muted</item>
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style>
+
+    <style name="Widget.Runway.ScreenContent" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:paddingStart">@dimen/rw_screen_padding_horizontal</item>
+        <item name="android:paddingEnd">@dimen/rw_screen_padding_horizontal</item>
+        <item name="android:paddingBottom">@dimen/rw_screen_padding_bottom</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:overScrollMode">ifContentScrolls</item>
+    </style>
+
+    <style name="Widget.Runway.Rail" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">@dimen/rw_screen_padding_horizontal</item>
+        <item name="android:paddingEnd">@dimen/rw_screen_padding_horizontal</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:scrollbars">none</item>
+    </style>
+
+    <style name="Widget.Runway.ActionBar" parent="" tools:ignore="UnusedResources">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/rw_bg_bottom_bar</item>
+        <item name="android:paddingStart">@dimen/rw_screen_padding_horizontal</item>
+        <item name="android:paddingEnd">@dimen/rw_screen_padding_horizontal</item>
+        <item name="android:paddingTop">@dimen/rw_space_12</item>
+        <item name="android:paddingBottom">@dimen/rw_space_12</item>
+    </style>
+
+    <style name="Widget.Runway.BottomNav" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@drawable/rw_bg_bottom_bar</item>
+        <item name="itemIconTint">@color/rw_tab_tint</item>
+        <item name="itemTextColor">@color/rw_tab_tint</item>
+        <item name="itemTextAppearanceActive">@style/TextAppearance.Runway.Tab</item>
+        <item name="itemTextAppearanceInactive">@style/TextAppearance.Runway.Tab</item>
+        <item name="itemIconSize">@dimen/rw_icon_size_tab</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <!-- Material's pill-shaped active indicator is not part of Runway's
+             design; the active tab is signalled by colour alone. -->
+        <item name="itemActiveIndicatorStyle">@style/Widget.Runway.BottomNav.NoIndicator</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="Widget.Runway.BottomNav.NoIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@android:color/transparent</item>
+        <item name="android:width">0dp</item>
+        <item name="android:height">0dp</item>
+    </style>
+
+    <style name="Widget.Runway.Fab" parent="Widget.Material3.FloatingActionButton.Primary">
+        <item name="backgroundTint">?attr/colorPrimary</item>
+        <item name="tint">?attr/colorOnPrimary</item>
+        <item name="fabCustomSize">@dimen/rw_fab_size</item>
+        <item name="maxImageSize">@dimen/rw_space_24</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Runway.Pill</item>
+        <item name="elevation">@dimen/rw_space_6</item>
+        <item name="rippleColor">@color/rw_ripple</item>
+    </style>
+
+    <style name="Theme.Runway.BottomSheet" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.Runway.BottomSheet</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="Widget.Runway.BottomSheet" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="backgroundTint">?attr/rwElevated</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Runway.BottomSheet</item>
+        <item name="behavior_peekHeight">auto</item>
+    </style>
+
+    <style name="ThemeOverlay.Runway.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="alertDialogStyle">@style/Widget.Runway.Dialog</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/Widget.Runway.Dialog.Title</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/Widget.Runway.Dialog.Body</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.Runway.Dialog.Button</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.Runway.Dialog.Button.Neutral</item>
+    </style>
+
+    <style name="Widget.Runway.Dialog" parent="MaterialAlertDialog.Material3">
+        <item name="backgroundTint">?attr/rwElevated</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Runway.LargeComponent</item>
+    </style>
+
+    <style name="Widget.Runway.Dialog.Title" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textAppearance">@style/TextAppearance.Runway.Display.Dialog</item>
+    </style>
+
+    <style name="Widget.Runway.Dialog.Body" parent="MaterialAlertDialog.Material3.Body.Text">
+        <item name="android:textAppearance">@style/TextAppearance.Runway.Secondary</item>
+    </style>
+
+    <style name="Widget.Runway.Dialog.Button" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textAppearance">@style/TextAppearance.Runway.Button</item>
+    </style>
+
+    <style name="Widget.Runway.Dialog.Button.Neutral" parent="Widget.Runway.Dialog.Button">
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style>
+
+</resources>

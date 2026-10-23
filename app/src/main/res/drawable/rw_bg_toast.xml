@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Toasts invert against the page - a dark pill in Day, a light one in Night -
+  so they read as an overlay rather than as part of the content.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="?attr/colorOnSurface" />
+    <corners android:radius="@dimen/rw_radius_pill" />
+</shape>

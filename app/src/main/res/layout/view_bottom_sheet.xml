@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Shared chrome for every Runway bottom sheet: handle, title row, content slot and optional footer. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="36dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/rw_space_10"
+        android:background="@drawable/rw_sheet_handle" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/rw_screen_padding_horizontal"
+        android:paddingTop="@dimen/rw_space_10"
+        android:paddingEnd="@dimen/rw_space_8"
+        android:paddingBottom="@dimen/rw_space_4">
+
+        <TextView
+            android:id="@+id/sheetTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.Runway.Display"
+            tools:text="Filter wardrobe" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/sheetClose"
+            style="@style/Widget.Runway.Button.Icon"
+            android:contentDescription="@string/rw_action_close"
+            app:icon="@drawable/ic_rw_close" />
+    </LinearLayout>
+
+    <!-- Scrolls on its own so a long list does not stretch the sheet. -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/rw_screen_padding_horizontal"
+        android:paddingEnd="@dimen/rw_screen_padding_horizontal"
+        android:paddingBottom="@dimen/rw_space_16"
+        android:scrollbars="none">
+
+        <FrameLayout
+            android:id="@+id/sheetContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/sheetFooterDivider"
+        style="@style/Widget.Runway.Divider"
+        android:visibility="gone" />
+
+    <!-- Optional pinned footer. -->
+    <FrameLayout
+        android:id="@+id/sheetFooter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/rw_screen_padding_horizontal"
+        android:paddingTop="@dimen/rw_space_12"
+        android:paddingEnd="@dimen/rw_screen_padding_horizontal"
+        android:paddingBottom="@dimen/rw_space_12"
+        android:visibility="gone" />
+
+</LinearLayout>

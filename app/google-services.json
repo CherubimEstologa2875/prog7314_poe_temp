@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "193804160421",
+    "project_id": "runway-part2-group11",
+    "storage_bucket": "runway-part2-group11.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193804160421:android:11934e41f8f5fd208bac4c",
+        "android_client_info": {
+          "package_name": "com.example.runway"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193804160421-g01rvqr8hdluqrao7c7bi2k51hbegl3o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.runway",
+            "certificate_hash": "9a35a6e089fcc2190b5865432591c5c02676324b"
+          }
+        },
+        {
+          "client_id": "193804160421-ga35cupthqgfdcbear46bpanrr0t0qr0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.runway",
+            "certificate_hash": "492848d89e331d670609fc2647913f2a3b37325d"
+          }
+        },
+        {
+          "client_id": "193804160421-qoppp7ihoghpeseucuon415r5jvln5tn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.runway",
+            "certificate_hash": "068c1ea2b4b4ecdaa4552fda9dc131dbb7799cc1"
+          }
+        },
+        {
+          "client_id": "193804160421-n0vhdjltoug4j9oja5f3rqo87nqkro34.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoZRhImki46LYcNeL9o8Rw4aVCVZRR--k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193804160421-n0vhdjltoug4j9oja5f3rqo87nqkro34.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Settings screen. Switches are added to the list rows in SettingsFragment. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.profile.SettingsFragment">
+
+    <com.example.runway.ui.components.ScreenHeaderView
+        android:id="@+id/settingsHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:rwTitle="@string/rw_settings_title" />
+
+    <!-- Shown while a change is on its way to the API. -->
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/settingsSyncProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:indicatorColor="?attr/colorPrimary"
+        app:trackColor="?attr/rwSurface"
+        tools:visibility="visible" />
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/Widget.Runway.ScreenContent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Appearance -->
+            <com.example.runway.ui.components.SectionHeaderView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwTitle="@string/rw_settings_appearance" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Runway.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentPadding="@dimen/rw_space_16">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rw_settings_theme"
+                        android:textAppearance="@style/TextAppearance.Runway.Body" />
+
+                    <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/themeGroup"
+                        style="@style/Widget.Runway.SegmentedGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/rw_space_12">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/themeDay"
+                            style="@style/Widget.Runway.SegmentedButton"
+                            android:text="@string/rw_settings_theme_day" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/themeNight"
+                            style="@style/Widget.Runway.SegmentedButton"
+                            android:text="@string/rw_settings_theme_night" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/themeSystem"
+                            style="@style/Widget.Runway.SegmentedButton"
+                            android:text="@string/rw_settings_theme_system" />
+                    </com.google.android.material.button.MaterialButtonToggleGroup>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Runway.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_8"
+                app:contentPadding="@dimen/rw_space_12">
+
+                <com.example.runway.ui.components.ListRowView
+                    android:id="@+id/languageRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rwIcon="@drawable/ic_rw_globe"
+                    app:rwLabel="@string/rw_settings_language"
+                    app:rwShowChevron="true"
+                    tools:rwValue="English" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Security -->
+            <com.example.runway.ui.components.SectionHeaderView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwTitle="@string/rw_settings_security" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Runway.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentPadding="@dimen/rw_space_12">
+
+                <com.example.runway.ui.components.ListRowView
+                    android:id="@+id/biometricsRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rwIcon="@drawable/ic_rw_fingerprint"
+                    app:rwLabel="@string/rw_settings_biometrics" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_6"
+                android:text="@string/rw_settings_biometrics_hint"
+                android:textAppearance="@style/TextAppearance.Runway.Micro" />
+
+            <!-- Notifications -->
+            <com.example.runway.ui.components.SectionHeaderView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwTitle="@string/rw_settings_notifications" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Runway.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentPadding="@dimen/rw_space_12">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.example.runway.ui.components.ListRowView
+                        android:id="@+id/notifyWashRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:rwIcon="@drawable/ic_rw_droplet"
+                        app:rwLabel="@string/rw_settings_notify_wash" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        style="@style/Widget.Runway.Divider" />
+
+                    <com.example.runway.ui.components.ListRowView
+                        android:id="@+id/notifySwapRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:rwIcon="@drawable/ic_rw_swap"
+                        app:rwLabel="@string/rw_settings_notify_swap" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        style="@style/Widget.Runway.Divider" />
+
+                    <com.example.runway.ui.components.ListRowView
+                        android:id="@+id/notifyWeatherRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:rwIcon="@drawable/ic_rw_cloud"
+                        app:rwLabel="@string/rw_settings_notify_weather" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Wardrobe -->
+            <com.example.runway.ui.components.SectionHeaderView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwTitle="@string/rw_settings_wardrobe" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Runway.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentPadding="@dimen/rw_space_16">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/rw_settings_wear_limit"
+                            android:textAppearance="@style/TextAppearance.Runway.Body" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/wearLimitMinus"
+                            style="@style/Widget.Runway.Button.Icon"
+                            android:contentDescription="@string/rw_settings_wear_limit_less"
+                            app:icon="@drawable/ic_rw_minus" />
+
+                        <TextView
+                            android:id="@+id/wearLimitValue"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textAppearance="@style/TextAppearance.Runway.Display"
+                            tools:text="3" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/wearLimitPlus"
+                            style="@style/Widget.Runway.Button.Icon"
+                            android:contentDescription="@string/rw_settings_wear_limit_more"
+                            app:icon="@drawable/ic_rw_plus" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/rw_space_6"
+                        android:text="@string/rw_settings_wear_limit_hint"
+                        android:textAppearance="@style/TextAppearance.Runway.Micro" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- About -->
+            <com.example.runway.ui.components.SectionHeaderView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwTitle="@string/rw_settings_about" />
+
+            <TextView
+                android:id="@+id/versionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Runway.Micro"
+                tools:text="Runway version 1.0" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/resetButton"
+                style="@style/Widget.Runway.Button.Danger"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_16"
+                android:text="@string/rw_settings_reset" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

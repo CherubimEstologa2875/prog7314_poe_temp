@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dark theme colours. Same names as values/colors.xml, different values. -->
+<resources>
+
+    <color name="rw_bg">#FF0A0A0B</color>
+    <color name="rw_surface">#FF161618</color>
+    <color name="rw_elevated">#FF1F1F22</color>
+    <color name="rw_border">#FF2A2A2E</color>
+    <color name="rw_fg">#FFFAFAFA</color>
+    <color name="rw_muted">#FFA1A1A6</color>
+    <!-- Brighter than the day accent so it stays legible on a dark background. -->
+    <color name="rw_accent">#FFFF3049</color>
+    <color name="rw_accent_soft">#FF2A1116</color>
+    <color name="rw_on_accent">#FFFFFFFF</color>
+    <color name="rw_scrim">#99000000</color>
+    <!-- Ripple lightens instead of darkens here. -->
+    <color name="rw_ripple">#1AFAFAFA</color>
+
+</resources>

@@ -1,0 +1,13 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Ascent chevron over a runway bar. -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,30 L77,71 L65.5,71 L54,50.5 L42.5,71 L31,71 Z" />
+    <path
+        android:fillColor="#CE0E2D"
+        android:pathData="M40,76 L68,76 L68,82 L40,82 Z" />
+</vector>

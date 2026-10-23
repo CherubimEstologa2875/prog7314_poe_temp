@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The outfits tab: saved outfits, and the planner calendar. The header buttons are added in OutfitsFragment. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.outfits.OutfitsFragment">
+
+    <com.example.runway.ui.components.ScreenHeaderView
+        android:id="@+id/outfitsHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:rwLarge="true"
+        app:rwShowBack="false"
+        app:rwTitle="@string/rw_nav_outfits" />
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/outfitsSegments"
+        style="@style/Widget.Runway.SegmentedGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/rw_screen_padding_horizontal"
+        android:layout_marginTop="@dimen/rw_space_8"
+        app:checkedButton="@id/outfitsSegmentOutfits">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/outfitsSegmentOutfits"
+            style="@style/Widget.Runway.SegmentedButton"
+            android:text="@string/rw_outfits_tab_outfits" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/outfitsSegmentPlanner"
+            style="@style/Widget.Runway.SegmentedButton"
+            android:text="@string/rw_outfits_tab_planner" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- Saved outfits -->
+        <FrameLayout
+            android:id="@+id/outfitsPane"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/outfitsList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingHorizontal="12dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="88dp"
+                tools:listitem="@layout/item_outfit_card" />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/outfitsProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                android:visibility="gone"
+                app:indicatorColor="?attr/colorPrimary" />
+
+            <com.example.runway.ui.components.EmptyStateView
+                android:id="@+id/outfitsEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <!-- Planner -->
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/plannerPane"
+            style="@style/Widget.Runway.ScreenContent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/rw_space_8"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/plannerPrevious"
+                        style="@style/Widget.Runway.Button.Icon"
+                        android:contentDescription="@string/rw_planner_previous_month"
+                        app:icon="@drawable/ic_rw_chevron_left" />
+
+                    <TextView
+                        android:id="@+id/plannerMonth"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.Runway.Display"
+                        tools:text="September 2026" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/plannerNext"
+                        style="@style/Widget.Runway.Button.Icon"
+                        android:contentDescription="@string/rw_planner_next_month"
+                        app:icon="@drawable/ic_rw_chevron_right" />
+                </LinearLayout>
+
+                <!-- Monday to Sunday initials, filled in by OutfitsFragment. -->
+                <LinearLayout
+                    android:id="@+id/plannerWeekdays"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/rw_space_4"
+                    android:orientation="horizontal" />
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/plannerLoading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/rw_space_4"
+                    android:indeterminate="true"
+                    app:indicatorColor="?attr/colorPrimary"
+                    app:trackColor="?attr/rwSurface" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/plannerGrid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/rw_space_4"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/item_planner_day" />
+
+                <com.example.runway.ui.components.EmptyStateView
+                    android:id="@+id/plannerFailed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:rwBody="@string/rw_planner_failed_body"
+                    app:rwIcon="@drawable/ic_rw_wifi_off"
+                    app:rwTitle="@string/rw_planner_failed_title" />
+
+                <com.example.runway.ui.components.SectionHeaderView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rwTitle="@string/rw_planner_upcoming" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/plannerUpcomingCard"
+                    style="@style/Widget.Runway.Card.Flush"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:contentPaddingLeft="@dimen/rw_space_12"
+                    app:contentPaddingRight="@dimen/rw_space_12">
+
+                    <LinearLayout
+                        android:id="@+id/plannerUpcoming"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:id="@+id/plannerNothingUpcoming"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rw_planner_nothing_upcoming"
+                    android:textAppearance="@style/TextAppearance.Runway.Secondary"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Text styles. Serif for display titles, the system sans for everything else. -->
+<resources>
+
+    <!-- Display (serif) -->
+
+    <style name="TextAppearance.Runway.Display.Large" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:fontFamily">serif</item>
+        <!-- Both are set because AppCompat prefers the app-namespace fontFamily. -->
+        <item name="fontFamily">serif</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+    </style>
+
+    <style name="TextAppearance.Runway.Display" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:fontFamily">serif</item>
+        <!-- Both are set because AppCompat prefers the app-namespace fontFamily. -->
+        <item name="fontFamily">serif</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+    </style>
+
+    <!-- Dialog titles -->
+    <style name="TextAppearance.Runway.Display.Dialog" parent="TextAppearance.Runway.Display">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- Stat tile numbers and avatar initials -->
+    <style name="TextAppearance.Runway.Display.Stat" parent="TextAppearance.Runway.Display">
+        <item name="android:textSize">19sp</item>
+        <item name="android:lineSpacingMultiplier">1.0</item>
+    </style>
+
+    <!-- Body (sans) -->
+
+    <style name="TextAppearance.Runway.Body" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="TextAppearance.Runway.Secondary" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style>
+
+    <style name="TextAppearance.Runway.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style>
+
+    <style name="TextAppearance.Runway.Micro" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style>
+
+    <!-- Small uppercase labels, used for field labels and section headers. -->
+    <style name="TextAppearance.Runway.Label" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.06</item>
+        <item name="android:textColor">?attr/colorOnSurfaceVariant</item>
+    </style>
+
+    <style name="TextAppearance.Runway.Label.Section" parent="TextAppearance.Runway.Label">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="TextAppearance.Runway.Label.Badge" parent="TextAppearance.Runway.Label">
+        <item name="android:textSize">11sp</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+
+    <!-- Bottom navigation labels -->
+    <style name="TextAppearance.Runway.Tab" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">10.5sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Buttons -->
+
+    <style name="TextAppearance.Runway.Button" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="TextAppearance.Runway.Button.Small" parent="TextAppearance.Runway.Button">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="TextAppearance.Runway.Button.Large" parent="TextAppearance.Runway.Button">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+</resources>

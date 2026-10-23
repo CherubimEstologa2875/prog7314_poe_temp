@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Internals of SyncBannerView: the strip that shows offline and syncing status. -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="android.widget.LinearLayout"
+    tools:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/bannerIcon"
+        android:layout_width="@dimen/rw_icon_size"
+        android:layout_height="@dimen/rw_icon_size"
+        android:layout_marginEnd="@dimen/rw_space_8"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_rw_wifi_off"
+        app:tint="?attr/colorOnPrimary" />
+
+    <TextView
+        android:id="@+id/bannerText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAppearance="@style/TextAppearance.Runway.Caption"
+        android:textColor="?attr/colorOnPrimary"
+        tools:text="Offline - 3 changes queued" />
+
+</merge>

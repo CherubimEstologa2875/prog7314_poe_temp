@@ -1,0 +1,24 @@
+# Version catalogue for the Runway REST API.
+
+[versions]
+kotlin = "2.4.0"
+logback = "1.5.37"
+firebaseAdmin = "9.4.3"
+coroutines = "1.9.0"
+
+[libraries]
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+# The Admin SDK authenticates the server to Firebase with a service account and gives it full access to Cloud Firestore (Google, 2026).
+firebase-admin = { module = "com.google.firebase:firebase-admin", version.ref = "firebaseAdmin" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+# Generates the JSON encoders and decoders for every @Serializable class (JetBrains, 2026).
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
+# Reference List
+# IIE, 2026. PROG7314 Module Manual. The Independent Institute of Education (Pty) Ltd.
+# Google, 2026. Add the Firebase Admin SDK to your server. [online] Available at: <https://firebase.google.com/docs/admin/setup> [Accessed 11 September 2026].
+# JetBrains, 2026. kotlinx.serialization guide. [online] Available at: <https://github.com/Kotlin/kotlinx.serialization> [Accessed 11 September 2026].

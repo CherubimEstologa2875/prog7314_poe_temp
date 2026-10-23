@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The recessed pill a SegmentedControl's buttons sit inside. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="?attr/rwSurface" />
+    <corners android:radius="@dimen/rw_radius_pill" />
+</shape>

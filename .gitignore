@@ -1,0 +1,45 @@
+# Gradle
+.gradle/
+build/
+/captures
+.kotlin/
+
+# Local configuration - machine specific, never commit
+/local.properties
+*.iml
+.cxx/
+.externalNativeBuild
+
+# IDE
+/.idea/
+*.log
+*.hprof
+
+# Signing material - never commit a release keystore
+*.jks
+*.keystore
+keystore.properties
+
+# The shared debug keystore is the exception. A debug keystore is not a secret
+# (the stock one uses the password "android"), and committing it means a fresh
+# clone signs with a certificate Firebase already knows, so Google Sign-In works.
+!keystore/runway-debug.keystore
+
+# Build outputs
+/app/release/
+*.apk
+*.aab
+
+# Firebase / Google credentials
+# google-services.json IS committed on purpose: the project cannot be built
+# without it, and its API key is a client identifier that is useless without a
+# matching registered signing certificate. The admin SDK key below is the real
+# secret and stays out.
+firebase-adminsdk-*.json
+runway-part2-group11-firebase-adminsdk-fbsvc-4a2a622864.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The app theme. One DayNight theme covers both schemes, since only the colours differ. -->
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.Runway" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <!-- Accent -->
+        <item name="colorPrimary">@color/rw_accent</item>
+        <item name="colorOnPrimary">@color/rw_on_accent</item>
+        <item name="colorPrimaryContainer">@color/rw_accent_soft</item>
+        <item name="colorOnPrimaryContainer">@color/rw_accent</item>
+
+        <!-- Only one brand colour, so secondary and tertiary point at the accent too. -->
+        <item name="colorSecondary">@color/rw_accent</item>
+        <item name="colorOnSecondary">@color/rw_on_accent</item>
+        <item name="colorSecondaryContainer">@color/rw_accent_soft</item>
+        <item name="colorOnSecondaryContainer">@color/rw_accent</item>
+        <item name="colorTertiary">@color/rw_accent</item>
+        <item name="colorOnTertiary">@color/rw_on_accent</item>
+
+        <!-- Neutrals -->
+        <item name="android:colorBackground">@color/rw_bg</item>
+        <item name="colorOnBackground">@color/rw_fg</item>
+        <item name="colorSurface">@color/rw_bg</item>
+        <item name="colorOnSurface">@color/rw_fg</item>
+        <item name="colorOnSurfaceVariant">@color/rw_muted</item>
+        <item name="colorSurfaceVariant">@color/rw_surface</item>
+        <item name="colorSurfaceContainerLowest">@color/rw_bg</item>
+        <item name="colorSurfaceContainerLow">@color/rw_surface</item>
+        <item name="colorSurfaceContainer">@color/rw_surface</item>
+        <item name="colorSurfaceContainerHigh">@color/rw_elevated</item>
+        <item name="colorSurfaceContainerHighest">@color/rw_elevated</item>
+        <item name="colorOutline">@color/rw_border</item>
+        <item name="colorOutlineVariant">@color/rw_border</item>
+
+        <!-- Errors use the brand accent rather than a second red. -->
+        <item name="colorError">@color/rw_accent</item>
+        <item name="colorOnError">@color/rw_on_accent</item>
+        <item name="colorErrorContainer">@color/rw_accent_soft</item>
+        <item name="colorOnErrorContainer">@color/rw_accent</item>
+
+        <item name="android:colorControlHighlight">@color/rw_ripple</item>
+        <item name="scrimBackground">@color/rw_scrim</item>
+
+        <!-- Off so sheets and dialogs are not tinted pink by the red primary. -->
+        <item name="elevationOverlayEnabled">false</item>
+        <item name="elevationOverlayColor">@android:color/transparent</item>
+
+        <!-- Our own tokens -->
+        <item name="rwAccentSoft">@color/rw_accent_soft</item>
+        <item name="rwElevated">@color/rw_elevated</item>
+        <item name="rwSurface">@color/rw_surface</item>
+
+        <!-- Shape -->
+        <item name="shapeAppearanceCornerSmall">@style/ShapeAppearance.Runway.SmallComponent</item>
+        <item name="shapeAppearanceCornerMedium">@style/ShapeAppearance.Runway.MediumComponent</item>
+        <item name="shapeAppearanceCornerLarge">@style/ShapeAppearance.Runway.LargeComponent</item>
+
+        <!-- Type -->
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.Runway.Display.Large</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.Runway.Display</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.Runway.Body</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.Runway.Caption</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.Runway.Label</item>
+
+        <!-- Default widget styles, so plain Material widgets come out on-brand. -->
+        <item name="materialButtonStyle">@style/Widget.Runway.Button</item>
+        <item name="materialIconButtonStyle">@style/Widget.Runway.Button.Icon</item>
+        <item name="chipStyle">@style/Widget.Runway.Chip</item>
+        <item name="materialCardViewStyle">@style/Widget.Runway.Card</item>
+        <item name="textInputStyle">@style/Widget.Runway.TextField</item>
+        <item name="materialDividerStyle">@style/Widget.Runway.Divider</item>
+        <item name="materialSwitchStyle">@style/Widget.Runway.Switch</item>
+        <item name="bottomSheetDialogTheme">@style/Theme.Runway.BottomSheet</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.Runway.Dialog</item>
+
+        <!-- System bars: transparent for edge-to-edge, icons flip with the theme. -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">@bool/rw_light_system_bars</item>
+        <!-- Newer than our minSdk, so it needs the targetApi guard. -->
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">@bool/rw_light_system_bars</item>
+    </style>
+
+    <!-- Splash theme, so the cold-launch window is not a white flash. -->
+    <style name="Theme.Runway.Starting" parent="Theme.Runway">
+        <item name="android:windowBackground">@color/rw_bg</item>
+    </style>
+
+</resources>

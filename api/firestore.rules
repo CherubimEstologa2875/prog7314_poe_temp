@@ -1,0 +1,15 @@
+// Cloud Firestore security rules for the Runway project (SCRUM-103).
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+
+// Reference List
+// IIE, 2026. PROG7314 Module Manual. The Independent Institute of Education (Pty) Ltd.

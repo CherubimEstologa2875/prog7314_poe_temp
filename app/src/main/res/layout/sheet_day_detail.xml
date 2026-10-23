@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- What's planned for one day. The buttons live in sheet_day_detail_footer. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/dayDetailDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.Runway.Display"
+        tools:text="Mon 22 Sep" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/dayDetailLoading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/rw_space_12"
+        android:indeterminate="true"
+        app:indicatorColor="?attr/colorPrimary"
+        app:trackColor="?attr/rwSurface" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/dayDetailOutfitCard"
+        style="@style/Widget.Runway.Card.Flush"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/rw_space_12"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/rw_space_12">
+
+            <com.example.runway.ui.outfits.OutfitThumbnailView
+                android:id="@+id/dayDetailThumb"
+                android:layout_width="72dp"
+                android:layout_height="90dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/rw_space_12"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/dayDetailOutfitName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.Runway.Display"
+                    tools:text="Friday dinner" />
+
+                <TextView
+                    android:id="@+id/dayDetailOutfitMeta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.Runway.Secondary"
+                    tools:text="Evening · 3 pieces" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_rw_chevron_right"
+                app:tint="?android:attr/textColorSecondary" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.example.runway.ui.components.EmptyStateView
+        android:id="@+id/dayDetailEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:rwBody="@string/rw_plan_nothing_body"
+        app:rwIcon="@drawable/ic_rw_calendar"
+        app:rwTitle="@string/rw_plan_nothing_title" />
+
+</LinearLayout>

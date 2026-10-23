@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Nothing excluded yet. Exclude the Room database here if it ever
+         holds data that should not leave the device. -->
+</full-backup-content>

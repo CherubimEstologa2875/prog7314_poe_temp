@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Custom theme attributes and the attributes for our custom views. -->
+<resources>
+
+    <!-- Theme attributes -->
+
+    <attr name="rwAccentSoft" format="color" />
+    <!-- Raised fill for cards and sheets, as opposed to the recessed rwSurface. -->
+    <attr name="rwElevated" format="color" />
+    <attr name="rwSurface" format="color" />
+
+    <!-- Custom view attributes -->
+
+    <declare-styleable name="ScreenHeaderView">
+        <attr name="rwTitle" format="string" />
+        <attr name="rwSubtitle" format="string" />
+        <!-- Shows the back chevron. -->
+        <attr name="rwShowBack" format="boolean" />
+        <!-- Bigger title, used on the tab root screens. -->
+        <attr name="rwLarge" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SectionHeaderView">
+        <attr name="rwTitle" />
+        <attr name="rwActionText" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="EmptyStateView">
+        <attr name="rwIcon" format="reference" />
+        <attr name="rwTitle" />
+        <attr name="rwBody" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="ListRowView">
+        <attr name="rwIcon" />
+        <attr name="rwLabel" format="string" />
+        <attr name="rwValue" format="string" />
+        <!-- Tints the row with the accent, for destructive actions. -->
+        <attr name="rwDanger" format="boolean" />
+        <!-- Turn off for rows that carry a switch instead. -->
+        <attr name="rwShowChevron" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="StatTileView">
+        <attr name="rwValue" />
+        <attr name="rwLabel" />
+        <attr name="rwSubLabel" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="StarRatingView">
+        <attr name="rwRating" format="integer" />
+        <!-- Tappable only when true; display only by default. -->
+        <attr name="rwEditable" format="boolean" />
+        <attr name="rwStarSize" format="enum">
+            <enum name="small" value="0" />
+            <enum name="medium" value="1" />
+            <enum name="large" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="AvatarView">
+        <attr name="rwInitials" format="string" />
+        <attr name="rwAvatarSize" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="SwatchView">
+        <attr name="rwSwatchColor" format="color" />
+        <attr name="rwSwatchSize" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ProgressRingView">
+        <!-- 0f..1f -->
+        <attr name="rwProgress" format="float" />
+        <attr name="rwRingWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="FieldView">
+        <attr name="rwLabel" />
+        <!-- Optional helper line below the input. -->
+        <attr name="rwHint" format="string" />
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Input border when the field is invalid. Swapped in for rw_field_stroke, so it covers every state. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="?attr/colorError" android:state_enabled="true" />
+    <item android:alpha="0.45" android:color="?attr/colorError" />
+</selector>

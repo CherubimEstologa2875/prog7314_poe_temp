@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Step three: what the garment is, and save. -->
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.example.runway.ui.components.ScreenHeaderView
+            android:id="@+id/tagHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/tagPreview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:contentDescription="@string/rw_cutout_preview_description"
+            android:padding="16dp"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/tagNameInput"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="12dp"
+            android:text="@string/rw_tag_name_label"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tagNameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="@dimen/rw_space_6"
+            app:helperText="@string/rw_tag_name_example"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tagNameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="12dp"
+            android:text="@string/rw_tag_category"
+            android:textStyle="bold" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/tagCategoryGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            app:selectionRequired="true"
+            app:singleSelection="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rw_tag_colour_label"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tagColourName"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/rw_space_8"
+                android:text="@string/rw_tag_colour_none"
+                android:textAppearance="@style/TextAppearance.Runway.Caption" />
+
+            <!-- Mixes a colour that is not in the palette and adds it to it. -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/tagColourAdd"
+                style="@style/Widget.Runway.Button.Secondary.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rw_colour_picker_add" />
+        </LinearLayout>
+
+        <!-- The palette the colour matcher understands. Filled in by TagItemFragment. -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:clipToPadding="false"
+            android:paddingHorizontal="16dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/tagColourPalette"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="4dp" />
+        </HorizontalScrollView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/tagBrandInput"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="12dp"
+            android:text="@string/rw_tag_brand_label"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="@dimen/rw_space_6"
+            app:helperText="@string/rw_tag_brand_example"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tagBrandInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/tagSizeInput"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="12dp"
+            android:text="@string/rw_tag_size_label"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="@dimen/rw_space_6"
+            app:helperText="@string/rw_tag_size_example"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tagSizeInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapCharacters" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/tagPriceInput"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="12dp"
+            android:text="@string/rw_tag_price_label"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tagPriceLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="@dimen/rw_space_6"
+            app:helperText="@string/rw_tag_price_example"
+            app:hintEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tagPriceInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="12dp"
+            android:text="@string/rw_tag_wear_limit"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="4dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/tagWearLess"
+                style="@style/Widget.Runway.Button.Icon"
+                android:contentDescription="@string/rw_tag_wear_less"
+                app:icon="@drawable/ic_rw_minus" />
+
+            <TextView
+                android:id="@+id/tagWearLimit"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.Runway.Display" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/tagWearMore"
+                style="@style/Widget.Runway.Button.Icon"
+                android:contentDescription="@string/rw_tag_wear_more"
+                app:icon="@drawable/ic_rw_plus" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:text="@string/rw_tag_wear_limit_hint"
+            android:textAppearance="@style/TextAppearance.Runway.Caption" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/tagSaveButton"
+            style="@style/Widget.Runway.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="@string/rw_tag_save" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

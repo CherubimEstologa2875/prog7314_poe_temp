@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Outfit builder. The occasion and category chips are added in OutfitBuilderFragment. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.outfits.OutfitBuilderFragment">
+
+    <com.example.runway.ui.components.ScreenHeaderView
+        android:id="@+id/builderHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:rwSubtitle="@string/rw_builder_hint"
+        app:rwTitle="@string/rw_builder_new_title" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/builderScroll"
+        style="@style/Widget.Runway.ScreenContent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_16">
+
+                <com.example.runway.ui.components.OutfitCanvasView
+                    android:id="@+id/builderCanvas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <!-- Sits over the empty canvas until the first piece is added. -->
+                <LinearLayout
+                    android:id="@+id/builderEmpty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="@dimen/rw_space_24">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_rw_sparkles"
+                        app:tint="?android:attr/textColorSecondary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/rw_space_8"
+                        android:text="@string/rw_builder_empty_title"
+                        android:textAppearance="@style/TextAppearance.Runway.Display" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/rw_space_4"
+                        android:gravity="center"
+                        android:text="@string/rw_builder_empty_body"
+                        android:textAppearance="@style/TextAppearance.Runway.Caption" />
+                </LinearLayout>
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/builderLoading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:indeterminate="true"
+                    android:visibility="gone"
+                    app:indicatorColor="?attr/colorPrimary" />
+            </FrameLayout>
+
+            <!-- Shown when an outfit to edit couldn't be fetched. -->
+            <com.example.runway.ui.components.EmptyStateView
+                android:id="@+id/builderLoadFailed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:rwBody="@string/rw_builder_load_failed_body"
+                app:rwIcon="@drawable/ic_rw_wifi_off"
+                app:rwTitle="@string/rw_builder_load_failed_title" />
+
+            <!-- Controls for whichever piece is selected. -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/builderControls"
+                style="@style/Widget.Runway.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_12"
+                android:visibility="gone"
+                app:contentPadding="@dimen/rw_space_12"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/builderSelectedName"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:textAppearance="@style/TextAppearance.Runway.Body"
+                            tools:text="Linen shirt" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/builderLayerDown"
+                            style="@style/Widget.Runway.Button.Icon"
+                            android:contentDescription="@string/rw_builder_layer_down"
+                            app:icon="@drawable/ic_rw_layers_down" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/builderLayerUp"
+                            style="@style/Widget.Runway.Button.Icon"
+                            android:contentDescription="@string/rw_builder_layer_up"
+                            app:icon="@drawable/ic_rw_layers_up" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/builderRemove"
+                            style="@style/Widget.Runway.Button.Icon"
+                            android:contentDescription="@string/rw_builder_remove"
+                            app:icon="@drawable/ic_rw_trash" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:contentDescription="@string/rw_builder_size"
+                            android:src="@drawable/ic_rw_resize"
+                            app:tint="?android:attr/textColorSecondary" />
+
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/builderSizeSlider"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:contentDescription="@string/rw_builder_size"
+                            android:stepSize="5"
+                            android:valueFrom="40"
+                            android:valueTo="190"
+                            app:labelBehavior="gone" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:contentDescription="@string/rw_builder_rotate"
+                            android:src="@drawable/ic_rw_rotate"
+                            app:tint="?android:attr/textColorSecondary" />
+
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/builderRotateSlider"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:contentDescription="@string/rw_builder_rotate"
+                            android:stepSize="1"
+                            android:valueFrom="-45"
+                            android:valueTo="45"
+                            app:labelBehavior="gone" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.example.runway.ui.components.FieldView
+                android:id="@+id/builderName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_16"
+                app:rwLabel="@string/rw_builder_name" />
+
+            <com.example.runway.ui.components.SectionHeaderView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwTitle="@string/rw_builder_occasion" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/builderOccasions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:selectionRequired="true"
+                app:singleSelection="true" />
+
+            <com.example.runway.ui.components.SectionHeaderView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwTitle="@string/rw_builder_add_pieces" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/builderCategories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:selectionRequired="true"
+                    app:singleLine="true"
+                    app:singleSelection="true" />
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_8"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/builderAddNew"
+                    style="@style/Widget.Runway.Button.Secondary.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/rw_space_12"
+                    android:text="@string/rw_builder_add_new"
+                    app:icon="@drawable/ic_rw_plus" />
+
+                <TextView
+                    android:id="@+id/builderTrayEmpty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/rw_builder_tray_empty"
+                    android:textAppearance="@style/TextAppearance.Runway.Caption"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/builderTray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_8"
+                android:orientation="horizontal"
+                android:scrollbars="none"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_recent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/builderSave"
+                style="@style/Widget.Runway.Button.Large"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_24"
+                android:text="@string/rw_builder_save" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

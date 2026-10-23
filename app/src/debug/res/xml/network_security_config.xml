@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Debug builds only (SCRUM-82).
+
+    Android blocks plain HTTP by default from API 28 onwards, which is correct:
+    an unencrypted request exposes the Firebase ID token in the Authorization
+    header to anyone on the same network (Android Developers, 2026).
+
+    The exception below is scoped to 10.0.2.2 - the emulator's route to the
+    developer's own machine - and nowhere else. Because this file lives in
+    src/debug, the release build talks to the deployed API over HTTPS with no
+    exception at all.
+-->
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">10.0.2.2</domain>
+    </domain-config>
+</network-security-config>
+
+<!--
+Reference List
+IIE, 2026. PROG7314 Module Manual. The Independent Institute of Education (Pty) Ltd.
+Android Developers, 2026. Guide to app architecture. [online] Available at: <https://developer.android.com/topic/architecture> [Accessed 11 September 2026].
+-->
