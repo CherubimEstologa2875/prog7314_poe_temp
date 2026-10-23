@@ -1,11 +1,16 @@
 package com.example.runway.ui.profile
 
 import android.os.Bundle
+import android.provider.Settings
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.biometric.BiometricManager
+import androidx.biometric.BiometricPrompt
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -15,6 +20,8 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.runway.R
 import com.example.runway.RunwayApplication
+import com.example.runway.data.auth.BiometricAvailability
+import com.example.runway.data.auth.BiometricCapability
 import com.example.runway.databinding.FragmentSettingsBinding
 import com.example.runway.domain.model.RunwaySettings
 import com.example.runway.domain.model.ThemeOption
@@ -99,8 +106,7 @@ class SettingsFragment : Fragment() {
         biometricsSwitch.setOnCheckedChangeListener { _, checked ->
             if (checked == savedSettings().biometricsEnabled) return@setOnCheckedChangeListener
             if (checked) {
-                setBiometrics(true)
-                RunwayToast.show(binding.root, R.string.rw_settings_biometrics_on)
+                beginBiometricSetup()
             } else {
                 confirmBiometricsOff()
             }
@@ -194,6 +200,66 @@ class SettingsFragment : Fragment() {
         val store = (requireActivity().application as RunwayApplication).container.authSessionStore
         val session = store.currentSession ?: return
         store.saveSession(session.copy(biometricEnabled = enabled))
+    }
+
+    /** Enable the setting only after the system has accepted a real biometric. */
+    private fun beginBiometricSetup() {
+        val capability = BiometricCapability.fromCanAuthenticateResult(
+            BiometricManager.from(requireContext()).canAuthenticate(BiometricCapability.AUTHENTICATORS)
+        )
+        when (capability) {
+            BiometricAvailability.NOT_ENROLLED -> {
+                biometricsSwitch.isChecked = false
+                RunwayToast.show(binding.root, R.string.rw_settings_biometrics_setup)
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
+                    startActivity(Intent(Settings.ACTION_BIOMETRIC_ENROLL).apply {
+                        putExtra(
+                            Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
+                            BiometricCapability.AUTHENTICATORS,
+                        )
+                    })
+                }
+            }
+            BiometricAvailability.AVAILABLE -> showBiometricSetupPrompt()
+            else -> {
+                biometricsSwitch.isChecked = false
+                RunwayToast.show(binding.root, R.string.rw_auth_fingerprint_unavailable)
+            }
+        }
+    }
+
+    private fun showBiometricSetupPrompt() {
+        val prompt = BiometricPrompt(
+            this,
+            ContextCompat.getMainExecutor(requireContext()),
+            object : BiometricPrompt.AuthenticationCallback() {
+                override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+                    super.onAuthenticationSucceeded(result)
+                    setBiometrics(true)
+                    RunwayToast.show(binding.root, R.string.rw_settings_biometrics_on)
+                }
+
+                override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
+                    super.onAuthenticationError(errorCode, errString)
+                    if (_binding != null) {
+                        biometricsSwitch.isChecked = false
+                        RunwayToast.show(binding.root, R.string.rw_settings_biometrics_setup_cancelled)
+                    }
+                }
+            },
+        )
+        try {
+            prompt.authenticate(
+                BiometricPrompt.PromptInfo.Builder()
+                    .setTitle(getString(R.string.rw_settings_biometrics_setup_title))
+                    .setSubtitle(getString(R.string.rw_settings_biometrics_setup_body))
+                    .setNegativeButtonText(getString(R.string.rw_biometric_use_account))
+                    .build()
+            )
+        } catch (_: Exception) {
+            biometricsSwitch.isChecked = false
+            RunwayToast.show(binding.root, R.string.rw_auth_fingerprint_unavailable)
+        }
     }
 
     private fun applyTheme(theme: ThemeOption) {

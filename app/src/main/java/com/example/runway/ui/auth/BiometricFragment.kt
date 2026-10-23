@@ -13,6 +13,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.runway.R
 import com.example.runway.RunwayApplication
+import com.example.runway.data.auth.BiometricCapability
+import com.example.runway.data.auth.BiometricAvailability
 
 /** Fingerprint/face unlock screen matching the returning-user mockup. */
 class BiometricFragment : Fragment() {
@@ -51,10 +53,10 @@ class BiometricFragment : Fragment() {
         unlockButton.setOnClickListener { authenticate() }
         useAccount.setOnClickListener { goToSignIn() }
 
-        if (isBiometricAvailable()) {
+        if (biometricAvailability() == BiometricAvailability.AVAILABLE) {
             authenticate()
         } else {
-            showError(getString(R.string.rw_auth_fingerprint_unavailable))
+            showError(unavailableMessage())
         }
     }
 
@@ -80,11 +82,17 @@ class BiometricFragment : Fragment() {
                 override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
                     super.onAuthenticationError(errorCode, errString)
                     authenticationInProgress = false
-                    if (errorCode != BiometricPrompt.ERROR_CANCELED &&
-                        errorCode != BiometricPrompt.ERROR_USER_CANCELED
-                    ) {
-                        showError(getString(R.string.rw_biometric_failed))
-                    }
+                    showError(
+                        if (errorCode == BiometricPrompt.ERROR_NEGATIVE_BUTTON) {
+                            getString(R.string.rw_biometric_use_account_hint)
+                        } else if (errorCode == BiometricPrompt.ERROR_LOCKOUT ||
+                            errorCode == BiometricPrompt.ERROR_LOCKOUT_PERMANENT
+                        ) {
+                            getString(R.string.rw_biometric_locked_out)
+                        } else if (errorCode != BiometricPrompt.ERROR_CANCELED &&
+                            errorCode != BiometricPrompt.ERROR_USER_CANCELED
+                        ) getString(R.string.rw_biometric_failed) else ""
+                    )
                 }
 
                 override fun onAuthenticationFailed() {
@@ -108,12 +116,20 @@ class BiometricFragment : Fragment() {
         }
     }
 
-    private fun isBiometricAvailable(): Boolean = BiometricManager.from(requireContext())
-        .canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG) ==
-        BiometricManager.BIOMETRIC_SUCCESS
+    private fun biometricAvailability(): BiometricAvailability = BiometricCapability.fromCanAuthenticateResult(
+        BiometricManager.from(requireContext()).canAuthenticate(BiometricCapability.AUTHENTICATORS)
+    )
+
+    private fun unavailableMessage(): String = when (biometricAvailability()) {
+        BiometricAvailability.NOT_ENROLLED -> getString(R.string.rw_biometric_not_enrolled)
+        else -> getString(R.string.rw_auth_fingerprint_unavailable)
+    }
 
     private fun goToSignIn() {
         authenticationInProgress = false
+        application.container.authSessionStore.currentSession?.let {
+            application.container.authSessionStore.saveSession(it.copy(biometricEnabled = false))
+        }
         navigateSafely(R.id.action_biometric_to_signIn)
     }
 

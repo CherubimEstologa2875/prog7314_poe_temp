@@ -15,6 +15,8 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.runway.databinding.ActivityMainBinding
+import com.example.runway.data.auth.AuthDestination
+import com.example.runway.data.auth.AuthFlow
 import com.example.runway.ui.components.SyncBannerView
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
@@ -121,8 +123,14 @@ class MainActivity : AppCompatActivity() {
             return R.id.signInFragment
         }
 
-        val session = container.authSessionStore.currentSession ?: return R.id.signInFragment
-        return if (session.biometricEnabled) R.id.biometricFragment else R.id.homeFragment
+        return when (AuthFlow.onLaunch(
+            firebaseSessionActive = true,
+            session = container.authSessionStore.currentSession,
+        )) {
+            AuthDestination.SIGN_IN -> R.id.signInFragment
+            AuthDestination.HOME -> R.id.homeFragment
+            AuthDestination.BIOMETRIC -> R.id.biometricFragment
+        }
     }
 
     /** The centre FAB opens the add-item flow as a modal stack over the current tab. */
