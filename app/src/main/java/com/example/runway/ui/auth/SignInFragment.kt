@@ -12,6 +12,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.runway.R
 import com.example.runway.RunwayApplication
+import com.example.runway.data.auth.BiometricCapability
+import com.example.runway.data.auth.BiometricAvailability
+import com.example.runway.data.auth.AuthFlow
+import com.example.runway.data.auth.AuthDestination
 import com.example.runway.data.auth.SignInOutcome
 import com.example.runway.databinding.FragmentSigninBinding
 import com.google.android.material.progressindicator.CircularProgressIndicatorSpec
@@ -40,7 +44,7 @@ class SignInFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        biometricAvailable = isBiometricAvailable()
+        biometricAvailable = biometricAvailability() == BiometricAvailability.AVAILABLE
         binding.authFingerprintSwitch.isChecked = biometricAvailable
         binding.authFingerprintSwitch.isEnabled = biometricAvailable
         // Say why the switch is off rather than just greying it out.
@@ -79,7 +83,7 @@ class SignInFragment : Fragment() {
         val useBiometric = binding.authFingerprintSwitch.isChecked && biometricAvailable
         sessionStore.saveSession(outcome.session.copy(biometricEnabled = useBiometric))
 
-        val destination = if (useBiometric) {
+        val destination = if (AuthFlow.afterSso(useBiometric, biometricAvailable) == AuthDestination.BIOMETRIC) {
             R.id.action_signIn_to_biometric
         } else {
             R.id.action_signIn_to_home
@@ -110,9 +114,9 @@ class SignInFragment : Fragment() {
         binding.authError.isVisible = true
     }
 
-    private fun isBiometricAvailable(): Boolean = BiometricManager.from(requireContext())
-        .canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG) ==
-        BiometricManager.BIOMETRIC_SUCCESS
+    private fun biometricAvailability(): BiometricAvailability = BiometricCapability.fromCanAuthenticateResult(
+        BiometricManager.from(requireContext()).canAuthenticate(BiometricCapability.AUTHENTICATORS)
+    )
 
     override fun onDestroyView() {
         super.onDestroyView()

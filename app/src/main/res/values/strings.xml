@@ -83,6 +83,9 @@
     <string name="rw_biometric_helper">Touch the sensor to confirm it\'s you.</string>
     <string name="rw_biometric_use_account">Use account instead</string>
     <string name="rw_biometric_failed">We could not verify your fingerprint. Try again or use your account.</string>
+    <string name="rw_biometric_not_enrolled">Set up fingerprint or face unlock in your device Settings, then try again.</string>
+    <string name="rw_biometric_locked_out">Biometric unlock is temporarily locked. Use your account, or try again later.</string>
+    <string name="rw_biometric_use_account_hint">Use your Google account to continue.</string>
     <string name="rw_biometric_avatar_content_description">Signed-in account</string>
 
     <!--Home tab pushes-->
@@ -362,6 +365,10 @@
     <string name="rw_settings_biometrics_off_body">You will sign in with your Google account instead.</string>
     <string name="rw_settings_biometrics_off_confirm">Turn off</string>
     <string name="rw_settings_biometrics_on">Biometric unlock on</string>
+    <string name="rw_settings_biometrics_setup">Set up fingerprint or face unlock in device Settings first.</string>
+    <string name="rw_settings_biometrics_setup_title">Confirm biometric unlock</string>
+    <string name="rw_settings_biometrics_setup_body">Verify your identity to enable biometric unlock for Runway.</string>
+    <string name="rw_settings_biometrics_setup_cancelled">Biometric unlock was not enabled.</string>
 
     <string name="rw_settings_notifications">Notifications</string>
     <string name="rw_settings_notify_wash">Wash reminders</string>
