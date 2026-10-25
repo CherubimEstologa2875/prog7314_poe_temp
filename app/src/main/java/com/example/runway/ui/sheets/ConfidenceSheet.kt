@@ -1,5 +1,6 @@
 package com.example.runway.ui.sheets
 
+import android.text.InputFilter
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.core.os.bundleOf
@@ -39,6 +40,8 @@ class ConfidenceSheet : RunwayBottomSheet(R.layout.sheet_confidence) {
 
         content.findViewById<FieldView>(R.id.confidenceNote).apply {
             setMultiline(lines = 2)
+            // The API turns down a longer note, so it is capped here instead.
+            editText.filters = arrayOf(InputFilter.LengthFilter(RatingSummary.MAX_NOTE))
             onTextChanged { viewModel.onNoteChanged(it) }
         }
 

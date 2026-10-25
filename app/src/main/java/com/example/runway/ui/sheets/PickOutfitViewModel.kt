@@ -1,5 +1,6 @@
 package com.example.runway.ui.sheets
 
+import androidx.annotation.StringRes
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -30,7 +31,7 @@ data class PickOutfitUiState(
     val isSaving: Boolean = false,
     // Set once the day is planned, so the sheet can say so and close.
     val plannedFor: LocalDate? = null,
-    val errorMessage: String? = null,
+    @StringRes val errorMessage: Int? = null,
 )
 
 // Picks an outfit for one day. The other direction is a date picker on the outfit screen.

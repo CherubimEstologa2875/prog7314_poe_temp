@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.AP
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import com.example.runway.R
 import com.example.runway.RunwayApplication
 import com.example.runway.data.remote.api.toUserMessage
 import com.example.runway.domain.model.Item
@@ -26,7 +27,7 @@ class ItemsViewModel(
     private val repository: ItemRepository
 ) : ViewModel() {
     // Errors raised by user actions, as opposed to by the data stream itself.
-    private val actionError = MutableStateFlow<String?>(null)
+    private val actionError = MutableStateFlow<Int?>(null)
     private val syncing = MutableStateFlow(false)
 
     val uiState: StateFlow<ItemsUiState> =
@@ -46,11 +47,11 @@ class ItemsViewModel(
                         errorMessage = error,
                     )
                 },
-                onFailure = { throwable ->
+                onFailure = {
                     ItemsUiState(
                         isLoading = false,
                         isSyncing = isSyncing,
-                        errorMessage = throwable.message ?: "Could not load your wardrobe.",
+                        errorMessage = R.string.rw_error_wardrobe_load_failed,
                     )
                 }
             )
@@ -83,15 +84,15 @@ class ItemsViewModel(
     ) {
         val cleanName = name.trim()
         if (cleanName.isEmpty()) {
-            actionError.value = "A name is required."
+            actionError.value = R.string.rw_error_name_required
             return
         }
         if (category.isBlank()) {
-            actionError.value = "Choose a category."
+            actionError.value = R.string.rw_error_category_required
             return
         }
         if (purchasePrice != null && purchasePrice < 0) {
-            actionError.value = "A price cannot be negative."
+            actionError.value = R.string.rw_tag_error_price_negative
             return
         }
 
@@ -108,7 +109,7 @@ class ItemsViewModel(
                     )
                 )
             }
-                .onFailure { actionError.value = it.message ?: "Could not save the item." }
+                .onFailure { actionError.value = R.string.rw_error_item_save_failed }
                 .onSuccess { actionError.value = null }
         }
     }
@@ -116,7 +117,7 @@ class ItemsViewModel(
     fun onDeleteItem(id: String) {
         viewModelScope.launch {
             runCatching { repository.delete(id) }
-                .onFailure { actionError.value = it.message ?: "Could not delete the item." }
+                .onFailure { actionError.value = R.string.rw_error_item_delete_failed }
         }
     }
 

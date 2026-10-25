@@ -25,6 +25,7 @@ import com.example.runway.data.auth.BiometricCapability
 import com.example.runway.databinding.FragmentSettingsBinding
 import com.example.runway.domain.model.RunwaySettings
 import com.example.runway.domain.model.ThemeOption
+import com.example.runway.ui.AppLanguage
 import com.example.runway.ui.components.ListRowView
 import com.example.runway.ui.components.RunwayDialogs
 import com.example.runway.ui.components.RunwayToast
@@ -185,6 +186,7 @@ class SettingsFragment : Fragment() {
         ) {
             viewModel.onResetToDefaults()
             applyTheme(RunwaySettings().theme)
+            AppLanguage.apply(RunwaySettings().language)
             RunwayToast.show(binding.root, R.string.rw_settings_reset_done)
         }
     }

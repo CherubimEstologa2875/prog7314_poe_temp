@@ -1,5 +1,6 @@
 package com.example.runway.ui.outfits
 
+import androidx.annotation.StringRes
 import com.example.runway.domain.model.Item
 import com.example.runway.domain.model.Outfit
 
@@ -12,7 +13,7 @@ data class OutfitsUiState(
     val isLoading: Boolean = true,
     // True when nothing could be loaded at all, so the screen shows a retry instead of "no outfits".
     val loadFailed: Boolean = false,
-    val errorMessage: String? = null,
+    @StringRes val errorMessage: Int? = null,
 )
 
 /* Reference List

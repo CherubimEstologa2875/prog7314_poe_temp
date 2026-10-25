@@ -1,5 +1,6 @@
 package com.example.runway.ui.home
 
+import androidx.annotation.StringRes
 import com.example.runway.domain.model.Item
 import com.example.runway.domain.model.Outfit
 import com.example.runway.domain.model.WardrobeSummary
@@ -34,7 +35,7 @@ data class HomeUiState(
     val isWearing: Boolean = false,
     // Set once a wear is logged, so the screen can open the confidence sheet.
     val wornOutfitId: String? = null,
-    val errorMessage: String? = null,
+    @StringRes val errorMessage: Int? = null,
 ) {
     val needsWashCount: Int get() = summary.needsWashCount ?: 0
 }

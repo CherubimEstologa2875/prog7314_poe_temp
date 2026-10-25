@@ -9,6 +9,7 @@ import com.example.runway.R
 import com.example.runway.databinding.ItemOutfitCardBinding
 import com.example.runway.domain.model.Item
 import com.example.runway.domain.model.Outfit
+import com.example.runway.ui.components.Labels
 import kotlinx.coroutines.CoroutineScope
 
 // One card per saved outfit in the Outfits grid. The picture is the render, or the builder collage.
@@ -37,7 +38,7 @@ class OutfitsAdapter(
             binding.root.setOnClickListener { onClick(outfit) }
             binding.outfitCardName.text = outfit.name
             binding.outfitCardMeta.text = listOfNotNull(
-                outfit.occasion,
+                Labels.occasion(context, outfit.occasion),
                 context.resources.getQuantityString(R.plurals.rw_outfits_pieces, outfit.garmentCount, outfit.garmentCount),
             ).joinToString(" · ")
             binding.outfitCardThumb.bind(outfit, itemsById, scope)

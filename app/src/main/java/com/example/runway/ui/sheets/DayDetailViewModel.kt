@@ -1,5 +1,6 @@
 package com.example.runway.ui.sheets
 
+import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
@@ -27,7 +28,7 @@ data class DayDetailUiState(
     val loadFailed: Boolean = false,
     val isClearing: Boolean = false,
     val cleared: Boolean = false,
-    val errorMessage: String? = null,
+    @StringRes val errorMessage: Int? = null,
 )
 
 class DayDetailViewModel(

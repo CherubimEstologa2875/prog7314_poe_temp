@@ -1,5 +1,6 @@
 package com.example.runway.ui.items
 
+import com.example.runway.R
 import com.example.runway.MainDispatcherRule
 import com.example.runway.domain.model.Item
 import com.example.runway.fake.FakeItemRepository
@@ -56,7 +57,7 @@ class ItemsViewModelTest {
         viewModel.onAddItem(name = "   ", category = "TOP")
 
         assertEquals(0, repository.saveCount)
-        assertEquals("A name is required.", viewModel.uiState.value.errorMessage)
+        assertEquals(R.string.rw_error_name_required, viewModel.uiState.value.errorMessage)
 
         job.cancel()
     }
@@ -73,7 +74,7 @@ class ItemsViewModelTest {
         viewModel.onAddItem(name = "Black wool coat", category = "  ")
 
         assertEquals(0, repository.saveCount)
-        assertEquals("Choose a category.", viewModel.uiState.value.errorMessage)
+        assertEquals(R.string.rw_error_category_required, viewModel.uiState.value.errorMessage)
 
         job.cancel()
     }
@@ -90,7 +91,7 @@ class ItemsViewModelTest {
         viewModel.onAddItem(name = "Coat", category = "OUTERWEAR", purchasePrice = -1.0)
 
         assertEquals(0, repository.saveCount)
-        assertEquals("A price cannot be negative.", viewModel.uiState.value.errorMessage)
+        assertEquals(R.string.rw_tag_error_price_negative, viewModel.uiState.value.errorMessage)
 
         job.cancel()
     }
@@ -132,7 +133,7 @@ class ItemsViewModelTest {
         assertTrue(repository.refreshCount > 0)
         // The raw exception is never shown; toUserMessage turns it into this.
         assertEquals(
-            "You are offline. Changes are saved and will sync later.",
+            R.string.rw_error_offline_queued,
             viewModel.uiState.value.errorMessage,
         )
 

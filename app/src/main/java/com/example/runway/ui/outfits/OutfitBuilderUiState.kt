@@ -1,5 +1,6 @@
 package com.example.runway.ui.outfits
 
+import androidx.annotation.StringRes
 import com.example.runway.domain.model.Item
 import com.example.runway.domain.model.OutfitLayer
 
@@ -17,7 +18,7 @@ data class OutfitBuilderUiState(
     val isSaving: Boolean = false,
     // Set once saved, so the screen can move on to the outfit's detail page.
     val savedOutfitId: String? = null,
-    val errorMessage: String? = null,
+    @StringRes val errorMessage: Int? = null,
 ) {
     val canSave: Boolean get() = layers.isNotEmpty() && !isSaving && !isLoading
 

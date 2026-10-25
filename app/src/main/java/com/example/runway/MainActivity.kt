@@ -17,6 +17,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.runway.databinding.ActivityMainBinding
 import com.example.runway.data.auth.AuthDestination
 import com.example.runway.data.auth.AuthFlow
+import com.example.runway.domain.model.RunwaySettings
+import com.example.runway.ui.AppLanguage
 import com.example.runway.ui.components.SyncBannerView
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
@@ -34,6 +36,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate")
+        syncSavedLanguage()
 
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -43,6 +46,16 @@ class MainActivity : AppCompatActivity() {
         setUpNavigation(isFreshStart = savedInstanceState == null)
         setUpFab()
         watchConnection()
+    }
+
+    // The language can also be changed from Android's own settings, so the saved setting follows what is showing.
+    private fun syncSavedLanguage() {
+        val settings = (application as RunwayApplication).container.settingsRepository
+        val shown = AppLanguage.current() ?: return
+        val saved = settings.currentSettings()
+        if (shown == saved.language || shown !in RunwaySettings.SUPPORTED_LANGUAGES) return
+        Log.d(TAG, "app is showing $shown but ${saved.language} was saved, updating the setting")
+        lifecycleScope.launch { settings.update(saved.copy(language = shown)) }
     }
 
     // Shows the offline banner, and syncs whatever was queued as soon as the connection is back.

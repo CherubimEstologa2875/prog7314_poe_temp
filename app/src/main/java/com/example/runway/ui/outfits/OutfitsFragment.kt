@@ -28,7 +28,6 @@ import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.launch
 import java.time.DayOfWeek
 import java.time.format.TextStyle
-import java.util.Locale
 
 // The Outfits tab: saved outfits in a grid, and the planner calendar.
 class OutfitsFragment : Fragment() {
@@ -140,7 +139,7 @@ class OutfitsFragment : Fragment() {
         DayOfWeek.entries.forEach { day ->
             binding.plannerWeekdays.addView(
                 TextView(requireContext()).apply {
-                    text = day.getDisplayName(TextStyle.NARROW, Locale.getDefault())
+                    text = day.getDisplayName(TextStyle.NARROW, PlanDates.locale(requireContext()))
                     gravity = Gravity.CENTER
                     setTextAppearance(R.style.TextAppearance_Runway_Micro)
                 },
@@ -165,7 +164,7 @@ class OutfitsFragment : Fragment() {
     }
 
     private fun renderPlanner(state: PlannerUiState) {
-        binding.plannerMonth.text = PlanDates.monthTitle(state.month)
+        binding.plannerMonth.text = PlanDates.monthTitle(requireContext(), state.month)
         binding.plannerLoading.isVisible = state.isLoading
         binding.plannerFailed.isVisible = state.loadFailed
         binding.plannerGrid.isVisible = !state.loadFailed

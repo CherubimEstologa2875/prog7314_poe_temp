@@ -16,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.runway.R
 import com.example.runway.databinding.FragmentItemDetailBinding
 import com.example.runway.domain.model.Item
+import com.example.runway.ui.components.Labels
 import com.example.runway.ui.components.RunwayDialogs
 import com.example.runway.ui.navigation.NavArgs
 import kotlinx.coroutines.Dispatchers
@@ -75,9 +76,9 @@ class ItemDetailFragment : Fragment() {
         binding.detailName.text = item.name
 
         binding.detailMeta.text = listOfNotNull(
-            item.category.lowercase().replaceFirstChar { it.uppercase() },
+            Labels.category(requireContext(), item.category),
             item.brand?.takeIf { it.isNotBlank() },
-            item.colour?.takeIf { it.isNotBlank() },
+            Labels.colour(requireContext(), item.colour),
             item.size?.takeIf { it.isNotBlank() }
                 ?.let { getString(R.string.rw_item_detail_size, it) },
         ).joinToString(" · ")

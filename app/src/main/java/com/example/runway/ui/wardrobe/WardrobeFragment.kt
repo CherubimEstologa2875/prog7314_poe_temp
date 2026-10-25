@@ -17,6 +17,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.runway.R
 import com.example.runway.databinding.FragmentWardrobeBinding
+import com.example.runway.ui.components.Labels
 import com.example.runway.ui.components.RunwayToast
 import com.example.runway.ui.items.ItemsUiState
 import com.example.runway.ui.items.ItemsViewModel
@@ -78,7 +79,15 @@ class WardrobeFragment : Fragment() {
             }
             .filter { item ->
                 val needle = query.trim()
-                needle.isBlank() || listOf(item.name, item.brand, item.colour, item.category)
+                // The translated names are searched too, so "swart" finds black items in Afrikaans.
+                needle.isBlank() || listOf(
+                    item.name,
+                    item.brand,
+                    item.colour,
+                    item.category,
+                    Labels.colour(requireContext(), item.colour),
+                    Labels.category(requireContext(), item.category),
+                )
                     .filterNotNull()
                     .any { value -> value.contains(needle, ignoreCase = true) }
             }
@@ -113,16 +122,25 @@ class WardrobeFragment : Fragment() {
     }
 
     private fun buildCategoryChips() {
-        listOf("All", "Tops", "Bottoms", "Outerwear", "Dresses", "Shoes", "Other")
-            .forEach { label ->
+        // The key stays in English for the filter, only the chip text is translated.
+        listOf(
+            "All" to R.string.rw_wardrobe_filter_all,
+            "Tops" to R.string.rw_wardrobe_filter_tops,
+            "Bottoms" to R.string.rw_wardrobe_filter_bottoms,
+            "Outerwear" to R.string.rw_wardrobe_filter_outerwear,
+            "Dresses" to R.string.rw_wardrobe_filter_dresses,
+            "Shoes" to R.string.rw_wardrobe_filter_shoes,
+            "Other" to R.string.rw_wardrobe_filter_other,
+        )
+            .forEach { (key, labelRes) ->
                 val chip = Chip(requireContext()).apply {
-                    text = label
+                    text = getString(labelRes)
                     isCheckable = true
-                    isChecked = label == "All"
+                    isChecked = key == selectedCategory
                     setTextAppearance(R.style.TextAppearance_Runway_Button_Small)
                     setChipStyle()
                     setOnClickListener {
-                        selectedCategory = label
+                        selectedCategory = key
                         render(viewModel.uiState.value)
                     }
                 }

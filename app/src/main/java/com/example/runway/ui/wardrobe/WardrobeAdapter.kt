@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.runway.R
 import com.example.runway.databinding.ItemWardrobeBinding
 import com.example.runway.domain.model.Item
+import com.example.runway.ui.components.Labels
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -63,7 +64,7 @@ class WardrobeAdapter(
             binding.wardrobeItemMeta.text = item.purchasePrice?.let {
                 binding.root.context.getString(R.string.rw_wardrobe_price, it)
             } ?: listOfNotNull(
-                item.category.lowercase().replaceFirstChar { it.uppercase() },
+                Labels.category(binding.root.context, item.category),
                 item.size?.takeIf { it.isNotBlank() },
                 item.brand?.takeIf { it.isNotBlank() },
             ).joinToString(" · ")

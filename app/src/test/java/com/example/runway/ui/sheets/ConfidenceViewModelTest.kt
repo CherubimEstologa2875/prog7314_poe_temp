@@ -1,5 +1,6 @@
 package com.example.runway.ui.sheets
 
+import com.example.runway.R
 import com.example.runway.MainDispatcherRule
 import com.example.runway.domain.model.Outfit
 import com.example.runway.fake.FakeOutfitRepository
@@ -114,7 +115,7 @@ class ConfidenceViewModelTest {
         assertNull(vm.uiState.value.savedAt)
         // Ratings have no offline queue, so we must not promise a later sync.
         assertEquals(
-            "You are offline. Please try again once you have a connection.",
+            R.string.rw_error_offline,
             vm.uiState.value.errorMessage,
         )
     }
