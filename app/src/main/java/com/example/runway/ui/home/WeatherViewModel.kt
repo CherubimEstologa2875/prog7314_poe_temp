@@ -31,18 +31,23 @@ class WeatherViewModel(
             if (current == null) return@combine WeatherUiState(isLoading = !hasFailed, failed = hasFailed)
 
             val needsJacket = current.temperature < COLD_BELOW || isWet(current.code)
+            val isHot = current.temperature > HOT_ABOVE
             WeatherUiState(
                 isLoading = false,
                 temperature = current.temperature.roundToInt(),
                 condition = conditionFor(current.code),
                 advice = when {
                     needsJacket -> R.string.rw_weather_advice_jacket
-                    current.temperature > HOT_ABOVE -> R.string.rw_weather_advice_light
+                    isHot -> R.string.rw_weather_advice_light
                     else -> R.string.rw_weather_advice_mild
                 },
                 items = items.filter { item ->
                     val isOuterwear = item.category.equals(OUTERWEAR, ignoreCase = true)
-                    !item.archived && if (needsJacket) isOuterwear else !isOuterwear
+                    !item.archived && when {
+                        needsJacket -> isOuterwear
+                        isHot -> !isOuterwear
+                        else -> true
+                    }
                 },
             )
         }.stateIn(
