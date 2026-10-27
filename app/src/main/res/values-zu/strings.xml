@@ -385,6 +385,13 @@
     <string name="rw_home_notifications">Izaziso</string>
     <string name="rw_home_weather_title">Iziphakamiso zesimo sezulu</string>
     <string name="rw_home_weather_body">Bona ukuthi uzogqokani ngesimo sezulu sanamuhla</string>
+    <string name="rw_weather_sunny">Kunelanga</string>
+    <string name="rw_weather_cloudy">Kunamafu</string>
+    <string name="rw_weather_rainy">Kuyana</string>
+    <string name="rw_weather_stormy">Kunesiphepho</string>
+    <string name="rw_weather_advice_jacket">Gqoka ijakhethi namuhla</string>
+    <string name="rw_weather_advice_light">Gqoka okuthile okulula namuhla</string>
+    <string name="rw_weather_advice_mild">Ayidingeki ijakhethi namuhla</string>
     <plurals name="rw_home_laundry_alert">
         <item quantity="one">Into engu-%d idinga ukuwashwa</item>
         <item quantity="other">Izinto ezingu-%d zidinga ukuwashwa</item>

@@ -483,6 +483,13 @@
     <string name="rw_home_notifications">Notifications</string>
     <string name="rw_home_weather_title">Weather suggestions</string>
     <string name="rw_home_weather_body">See what to wear for today\'s weather</string>
+    <string name="rw_weather_sunny">Sunny</string>
+    <string name="rw_weather_cloudy">Cloudy</string>
+    <string name="rw_weather_rainy">Rainy</string>
+    <string name="rw_weather_stormy">Stormy</string>
+    <string name="rw_weather_advice_jacket">Wear a jacket today</string>
+    <string name="rw_weather_advice_light">Wear something light today</string>
+    <string name="rw_weather_advice_mild">No jacket needed today</string>
     <plurals name="rw_home_laundry_alert">
         <item quantity="one">%d item needs a wash</item>
         <item quantity="other">%d items need a wash</item>
