@@ -16,6 +16,7 @@ data class ItemDraft(
         NAME_TOO_LONG,
         PRICE_NOT_A_NUMBER,
         PRICE_NEGATIVE,
+        PRICE_TOO_HIGH,
         WEAR_LIMIT_OUT_OF_RANGE,
     }
 
@@ -28,8 +29,10 @@ data class ItemDraft(
             val price = priceText.trim()
             if (price.isNotEmpty()) {
                 val parsed = price.replace(',', '.').toDoubleOrNull()
-                if (parsed == null) add(Problem.PRICE_NOT_A_NUMBER)
+                // "NaN" and "Infinity" parse as doubles, but they are not prices.
+                if (parsed == null || !parsed.isFinite()) add(Problem.PRICE_NOT_A_NUMBER)
                 else if (parsed < 0) add(Problem.PRICE_NEGATIVE)
+                else if (parsed > MAX_PRICE) add(Problem.PRICE_TOO_HIGH)
             }
 
             if (wearLimit !in RunwaySettings.MIN_WEAR_LIMIT..RunwaySettings.MAX_WEAR_LIMIT) {
@@ -57,5 +60,8 @@ data class ItemDraft(
     companion object {
         // Same limit the API enforces.
         const val MAX_NAME = 120
+
+        // Stops a slip of the finger saving a shirt worth millions.
+        const val MAX_PRICE = 1_000_000.0
     }
 }

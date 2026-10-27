@@ -1,5 +1,6 @@
 package com.example.runway.ui.outfits
 
+import androidx.annotation.StringRes
 import com.example.runway.domain.model.Item
 import com.example.runway.domain.model.Outfit
 import com.example.runway.domain.model.RatingSummary
@@ -24,7 +25,7 @@ data class OutfitDetailUiState(
     val deleted: Boolean = false,
     // The day this outfit was just scheduled for, so the screen can confirm it.
     val scheduledFor: java.time.LocalDate? = null,
-    val errorMessage: String? = null,
+    @StringRes val errorMessage: Int? = null,
 ) {
     // Only offer to save when there is something to save.
     val hasChanges: Boolean

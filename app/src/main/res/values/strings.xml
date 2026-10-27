@@ -2,7 +2,7 @@
 
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <string name="app_name">RUNWAY</string>
+    <string name="app_name" translatable="false">RUNWAY</string>
 
     <!--Shared actions-->
     <string name="rw_action_back">Back</string>
@@ -55,8 +55,8 @@
     <!--Sync banner-->
     <string name="rw_sync_offline">You are offline</string>
     <plurals name="rw_sync_queued">
-        <item quantity="one">Offline — %d change queued</item>
-        <item quantity="other">Offline — %d changes queued</item>
+        <item quantity="one">Offline: %d change queued</item>
+        <item quantity="other">Offline: %d changes queued</item>
     </plurals>
     <string name="rw_sync_syncing">Syncing…</string>
 
@@ -69,11 +69,11 @@
     <string name="rw_stub_outfits_body">Saved outfits, the builder and the weekly planner land here.</string>
     <string name="rw_stub_profile_title">Profile</string>
     <string name="rw_stub_profile_body">Your stats, swap listings and settings land here.</string>
-    <string name="rw_stub_add">Add-item flow — camera, cutout and tagging.</string>
+    <string name="rw_stub_add">Add-item flow: camera, cutout and tagging.</string>
 
     <!--Onboarding-->
     <string name="rw_onboarding_title">Welcome to Runway</string>
-    <string name="rw_onboarding_body">Your digital closet — snap your clothes, plan outfits and never wonder what to wear. The three intro slides land here.</string>
+    <string name="rw_onboarding_body">Your digital closet. Snap your clothes, plan outfits and never wonder what to wear. The three intro slides land here.</string>
     <string name="rw_onboarding_continue">Get started</string>
 
     <!--Biometric unlock-->
@@ -103,8 +103,8 @@
     <string name="rw_item_detail_size">size %1$s</string>
     <string name="rw_item_detail_wears">Times worn</string>
     <string name="rw_item_detail_cost_per_wear">Cost per wear</string>
-    <string name="rw_item_detail_rand">R%1$.2f</string>
-    <string name="rw_item_detail_no_cost">\u2014</string>
+    <string name="rw_item_detail_rand" translatable="false">R%1$.2f</string>
+    <string name="rw_item_detail_no_cost" translatable="false">–</string>
     <string name="rw_item_detail_paid">Paid R%1$.2f</string>
     <string name="rw_item_detail_use_in_outfit">Use in an outfit</string>
     <string name="rw_item_detail_find_matches">Find matches</string>
@@ -186,6 +186,7 @@
     <string name="rw_tag_error_name_long">Keep the name under %1$d characters</string>
     <string name="rw_tag_error_price_number">Use numbers only, like 349.99</string>
     <string name="rw_tag_error_price_negative">A price can\'t be negative</string>
+    <string name="rw_tag_error_price_too_high">Keep the price under R1 000 000</string>
     <string name="rw_tag_brand_example">For example: Uniqlo</string>
     <string name="rw_tag_size_example">For example: M or 32</string>
     <string name="rw_tag_price_example">For example: 349.99</string>
@@ -197,7 +198,35 @@
     <string name="rw_category_bottom">Bottom</string>
     <string name="rw_category_outerwear">Outerwear</string>
     <string name="rw_category_shoes">Shoes</string>
+    <string name="rw_category_dress">Dress</string>
     <string name="rw_category_other">Other</string>
+
+    <!-- Built in colour names. The English name is what gets saved, these are only for display. -->
+    <string name="rw_colour_white">White</string>
+    <string name="rw_colour_cream">Cream</string>
+    <string name="rw_colour_beige">Beige</string>
+    <string name="rw_colour_taupe">Taupe</string>
+    <string name="rw_colour_tan">Tan</string>
+    <string name="rw_colour_camel">Camel</string>
+    <string name="rw_colour_brown">Brown</string>
+    <string name="rw_colour_black">Black</string>
+    <string name="rw_colour_charcoal">Charcoal</string>
+    <string name="rw_colour_grey">Grey</string>
+    <string name="rw_colour_navy">Navy</string>
+    <string name="rw_colour_blue">Blue</string>
+    <string name="rw_colour_light_blue">Light blue</string>
+    <string name="rw_colour_teal">Teal</string>
+    <string name="rw_colour_green">Green</string>
+    <string name="rw_colour_sage">Sage</string>
+    <string name="rw_colour_olive">Olive</string>
+    <string name="rw_colour_yellow">Yellow</string>
+    <string name="rw_colour_mustard">Mustard</string>
+    <string name="rw_colour_orange">Orange</string>
+    <string name="rw_colour_red">Red</string>
+    <string name="rw_colour_burgundy">Burgundy</string>
+    <string name="rw_colour_pink">Pink</string>
+    <string name="rw_colour_purple">Purple</string>
+    <string name="rw_colour_lilac">Lilac</string>
 
     <!-- Wardrobe tab. -->
     <string name="rw_wardrobe_refresh">Refresh</string>
@@ -213,7 +242,14 @@
     <string name="rw_wardrobe_filter">Filter wardrobe</string>
     <string name="rw_wardrobe_sort">Sort wardrobe</string>
     <string name="rw_wardrobe_no_matches">No items match your search or category.</string>
-    <string name="rw_wardrobe_price">R%1$.0f</string>
+    <string name="rw_wardrobe_filter_all">All</string>
+    <string name="rw_wardrobe_filter_tops">Tops</string>
+    <string name="rw_wardrobe_filter_bottoms">Bottoms</string>
+    <string name="rw_wardrobe_filter_outerwear">Outerwear</string>
+    <string name="rw_wardrobe_filter_dresses">Dresses</string>
+    <string name="rw_wardrobe_filter_shoes">Shoes</string>
+    <string name="rw_wardrobe_filter_other">Other</string>
+    <string name="rw_wardrobe_price" translatable="false">R%1$.0f</string>
 
     <plurals name="rw_wardrobe_count">
         <item quantity="one">%1$d item</item>
@@ -256,88 +292,88 @@
     <string name="rw_sheet_confirm_title">Are you sure?</string>
     <string name="rw_sheet_confirm_body">A generic confirm/cancel action lands here.</string>
 
-    <!--Component catalog-->
-    <string name="rw_catalog_title">Component catalog</string>
-    <string name="rw_catalog_subtitle">Runway design system</string>
-    <string name="rw_catalog_open">Open component catalog</string>
+    <!--Component catalog. Developer screen only, so it is not translated.-->
+    <string name="rw_catalog_title" translatable="false">Component catalog</string>
+    <string name="rw_catalog_subtitle" translatable="false">Runway design system</string>
+    <string name="rw_catalog_open" translatable="false">Open component catalog</string>
 
-    <string name="rw_catalog_buttons">Buttons</string>
-    <string name="rw_catalog_icon_buttons">Icon buttons</string>
-    <string name="rw_catalog_chips">Chips</string>
-    <string name="rw_catalog_inputs">Inputs</string>
-    <string name="rw_catalog_selection">Selection controls</string>
-    <string name="rw_catalog_data">Data display</string>
-    <string name="rw_catalog_rows">List rows</string>
-    <string name="rw_catalog_feedback">Feedback</string>
-    <string name="rw_catalog_empty">Empty states</string>
-    <string name="rw_catalog_identity">Identity</string>
-    <string name="rw_catalog_typography">Typography</string>
-    <string name="rw_catalog_icons">Icons</string>
+    <string name="rw_catalog_buttons" translatable="false">Buttons</string>
+    <string name="rw_catalog_icon_buttons" translatable="false">Icon buttons</string>
+    <string name="rw_catalog_chips" translatable="false">Chips</string>
+    <string name="rw_catalog_inputs" translatable="false">Inputs</string>
+    <string name="rw_catalog_selection" translatable="false">Selection controls</string>
+    <string name="rw_catalog_data" translatable="false">Data display</string>
+    <string name="rw_catalog_rows" translatable="false">List rows</string>
+    <string name="rw_catalog_feedback" translatable="false">Feedback</string>
+    <string name="rw_catalog_empty" translatable="false">Empty states</string>
+    <string name="rw_catalog_identity" translatable="false">Identity</string>
+    <string name="rw_catalog_typography" translatable="false">Typography</string>
+    <string name="rw_catalog_icons" translatable="false">Icons</string>
 
-    <string name="rw_catalog_primary">Primary</string>
-    <string name="rw_catalog_secondary">Secondary</string>
-    <string name="rw_catalog_outline">Outline</string>
-    <string name="rw_catalog_ghost">Ghost</string>
-    <string name="rw_catalog_danger">Delete item</string>
-    <string name="rw_catalog_small">Small</string>
-    <string name="rw_catalog_block">Full width</string>
-    <string name="rw_catalog_disabled">Disabled</string>
+    <string name="rw_catalog_primary" translatable="false">Primary</string>
+    <string name="rw_catalog_secondary" translatable="false">Secondary</string>
+    <string name="rw_catalog_outline" translatable="false">Outline</string>
+    <string name="rw_catalog_ghost" translatable="false">Ghost</string>
+    <string name="rw_catalog_danger" translatable="false">Delete item</string>
+    <string name="rw_catalog_small" translatable="false">Small</string>
+    <string name="rw_catalog_block" translatable="false">Full width</string>
+    <string name="rw_catalog_disabled" translatable="false">Disabled</string>
 
-    <string name="rw_catalog_show_sheet">Show bottom sheet</string>
-    <string name="rw_catalog_show_dialog">Show confirm dialog</string>
-    <string name="rw_catalog_show_destructive">Show destructive dialog</string>
-    <string name="rw_catalog_show_toast">Show toast</string>
-    <string name="rw_catalog_toast_text">Saved to your wardrobe</string>
-    <string name="rw_catalog_sheet_title">Filter wardrobe</string>
-    <string name="rw_catalog_sheet_body">Bottom sheets carry the same 24dp top corners and drag handle everywhere they appear.</string>
-    <string name="rw_catalog_dialog_title">Discard changes?</string>
-    <string name="rw_catalog_dialog_body">Anything you have edited on this screen will be lost.</string>
-    <string name="rw_catalog_dialog_confirm">Discard</string>
-    <string name="rw_catalog_delete_title">Delete this item?</string>
-    <string name="rw_catalog_delete_body">It will be removed from your wardrobe and from any outfits that use it.</string>
+    <string name="rw_catalog_show_sheet" translatable="false">Show bottom sheet</string>
+    <string name="rw_catalog_show_dialog" translatable="false">Show confirm dialog</string>
+    <string name="rw_catalog_show_destructive" translatable="false">Show destructive dialog</string>
+    <string name="rw_catalog_show_toast" translatable="false">Show toast</string>
+    <string name="rw_catalog_toast_text" translatable="false">Saved to your wardrobe</string>
+    <string name="rw_catalog_sheet_title" translatable="false">Filter wardrobe</string>
+    <string name="rw_catalog_sheet_body" translatable="false">Bottom sheets carry the same 24dp top corners and drag handle everywhere they appear.</string>
+    <string name="rw_catalog_dialog_title" translatable="false">Discard changes?</string>
+    <string name="rw_catalog_dialog_body" translatable="false">Anything you have edited on this screen will be lost.</string>
+    <string name="rw_catalog_dialog_confirm" translatable="false">Discard</string>
+    <string name="rw_catalog_delete_title" translatable="false">Delete this item?</string>
+    <string name="rw_catalog_delete_body" translatable="false">It will be removed from your wardrobe and from any outfits that use it.</string>
 
-    <string name="rw_catalog_field_label">Brand</string>
-    <string name="rw_catalog_field_hint">Optional</string>
-    <string name="rw_catalog_field_placeholder">e.g. Country Road</string>
-    <string name="rw_catalog_notes_label">Notes</string>
-    <string name="rw_catalog_error_label">Price</string>
-    <string name="rw_catalog_error_text">Enter a price above zero</string>
+    <string name="rw_catalog_field_label" translatable="false">Brand</string>
+    <string name="rw_catalog_field_hint" translatable="false">Optional</string>
+    <string name="rw_catalog_field_placeholder" translatable="false">e.g. Country Road</string>
+    <string name="rw_catalog_notes_label" translatable="false">Notes</string>
+    <string name="rw_catalog_error_label" translatable="false">Price</string>
+    <string name="rw_catalog_error_text" translatable="false">Enter a price above zero</string>
 
-    <string name="rw_catalog_section_action">See all</string>
-    <string name="rw_catalog_empty_title">Your wardrobe is empty</string>
-    <string name="rw_catalog_empty_body">Add your first piece and it will show up here.</string>
-    <string name="rw_catalog_empty_action">Add an item</string>
+    <string name="rw_catalog_section_action" translatable="false">See all</string>
+    <string name="rw_catalog_empty_title" translatable="false">Your wardrobe is empty</string>
+    <string name="rw_catalog_empty_body" translatable="false">Add your first piece and it will show up here.</string>
+    <string name="rw_catalog_empty_action" translatable="false">Add an item</string>
 
-    <string name="rw_catalog_segment_day">Day</string>
-    <string name="rw_catalog_segment_night">Night</string>
-    <string name="rw_catalog_segment_system">System</string>
+    <string name="rw_catalog_segment_day" translatable="false">Day</string>
+    <string name="rw_catalog_segment_night" translatable="false">Night</string>
+    <string name="rw_catalog_segment_system" translatable="false">System</string>
 
-    <string name="rw_catalog_stat_items">Items owned</string>
-    <string name="rw_catalog_stat_delta">+3 this month</string>
-    <string name="rw_catalog_stat_outfits">Outfits built</string>
-    <string name="rw_catalog_stat_cpw">Avg cost per wear</string>
+    <string name="rw_catalog_stat_items" translatable="false">Items owned</string>
+    <string name="rw_catalog_stat_delta" translatable="false">+3 this month</string>
+    <string name="rw_catalog_stat_outfits" translatable="false">Outfits built</string>
+    <string name="rw_catalog_stat_cpw" translatable="false">Avg cost per wear</string>
 
-    <string name="rw_catalog_row_notifications">Notifications</string>
-    <string name="rw_catalog_row_language">Language</string>
-    <string name="rw_catalog_row_language_value">English</string>
-    <string name="rw_catalog_row_wash">Wash reminders</string>
-    <string name="rw_catalog_row_signout">Sign out</string>
+    <string name="rw_catalog_row_notifications" translatable="false">Notifications</string>
+    <string name="rw_catalog_row_language" translatable="false">Language</string>
+    <string name="rw_catalog_row_language_value" translatable="false">English</string>
+    <string name="rw_catalog_row_wash" translatable="false">Wash reminders</string>
+    <string name="rw_catalog_row_signout" translatable="false">Sign out</string>
 
-    <string name="rw_catalog_stars_value">Confidence: %1$d / %2$d</string>
+    <string name="rw_catalog_stars_value" translatable="false">Confidence: %1$d / %2$d</string>
 
     <!-- Specimen text for the type scale. Each names the style it is set in, so a
          screenshot of the catalog doubles as the typography reference. -->
-    <string name="rw_type_display_large">Display Large · 22sp serif</string>
-    <string name="rw_type_display">Display · 17sp serif</string>
-    <string name="rw_type_label">Label · 12sp uppercase</string>
-    <string name="rw_type_body">Body · 14sp — the default for row labels and input text.</string>
-    <string name="rw_type_secondary">Secondary · 13sp — subtitles and supporting copy.</string>
-    <string name="rw_type_micro">Micro · 11sp — tile captions and the smallest supporting text.</string>
+    <string name="rw_type_display_large" translatable="false">Display Large · 22sp serif</string>
+    <string name="rw_type_display" translatable="false">Display · 17sp serif</string>
+    <string name="rw_type_label" translatable="false">Label · 12sp uppercase</string>
+    <string name="rw_type_body" translatable="false">Body · 14sp, the default for row labels and input text.</string>
+    <string name="rw_type_secondary" translatable="false">Secondary · 13sp, subtitles and supporting copy.</string>
+    <string name="rw_type_micro" translatable="false">Micro · 11sp, tile captions and the smallest supporting text.</string>
 
-    <string name="rw_catalog_wear_meter">Wears before wash</string>
-    <string name="rw_catalog_badge_new">New</string>
-    <string name="rw_catalog_badge_wash">Wash</string>
-    <string name="rw_catalog_badge_swap">Swap</string>
+    <string name="rw_catalog_wear_meter" translatable="false">Wears before wash</string>
+    <string name="rw_catalog_badge_new" translatable="false">New</string>
+    <string name="rw_catalog_badge_wash" translatable="false">Wash</string>
+    <string name="rw_catalog_badge_swap" translatable="false">Swap</string>
 
     <!--Settings-->
     <string name="rw_settings_title">Settings</string>
@@ -354,9 +390,11 @@
     <string name="rw_settings_theme_apply">Apply</string>
 
     <string name="rw_settings_language">Language</string>
-    <string name="rw_settings_language_en">English</string>
-    <string name="rw_settings_language_af">Afrikaans</string>
-    <string name="rw_settings_language_zu">isiZulu</string>
+    <string name="rw_settings_language_en" translatable="false">English</string>
+    <string name="rw_settings_language_af" translatable="false">Afrikaans</string>
+    <string name="rw_settings_language_zu" translatable="false">isiZulu</string>
+    <string name="rw_language_hint">Choose the language Runway is shown in.</string>
+    <string name="rw_language_selected">Selected</string>
 
     <string name="rw_settings_security">Security</string>
     <string name="rw_settings_biometrics">Biometric unlock</string>
@@ -396,7 +434,7 @@
     <string name="rw_outfits_empty_title">No saved outfits yet</string>
     <string name="rw_outfit_loading">Loading outfit\u2026</string>
     <string name="rw_outfit_no_preview">Add garments to see this outfit laid out.</string>
-    <string name="rw_outfit_item_with_size">%1$s (%2$s)</string>
+    <string name="rw_outfit_item_with_size" translatable="false">%1$s (%2$s)</string>
     <string name="rw_outfit_name">Name</string>
     <string name="rw_outfit_garments">Garments</string>
     <string name="rw_outfit_no_garments">This outfit has no garments left in it.</string>
@@ -474,7 +512,7 @@
     <string name="rw_stat_outfits">Outfits</string>
     <string name="rw_stat_wears">Wears</string>
     <string name="rw_stat_value">Value</string>
-    <string name="rw_stat_unknown">–</string>
+    <string name="rw_stat_unknown" translatable="false">–</string>
 
     <!--Profile-->
     <string name="rw_profile_member_since">Member since %1$s</string>
@@ -551,5 +589,23 @@
 
     <string name="rw_outfit_load_failed_title">Couldn\'t open this outfit</string>
     <string name="rw_outfit_load_failed_body">Check your connection and try again.</string>
+
+    <!--Errors shown in a toast-->
+    <string name="rw_error_timeout">The server took too long to answer. Please try again.</string>
+    <string name="rw_error_offline_queued">You are offline. Changes are saved and will sync later.</string>
+    <string name="rw_error_offline">You are offline. Please try again once you have a connection.</string>
+    <string name="rw_error_generic">Something went wrong. Please try again.</string>
+    <string name="rw_error_bad_request">Some of the details were not accepted. Please check them and try again.</string>
+    <string name="rw_error_session_expired">Your session has expired. Please sign in again.</string>
+    <string name="rw_error_not_found">That item no longer exists.</string>
+    <string name="rw_error_server">The server is having trouble. Please try again shortly.</string>
+    <string name="rw_error_photo_unreadable">That photo could not be read</string>
+    <string name="rw_error_check_fields">Check the highlighted fields</string>
+    <string name="rw_error_item_save_failed">Could not save the item</string>
+    <string name="rw_error_item_delete_failed">Could not delete the item</string>
+    <string name="rw_error_wardrobe_load_failed">Could not load your wardrobe</string>
+    <string name="rw_error_name_required">A name is required</string>
+    <string name="rw_error_category_required">Choose a category</string>
+    <string name="rw_error_outfit_name_required">Give the outfit a name</string>
 
 </resources>

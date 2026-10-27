@@ -13,6 +13,11 @@ data class Outfit(
     val layers: List<OutfitLayer> = emptyList(),
 ) {
     val garmentCount: Int get() = itemIds.size
+
+    companion object {
+        // Same limit the API enforces.
+        const val MAX_NAME = 120
+    }
 }
 
 // One garment on the canvas. x and y are the centre as a fraction of the canvas, so it fits any screen.

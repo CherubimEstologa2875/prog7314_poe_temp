@@ -2,12 +2,14 @@ package com.example.runway.ui.additem
 
 import android.graphics.Bitmap
 import android.net.Uri
+import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import com.example.runway.R
 import com.example.runway.RunwayApplication
 import com.example.runway.data.image.SubjectCutout
 import com.example.runway.data.local.ItemImageStore
@@ -32,7 +34,7 @@ data class AddItemState(
     val cutoutFailed: Boolean = false,
     val isSaving: Boolean = false,
     val saved: Boolean = false,
-    val errorMessage: String? = null,
+    @StringRes val errorMessage: Int? = null,
 ) {
     // What actually gets saved and shown.
     val chosen: Bitmap? get() = if (useCutout) cutout ?: original else original
@@ -55,7 +57,7 @@ class AddItemViewModel(
         viewModelScope.launch {
             val bitmap = imageStore.decode(uri)
             if (bitmap == null) {
-                _state.update { it.copy(isProcessing = false, errorMessage = "That photo could not be read") }
+                _state.update { it.copy(isProcessing = false, errorMessage = R.string.rw_error_photo_unreadable) }
                 return@launch
             }
             _state.update { it.copy(original = bitmap, cutout = null, isProcessing = false) }
@@ -83,7 +85,7 @@ class AddItemViewModel(
     fun onSave(draft: ItemDraft) {
         // The button is disabled until the draft is valid, so this is just a safety net.
         if (!draft.isValid) {
-            _state.update { it.copy(errorMessage = "Check the highlighted fields") }
+            _state.update { it.copy(errorMessage = R.string.rw_error_check_fields) }
             return
         }
         _state.update { it.copy(isSaving = true, errorMessage = null) }
@@ -97,8 +99,8 @@ class AddItemViewModel(
                 // wardrobe rather than trying to open a detail screen for an id
                 // it does not have.
                 _state.update { it.copy(isSaving = false, saved = true) }
-            }.onFailure { error ->
-                _state.update { it.copy(isSaving = false, errorMessage = error.message ?: "Could not save the item") }
+            }.onFailure {
+                _state.update { it.copy(isSaving = false, errorMessage = R.string.rw_error_item_save_failed) }
             }
         }
     }

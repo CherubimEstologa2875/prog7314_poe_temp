@@ -8,6 +8,7 @@ import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import com.example.runway.R
 import com.example.runway.RunwayApplication
 import com.example.runway.data.remote.api.toUserMessage
 import com.example.runway.domain.model.Item
@@ -129,7 +130,7 @@ class OutfitDetailViewModel(
         val outfit = state.outfit ?: return
         val name = state.name.trim()
         if (name.isEmpty()) {
-            _uiState.update { it.copy(errorMessage = "Give the outfit a name") }
+            _uiState.update { it.copy(errorMessage = R.string.rw_error_outfit_name_required) }
             return
         }
 

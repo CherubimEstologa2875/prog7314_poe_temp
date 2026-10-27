@@ -14,6 +14,7 @@ import com.example.runway.R
 import com.example.runway.RunwayApplication
 import com.example.runway.domain.model.Item
 import com.example.runway.ui.components.EmptyStateView
+import com.example.runway.ui.components.Labels
 import com.example.runway.ui.components.RunwayBottomSheet
 import com.example.runway.ui.components.RunwayToast
 import com.example.runway.ui.navigation.NavArgs
@@ -84,7 +85,7 @@ class DayDetailSheet : RunwayBottomSheet(R.layout.sheet_day_detail) {
                 .bind(outfit, itemsById, viewLifecycleOwner.lifecycleScope)
             content.findViewById<TextView>(R.id.dayDetailOutfitName).text = outfit.name
             content.findViewById<TextView>(R.id.dayDetailOutfitMeta).text = listOfNotNull(
-                outfit.occasion,
+                Labels.occasion(requireContext(), outfit.occasion),
                 resources.getQuantityString(R.plurals.rw_outfits_pieces, outfit.garmentCount, outfit.garmentCount),
             ).joinToString(" · ")
             card.setOnClickListener {

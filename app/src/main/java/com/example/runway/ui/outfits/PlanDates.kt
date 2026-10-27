@@ -12,9 +12,12 @@ object PlanDates {
     fun label(context: Context, date: LocalDate, today: LocalDate = LocalDate.now()): String = when (date) {
         today -> context.getString(R.string.rw_plan_today)
         today.plusDays(1) -> context.getString(R.string.rw_plan_tomorrow)
-        else -> date.format(DateTimeFormatter.ofPattern("EEE d MMM", Locale.getDefault()))
+        else -> date.format(DateTimeFormatter.ofPattern("EEE d MMM", locale(context)))
     }
 
-    fun monthTitle(month: java.time.YearMonth): String =
-        month.format(DateTimeFormatter.ofPattern("MMMM yyyy", Locale.getDefault()))
+    fun monthTitle(context: Context, month: java.time.YearMonth): String =
+        month.format(DateTimeFormatter.ofPattern("MMMM yyyy", locale(context)))
+
+    // Uses the language picked in the app, which is not always the phone's language.
+    fun locale(context: Context): Locale = context.resources.configuration.locales[0]
 }

@@ -51,6 +51,19 @@ class ItemDraftTest {
     }
 
     @Test
+    fun `a price over the limit is flagged`() {
+        assertTrue(valid.copy(priceText = "1000000").isValid)
+        assertTrue(Problem.PRICE_TOO_HIGH in valid.copy(priceText = "1000000.01").problems)
+        assertTrue(Problem.PRICE_TOO_HIGH in valid.copy(priceText = "99999999999").problems)
+    }
+
+    @Test
+    fun `NaN and Infinity are not prices`() {
+        assertTrue(Problem.PRICE_NOT_A_NUMBER in valid.copy(priceText = "NaN").problems)
+        assertTrue(Problem.PRICE_NOT_A_NUMBER in valid.copy(priceText = "Infinity").problems)
+    }
+
+    @Test
     fun `a comma works as the decimal point`() {
         val draft = valid.copy(priceText = "349,99")
         assertTrue(draft.isValid)

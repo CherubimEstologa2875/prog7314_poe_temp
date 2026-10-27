@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.runway.R
 import com.example.runway.ui.components.EmptyStateView
+import com.example.runway.ui.components.Labels
 import com.example.runway.ui.components.ListRowView
 import com.example.runway.ui.components.RunwayBottomSheet
 import com.example.runway.ui.components.RunwayToast
@@ -63,7 +64,7 @@ class PickOutfitSheet : RunwayBottomSheet(R.layout.sheet_pick_outfit) {
                 options.addView(ListRowView(requireContext()).apply {
                     setIcon(R.drawable.ic_rw_sparkles)
                     label = outfit.name
-                    value = outfit.occasion
+                    value = Labels.occasion(requireContext(), outfit.occasion)
                     showChevron = true
                     onClick { viewModel.onPickOutfit(outfit.id) }
                 })

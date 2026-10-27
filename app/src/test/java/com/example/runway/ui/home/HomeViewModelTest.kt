@@ -1,5 +1,6 @@
 package com.example.runway.ui.home
 
+import com.example.runway.R
 import com.example.runway.MainDispatcherRule
 import com.example.runway.data.auth.AuthSession
 import com.example.runway.domain.model.Item
@@ -225,7 +226,7 @@ class HomeViewModelTest {
         assertNull(vm.uiState.value.wornOutfitId)
         assertFalse(vm.uiState.value.isWearing)
         assertEquals(
-            "You are offline. Please try again once you have a connection.",
+            R.string.rw_error_offline,
             vm.uiState.value.errorMessage,
         )
     }

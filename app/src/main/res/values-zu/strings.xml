@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--isiZulu. Anything missing here falls back to the English in values/strings.xml.-->
+<resources>
+
+    <!--Shared actions-->
+    <string name="rw_action_back">Emuva</string>
+    <string name="rw_action_close">Vala</string>
+    <string name="rw_action_save">Londoloza</string>
+    <string name="rw_action_cancel">Khansela</string>
+    <string name="rw_action_delete">Susa</string>
+    <string name="rw_action_add">Engeza into</string>
+    <string name="rw_action_edit">Hlela</string>
+    <string name="rw_action_favourite">Intandokazi</string>
+
+    <!--Navigation-->
+    <string name="rw_nav_home">Ikhaya</string>
+    <string name="rw_nav_wardrobe">Ikhabethe</string>
+    <string name="rw_nav_outfits">Izembatho</string>
+    <string name="rw_nav_profile">Iphrofayela</string>
+
+    <!--Authentication-->
+    <string name="rw_auth_login_title">Ngena ku-Runway</string>
+    <string name="rw_auth_login_body">Sebenzisa i-akhawunti yakho ye-Google ukuze uvumelanise ikhabethe lakho kuwo wonke amadivayisi.</string>
+    <string name="rw_auth_fingerprint">Vula ngesigxivizo somunwe ngokuzayo</string>
+    <string name="rw_auth_google_button">Qhubeka nge-Google</string>
+    <string name="rw_auth_terms">Ngokuqhubeka uyavumelana nemigomo ye-Runway kanye nenqubomgomo yobumfihlo.</string>
+    <string name="rw_auth_sign_in_failed">Asikwazanga ukukungenisa. Sicela uzame futhi.</string>
+    <string name="rw_auth_cancelled">Ukungena kukhanseliwe. Sicela uzame futhi.</string>
+    <string name="rw_auth_no_account">Ayikho i-akhawunti ye-Google kule divayisi. Engeza eyodwa kuzilungiselelo, bese uzama futhi.</string>
+    <string name="rw_auth_config_error">Ukungena akutholakali okwesikhashana. Sicela uzame futhi emuva kwesikhathi.</string>
+    <string name="rw_auth_unregistered">I-Google ayiyamukelanga le nguqulo ye-Runway. Isitifiketi sayo sokusayina kumele sibhaliswe kuphrojekthi ye-Firebase ngaphambi kokuthi ukungena kusebenze kule divayisi.</string>
+    <string name="rw_auth_network_error">Asikwazanga ukufinyelela ku-Google. Hlola uxhumano lwakho bese uzama futhi.</string>
+    <string name="rw_auth_invalid_account">I-Google ibuyise i-akhawunti engaphelele. Sicela ukhethe enye i-akhawunti.</string>
+    <string name="rw_auth_sign_out_failed">Uphumile kule divayisi, kodwa ukuphuma ku-Google akuphelelanga.</string>
+    <string name="rw_auth_no_session">Iseshini yakho ayisatholakali. Sicela ungene futhi.</string>
+    <string name="rw_auth_logo_content_description">Ilogo ye-Runway</string>
+    <string name="rw_auth_fingerprint_unavailable">Ukuvula ngesigxivizo somunwe akutholakali kule divayisi.</string>
+    <string name="rw_auth_signing_in">Iyangena…</string>
+
+    <string name="rw_profile_sign_out">Phuma</string>
+    <string name="rw_profile_sign_out_title">Phuma ku-Runway?</string>
+    <string name="rw_profile_sign_out_body">Kuzodingeka ukhethe i-akhawunti yakho ye-Google futhi ngokuzayo.</string>
+
+    <!--Component accessibility-->
+    <plurals name="rw_star_rating">
+        <item quantity="one">Inkanyezi engu-%d</item>
+        <item quantity="other">Izinkanyezi ezingu-%d</item>
+    </plurals>
+    <string name="rw_rating_current">Kulinganiswe ngo-%1$d kwangu-%2$d</string>
+
+    <!--Sync banner-->
+    <string name="rw_sync_offline">Awuxhunyiwe ku-inthanethi</string>
+    <plurals name="rw_sync_queued">
+        <item quantity="one">Awuxhunyiwe: ushintsho olungu-%d lulindile</item>
+        <item quantity="other">Awuxhunyiwe: izinguquko ezingu-%d zilindile</item>
+    </plurals>
+    <string name="rw_sync_syncing">Iyavumelanisa…</string>
+
+    <!--Stub screens-->
+    <string name="rw_stub_wardrobe_title">Ikhabethe</string>
+    <string name="rw_stub_wardrobe_body">Igridi yekhabethe lakho, ukusesha nezihlungi kuzofika lapha.</string>
+    <string name="rw_stub_outfits_title">Izembatho</string>
+    <string name="rw_stub_outfits_body">Izembatho ezilondoloziwe, umakhi nomhleli wesonto kuzofika lapha.</string>
+    <string name="rw_stub_profile_title">Iphrofayela</string>
+    <string name="rw_stub_profile_body">Izibalo zakho, uhlu lokushintshana nezilungiselelo kuzofika lapha.</string>
+    <string name="rw_stub_add">Ukwengeza into: ikhamera, ukusika nokubeka amathegi.</string>
+
+    <!--Onboarding-->
+    <string name="rw_onboarding_title">Siyakwamukela ku-Runway</string>
+    <string name="rw_onboarding_body">Ikhabethe lakho ledijithali. Thatha izithombe zezingubo zakho, hlela izembatho futhi ungaphinde uzibuze ukuthi uzogqokani. Izilayidi ezintathu zesingeniso zizofika lapha.</string>
+    <string name="rw_onboarding_continue">Qala</string>
+
+    <!--Biometric unlock-->
+    <string name="rw_biometric_title">Vula i-Runway</string>
+    <string name="rw_biometric_body">Sebenzisa isigxivizo somunwe noma ubuso bakho ukuqinisekisa ukuthi nguwe.</string>
+    <string name="rw_biometric_continue">Vula</string>
+    <string name="rw_biometric_helper">Thinta inzwa ukuqinisekisa ukuthi nguwe.</string>
+    <string name="rw_biometric_use_account">Sebenzisa i-akhawunti esikhundleni salokho</string>
+    <string name="rw_biometric_failed">Asikwazanga ukuqinisekisa isigxivizo sakho somunwe. Zama futhi noma usebenzise i-akhawunti yakho.</string>
+    <string name="rw_biometric_not_enrolled">Setha ukuvula ngesigxivizo somunwe noma ngobuso kuzilungiselelo zedivayisi yakho, bese uzama futhi.</string>
+    <string name="rw_biometric_locked_out">Ukuvula nge-biometric kukhiyiwe okwesikhashana. Sebenzisa i-akhawunti yakho, noma uzame futhi emuva kwesikhathi.</string>
+    <string name="rw_biometric_use_account_hint">Sebenzisa i-akhawunti yakho ye-Google ukuze uqhubeke.</string>
+    <string name="rw_biometric_avatar_content_description">I-akhawunti engenile</string>
+
+    <!--Home tab pushes-->
+    <string name="rw_stub_coming_soon">Kuyeza maduze</string>
+    <string name="rw_stub_weather_title">Iziphakamiso zesimo sezulu</string>
+    <string name="rw_stub_weather_body">Izembatho eziphakanyiswa ngokwesimo sezulu sanamuhla zizofika lapha.</string>
+
+    <!--Wardrobe tab pushes-->
+    <string name="rw_stub_item_detail_title">Imininingwane yento</string>
+    <string name="rw_stub_item_detail_body">Izithombe, amathegi, izikhathi egqokwe ngazo nezindleko ngokugqoka kuzofika lapha.</string>
+    <string name="rw_item_detail_loading">Ilayisha into…</string>
+    <string name="rw_item_detail_not_found">Le nto ayitholakalanga.</string>
+
+    <!--Item detail-->
+    <string name="rw_item_detail_size">usayizi %1$s</string>
+    <string name="rw_item_detail_wears">Izikhathi egqokwe ngazo</string>
+    <string name="rw_item_detail_cost_per_wear">Izindleko ngokugqoka</string>
+    <string name="rw_item_detail_paid">Kukhokhwe R%1$.2f</string>
+    <string name="rw_item_detail_use_in_outfit">Sebenzisa esembathweni</string>
+    <string name="rw_item_detail_find_matches">Thola ezihambisanayo</string>
+    <string name="rw_item_detail_delete">Susa ekhabetheni</string>
+    <string name="rw_item_detail_delete_title">Susa le nto?</string>
+    <string name="rw_item_detail_delete_body">Izosuswa ekhabetheni lakho kuwo wonke amadivayisi.</string>
+    <string name="rw_stub_item_edit_title">Hlela into</string>
+    <string name="rw_stub_item_edit_body">Ukuhlela isigaba, umbala, ibhrendi, usayizi, indwangu nentengo kuzofika lapha.</string>
+
+    <!--Smart colour matcher-->
+    <string name="rw_colour_matcher_title">Isifanisi sombala esihlakaniphile</string>
+    <string name="rw_colour_matcher_lead">Izingubo ekhabetheni lakho ezihambisana ne-%1$s.</string>
+    <string name="rw_colour_matcher_empty_title">Akukabi khona okuhambisanayo</string>
+    <string name="rw_colour_matcher_empty_body">Engeza ezinye izinto futhi imibala yazo izoqhathaniswa nalena.</string>
+    <string name="rw_colour_matcher_score">%1$d%% ukufana</string>
+    <string name="rw_colour_matcher_use_in_outfit">Sebenzisa esembathweni</string>
+    <string name="rw_colour_matcher_unknown_colour">Umbala awutholakali</string>
+    <string name="rw_colour_matcher_unknown_body">Le nto ayinawo umbala owaziwayo, ngakho ukufanisa akutholakali. Hlela into ukuze wengeze umbala osekelwayo.</string>
+
+    <string name="rw_stub_laundry_title">Ubhasikidi wokuwasha</string>
+    <string name="rw_stub_laundry_body">Imikhawulo yokugqoka nezikhumbuzi zokuwasha kuzofika lapha.</string>
+
+    <!--Add-item modal flow-->
+    <string name="rw_stub_camera_title">Ikhamera</string>
+    <string name="rw_stub_camera_body">Ukuthatha isithombe sengubo, noma ukukhetha esisodwa egalari, kuzofika lapha.</string>
+    <string name="rw_camera_continue">Sebenzisa isithombe</string>
+    <string name="rw_stub_cutout_title">Ukubuka okusikiwe</string>
+    <string name="rw_stub_cutout_body">Ukubuka kuqala ingemuva lisusiwe ngokuzenzakalelayo kuzofika lapha.</string>
+    <string name="rw_cutout_continue">Kubukeka kahle</string>
+    <string name="rw_stub_tag_item_title">Beka amathegi</string>
+    <string name="rw_stub_tag_item_body">Izinkambu zesigaba, umbala, ibhrendi, usayizi, indwangu nentengo kuzofika lapha.</string>
+    <string name="rw_tag_item_continue">Londoloza into</string>
+
+    <!--Add-item flow-->
+    <string name="rw_camera_title">Thatha isithombe sento</string>
+    <string name="rw_camera_take">Thatha isithombe</string>
+    <string name="rw_camera_retake">Thatha esinye</string>
+    <string name="rw_camera_pick">Khetha isithombe</string>
+    <string name="rw_camera_empty">Beka ingubo phansi iyisicaba, noma uyilengise odongeni olungenalutho, bese uthatha isithombe.</string>
+    <string name="rw_camera_preview_description">Isithombe osanda kusithatha</string>
+
+    <string name="rw_cutout_title">Hlola okusikiwe</string>
+    <string name="rw_cutout_use">Sebenzisa okusikiwe esikhundleni sesithombe</string>
+    <string name="rw_cutout_failed">Ingemuva alikwazanga ukususwa. Isithombe sizolondolozwa njengoba sinjalo.</string>
+    <string name="rw_cutout_retry">Zama futhi</string>
+    <string name="rw_cutout_preview_description">Ingubo isusiwe ingemuva</string>
+
+    <string name="rw_tag_item_title">Beka amathegi entweni</string>
+    <string name="rw_tag_name">Igama</string>
+    <string name="rw_tag_category">Isigaba</string>
+    <string name="rw_tag_colour">Umbala</string>
+    <string name="rw_tag_brand">Ibhrendi</string>
+    <string name="rw_tag_size">Usayizi</string>
+    <string name="rw_tag_price">Intengo</string>
+
+    <string name="rw_tag_name_label">Igama</string>
+    <string name="rw_tag_colour_label">Umbala</string>
+    <string name="rw_tag_brand_label">Ibhrendi</string>
+    <string name="rw_tag_size_label">Usayizi</string>
+    <string name="rw_tag_price_label">Intengo</string>
+
+    <string name="rw_tag_name_example">Isibonelo: Ihembe eliluhlaza okwesibhakabhaka</string>
+    <string name="rw_colour_picker_add">Okwakho</string>
+    <string name="rw_colour_picker_title">Xuba umbala</string>
+    <string name="rw_colour_picker_save">Engeza kuphalethi</string>
+    <string name="rw_colour_picker_name">Qamba lo mbala</string>
+    <string name="rw_colour_picker_name_required">Nika umbala igama</string>
+    <string name="rw_colour_picker_hue">Ithoni</string>
+    <string name="rw_colour_picker_saturation">Ukugcwala</string>
+    <string name="rw_colour_picker_lightness">Ukukhanya</string>
+    <string name="rw_tag_colour_none">Khetha umbala oseduze kakhulu</string>
+    <string name="rw_tag_hint">Igama kuphela elidingekayo</string>
+    <string name="rw_tag_wear_limit">Izikhathi zokugqoka ngaphambi kokuwasha</string>
+    <string name="rw_tag_wear_limit_hint">Uzothola isikhumbuzi sokuwasha uma isigqokwe izikhathi ezingaka.</string>
+    <string name="rw_tag_wear_less">Izikhathi ezimbalwa</string>
+    <string name="rw_tag_wear_more">Izikhathi eziningi</string>
+    <string name="rw_tag_name_required">Kuyadingeka</string>
+    <string name="rw_tag_error_name_long">Igama malibe ngaphansi kwezinhlamvu ezingu-%1$d</string>
+    <string name="rw_tag_error_price_number">Sebenzisa izinombolo kuphela, njenge-349.99</string>
+    <string name="rw_tag_error_price_negative">Intengo ayikwazi ukuba ngaphansi kweqanda</string>
+    <string name="rw_tag_error_price_too_high">Intengo mayibe ngaphansi kuka-R1 000 000</string>
+    <string name="rw_tag_brand_example">Isibonelo: Uniqlo</string>
+    <string name="rw_tag_size_example">Isibonelo: M noma 32</string>
+    <string name="rw_tag_price_example">Isibonelo: 349.99</string>
+    <string name="rw_tag_save">Londoloza into</string>
+    <string name="rw_tag_saving">Iyalondoloza…</string>
+    <string name="rw_tag_saved">Into yengeziwe ekhabetheni lakho</string>
+
+    <string name="rw_category_top">Okwaphezulu</string>
+    <string name="rw_category_bottom">Okwaphansi</string>
+    <string name="rw_category_outerwear">Okwangaphandle</string>
+    <string name="rw_category_shoes">Izicathulo</string>
+    <string name="rw_category_dress">Irokhwe</string>
+    <string name="rw_category_other">Okunye</string>
+
+    <!--Built in colour names-->
+    <string name="rw_colour_white">Mhlophe</string>
+    <string name="rw_colour_cream">Ukhilimu</string>
+    <string name="rw_colour_beige">Bheji</string>
+    <string name="rw_colour_taupe">Mpunga onsundu</string>
+    <string name="rw_colour_tan">Nsundu okhanyayo</string>
+    <string name="rw_colour_camel">Nsundu okwekamela</string>
+    <string name="rw_colour_brown">Nsundu</string>
+    <string name="rw_colour_black">Mnyama</string>
+    <string name="rw_colour_charcoal">Mpunga omnyama</string>
+    <string name="rw_colour_grey">Mpunga</string>
+    <string name="rw_colour_navy">Okwesibhakabhaka okumnyama</string>
+    <string name="rw_colour_blue">Okwesibhakabhaka</string>
+    <string name="rw_colour_light_blue">Okwesibhakabhaka okukhanyayo</string>
+    <string name="rw_colour_teal">Luhlaza okwasolwandle</string>
+    <string name="rw_colour_green">Luhlaza</string>
+    <string name="rw_colour_sage">Luhlaza olumpunga</string>
+    <string name="rw_colour_olive">Luhlaza okomnqumo</string>
+    <string name="rw_colour_yellow">Phuzi</string>
+    <string name="rw_colour_mustard">Phuzi okwesinaphi</string>
+    <string name="rw_colour_orange">Olintshi</string>
+    <string name="rw_colour_red">Bomvu</string>
+    <string name="rw_colour_burgundy">Bomvu okwewayini</string>
+    <string name="rw_colour_pink">Pinki</string>
+    <string name="rw_colour_purple">Phephuli</string>
+    <string name="rw_colour_lilac">Phephuli okhanyayo</string>
+
+    <!--Wardrobe tab-->
+    <string name="rw_wardrobe_refresh">Vuselela</string>
+    <string name="rw_wardrobe_empty_title">Ikhabethe lakho alinalutho</string>
+    <string name="rw_wardrobe_empty_body">Thepha inkinobho ethi + ukuze uthathe isithombe sengubo yakho yokuqala.</string>
+    <string name="rw_wardrobe_cost_per_wear">R%1$.2f ngokugqoka</string>
+    <string name="rw_wardrobe_worn">Igqokwe izikhathi ezingu-%1$d</string>
+    <string name="rw_wardrobe_never_worn">Ayikagqokwa</string>
+    <string name="rw_wardrobe_pending">Ayikavumelaniswa</string>
+    <string name="rw_wardrobe_unsynced">Ezinye izinto zisekule foni kuphela okwamanje.</string>
+    <string name="rw_wardrobe_item_image">Isithombe sale ngubo</string>
+    <string name="rw_wardrobe_search">Sesha ngegama, ibhrendi noma umbala</string>
+    <string name="rw_wardrobe_filter">Hlunga ikhabethe</string>
+    <string name="rw_wardrobe_sort">Hlela ikhabethe ngokulandelana</string>
+    <string name="rw_wardrobe_no_matches">Azikho izinto ezihambisana nosesho lwakho noma isigaba.</string>
+    <string name="rw_wardrobe_filter_all">Konke</string>
+    <string name="rw_wardrobe_filter_tops">Okwaphezulu</string>
+    <string name="rw_wardrobe_filter_bottoms">Okwaphansi</string>
+    <string name="rw_wardrobe_filter_outerwear">Okwangaphandle</string>
+    <string name="rw_wardrobe_filter_dresses">Amarokhwe</string>
+    <string name="rw_wardrobe_filter_shoes">Izicathulo</string>
+    <string name="rw_wardrobe_filter_other">Okunye</string>
+
+    <plurals name="rw_wardrobe_count">
+        <item quantity="one">Into engu-%1$d</item>
+        <item quantity="other">Izinto ezingu-%1$d</item>
+    </plurals>
+
+    <!--Outfits tab pushes-->
+    <string name="rw_stub_outfit_detail_title">Imininingwane yesembatho</string>
+    <string name="rw_stub_outfit_detail_body">Izingubo zesembatho, ukulandelela ukugqoka nesilinganiso sokuzethemba kuzofika lapha.</string>
+
+    <!--Profile tab pushes-->
+    <string name="rw_stub_stats_title">Izibalo nemininingwane</string>
+    <string name="rw_stub_stats_body">Ezigqokwe kakhulu nezigqokwe kancane, kanye nezindleko ngokugqoka, kuzofika lapha.</string>
+    <string name="rw_stub_notifications_title">Izaziso</string>
+    <string name="rw_stub_notifications_body">Izikhumbuzi zokuwasha nezaziso zezicelo zokushintshana kuzofika lapha.</string>
+    <string name="rw_stub_settings_title">Izilungiselelo</string>
+    <string name="rw_stub_settings_body">Itimu, i-biometric, ukuvumelanisa ungaxhunyiwe nolimi kutholakala lapha.</string>
+    <string name="rw_stub_language_title">Ulimi</string>
+    <string name="rw_stub_language_body">IsiNgisi, isiBhunu nesiZulu kuzofika lapha.</string>
+
+    <!--Swap market-->
+    <string name="rw_stub_swap_market_title">Imakethe yokushintshana</string>
+    <string name="rw_stub_swap_market_body">Izinto ezifakwe ohlwini ukuze zishintshwe noma zinikelwe zizofika lapha.</string>
+    <string name="rw_stub_listing_detail_title">Imininingwane yohlu</string>
+    <string name="rw_stub_listing_detail_body">Izithombe, isimo nezicelo zokushintshana kuzofika lapha.</string>
+    <string name="rw_stub_my_listings_title">Uhlu lwami</string>
+    <string name="rw_stub_my_listings_body">Izinto ozifake ohlwini, nezicelo ngazo, kuzofika lapha.</string>
+    <string name="rw_stub_create_listing_title">Faka ukuze kushintshwane</string>
+    <string name="rw_stub_create_listing_body">Ukukhetha into nokuyifaka ohlwini ukuze ishintshwe noma inikelwe kuzofika lapha.</string>
+
+    <!--Bottom sheets-->
+    <string name="rw_sheet_filter_title">Hlunga</string>
+    <string name="rw_sheet_filter_body">Isigaba, umbala nezinye izihlungi zekhabethe kuzofika lapha.</string>
+    <string name="rw_sheet_sort_title">Hlela ngokulandelana</string>
+    <string name="rw_sheet_sort_body">Izinketho zokulandelana zizofika lapha.</string>
+    <string name="rw_sheet_day_detail_title">Imininingwane yosuku</string>
+    <string name="rw_sheet_pick_outfit_title">Khetha isembatho</string>
+    <string name="rw_sheet_confidence_title">Linganisa ukuzethemba kwanamuhla</string>
+    <string name="rw_sheet_confidence_body">Isilawuli sokulinganisa ukuzethemba sizofika lapha.</string>
+    <string name="rw_sheet_confirm_title">Uqinisekile?</string>
+    <string name="rw_sheet_confirm_body">Isenzo esijwayelekile sokuqinisekisa noma sokukhansela sizofika lapha.</string>
+
+    <!--Settings-->
+    <string name="rw_settings_title">Izilungiselelo</string>
+
+    <string name="rw_settings_appearance">Ukubukeka</string>
+    <string name="rw_settings_theme">Itimu</string>
+    <string name="rw_settings_theme_day">Imini</string>
+    <string name="rw_settings_theme_night">Ubusuku</string>
+    <string name="rw_settings_theme_system">Isistimu</string>
+    <string name="rw_settings_theme_confirm_title">Shintsha itimu?</string>
+    <string name="rw_settings_theme_confirm_day">I-app izoshintshela kutimu yasemini.</string>
+    <string name="rw_settings_theme_confirm_night">I-app izoshintshela kutimu yasebusuku.</string>
+    <string name="rw_settings_theme_confirm_system">I-app izolandela itimu yedivayisi yakho.</string>
+    <string name="rw_settings_theme_apply">Sebenzisa</string>
+
+    <string name="rw_settings_language">Ulimi</string>
+    <string name="rw_language_hint">Khetha ulimi i-Runway ezoboniswa ngalo.</string>
+    <string name="rw_language_selected">Kukhethiwe</string>
+
+    <string name="rw_settings_security">Ukuphepha</string>
+    <string name="rw_settings_biometrics">Ukuvula nge-biometric</string>
+    <string name="rw_settings_biometrics_hint">Sebenzisa isigxivizo somunwe noma ubuso bakho ukuvula i-Runway.</string>
+    <string name="rw_settings_biometrics_off_title">Vala ukuvula nge-biometric?</string>
+    <string name="rw_settings_biometrics_off_body">Uzongena nge-akhawunti yakho ye-Google esikhundleni salokho.</string>
+    <string name="rw_settings_biometrics_off_confirm">Vala</string>
+    <string name="rw_settings_biometrics_on">Ukuvula nge-biometric kuvuliwe</string>
+    <string name="rw_settings_biometrics_setup">Qala ngokusetha ukuvula ngesigxivizo somunwe noma ngobuso kuzilungiselelo zedivayisi.</string>
+    <string name="rw_settings_biometrics_setup_title">Qinisekisa ukuvula nge-biometric</string>
+    <string name="rw_settings_biometrics_setup_body">Qinisekisa ukuthi ungubani ukuze uvule ukuvula nge-biometric ku-Runway.</string>
+    <string name="rw_settings_biometrics_setup_cancelled">Ukuvula nge-biometric akuvulwanga.</string>
+
+    <string name="rw_settings_notifications">Izaziso</string>
+    <string name="rw_settings_notify_wash">Izikhumbuzi zokuwasha</string>
+    <string name="rw_settings_notify_swap">Izicelo zokushintshana</string>
+    <string name="rw_settings_notify_weather">Iziphakamiso zesimo sezulu</string>
+    <string name="rw_settings_notify_on">%1$s kuvuliwe</string>
+    <string name="rw_settings_notify_off">%1$s kuvaliwe</string>
+
+    <string name="rw_settings_wardrobe">Ikhabethe</string>
+    <string name="rw_settings_wear_limit">Umkhawulo wokugqoka ozenzakalelayo</string>
+    <string name="rw_settings_wear_limit_hint">Izikhathi into egqokwa ngazo ngaphambi kokuba iye kubhasikidi wokuwasha.</string>
+    <string name="rw_settings_wear_limit_less">Nciphisa umkhawulo wokugqoka</string>
+    <string name="rw_settings_wear_limit_more">Khulisa umkhawulo wokugqoka</string>
+
+    <string name="rw_settings_about">Mayelana</string>
+    <string name="rw_settings_version">Inguqulo ye-Runway %1$s</string>
+    <string name="rw_settings_reset">Buyisela kokuzenzakalelayo</string>
+    <string name="rw_settings_reset_title">Buyisela zonke izilungiselelo?</string>
+    <string name="rw_settings_reset_body">Zonke izilungiselelo zibuyela endleleni ezaqala ngayo. Ikhabethe lakho alithinteki.</string>
+    <string name="rw_settings_reset_done">Izilungiselelo zibuyiselwe</string>
+
+    <!--Outfits tab and the outfit editor-->
+    <string name="rw_outfits_empty_title">Azikabi khona izembatho ezilondoloziwe</string>
+    <string name="rw_outfit_loading">Ilayisha isembatho…</string>
+    <string name="rw_outfit_no_preview">Engeza izingubo ukuze ubone lesi sembatho sibekiwe.</string>
+    <string name="rw_outfit_name">Igama</string>
+    <string name="rw_outfit_garments">Izingubo</string>
+    <string name="rw_outfit_no_garments">Lesi sembatho asisenazo izingubo.</string>
+    <string name="rw_outfit_save_changes">Londoloza izinguquko</string>
+    <string name="rw_outfit_saving">Iyalondoloza…</string>
+    <string name="rw_outfit_saved">Isembatho sibuyekeziwe</string>
+    <string name="rw_outfit_delete">Susa isembatho</string>
+    <string name="rw_outfit_delete_title">Susa lesi sembatho?</string>
+    <string name="rw_outfit_delete_body">Isembatho sisuswa yonke indawo. Izingubo zakho zihlala ekhabetheni lakho.</string>
+
+    <plurals name="rw_outfit_garment_count">
+        <item quantity="one">Ingubo engu-%1$d</item>
+        <item quantity="other">Izingubo ezingu-%1$d</item>
+    </plurals>
+
+    <!--Confidence rating-->
+    <string name="rw_confidence_prompt">Uzizwe kanjani ku-%1$s?</string>
+    <string name="rw_confidence_prompt_generic">Uzizwe kanjani kulesi sembatho?</string>
+    <string name="rw_confidence_note_label">Inothi</string>
+    <string name="rw_confidence_note_hint">Akuphoqelekile</string>
+    <string name="rw_confidence_later">Hhayi manje</string>
+    <string name="rw_confidence_save">Londoloza isilinganiso</string>
+    <string name="rw_confidence_saving">Iyalondoloza…</string>
+    <string name="rw_confidence_saved">Isilinganiso silondoloziwe</string>
+    <string name="rw_confidence_1">Bengingekho esimweni esihle</string>
+    <string name="rw_confidence_2">Bekungalungile kahle</string>
+    <string name="rw_confidence_3">Ngikhululekile</string>
+    <string name="rw_confidence_4">Ngizethemba</string>
+    <string name="rw_confidence_5">Akukho okungangimisa</string>
+
+    <!--Wearing an outfit-->
+    <string name="rw_outfit_wear">Ngikugqoke namuhla</string>
+    <string name="rw_outfit_wear_logged">Ukugqoka kubhalisiwe</string>
+    <string name="rw_outfit_confidence">Ukuzethemba</string>
+    <string name="rw_outfit_confidence_failed">Izilinganiso azikwazanga ukulayishwa. Donsela phansi noma uvule futhi ukuze uzame futhi.</string>
+    <string name="rw_outfit_confidence_none">Akukalinganiswa</string>
+    <plurals name="rw_outfit_confidence_count">
+        <item quantity="one">%1$s kusilinganiso esingu-%2$d</item>
+        <item quantity="other">%1$s kuzilinganiso ezingu-%2$d</item>
+    </plurals>
+
+    <!--Home-->
+    <string name="rw_home_greeting_morning">Sawubona ekuseni</string>
+    <string name="rw_home_greeting_afternoon">Sawubona emini</string>
+    <string name="rw_home_greeting_evening">Sawubona kusihlwa</string>
+    <string name="rw_home_notifications">Izaziso</string>
+    <string name="rw_home_weather_title">Iziphakamiso zesimo sezulu</string>
+    <string name="rw_home_weather_body">Bona ukuthi uzogqokani ngesimo sezulu sanamuhla</string>
+    <plurals name="rw_home_laundry_alert">
+        <item quantity="one">Into engu-%d idinga ukuwashwa</item>
+        <item quantity="other">Izinto ezingu-%d zidinga ukuwashwa</item>
+    </plurals>
+    <string name="rw_home_laundry_body">Thepha ukuze uvule ubhasikidi wakho wokuwasha</string>
+    <string name="rw_home_todays_pick">Okukhethwe namuhla</string>
+    <plurals name="rw_home_pieces">
+        <item quantity="one">Ingubo engu-%d</item>
+        <item quantity="other">Izingubo ezingu-%d</item>
+    </plurals>
+    <string name="rw_home_suggest_another">Phakamisa okunye</string>
+    <string name="rw_home_wear_this">Gqoka lokhu</string>
+    <string name="rw_home_wearing">Iyabhalisa…</string>
+    <string name="rw_home_empty_wardrobe_title">Ikhabethe lakho alinalutho</string>
+    <string name="rw_home_empty_wardrobe_body">Engeza ingubo yakho yokuqala ukuze uqale ukuthola iziphakamiso zezembatho.</string>
+    <string name="rw_home_add_first_item">Engeza into yakho yokuqala</string>
+    <string name="rw_home_no_outfits_title">Azikabi khona izembatho</string>
+    <string name="rw_home_no_outfits_body">Hlanganisa isembatho futhi sizovela lapha njengokukhethwa kwansuku zonke.</string>
+    <string name="rw_home_go_to_outfits">Iya ezembathweni</string>
+    <string name="rw_home_outfits_failed_title">Asikwazanga ukulayisha izembatho zakho</string>
+    <string name="rw_home_outfits_failed_body">Hlola uxhumano lwakho bese uzama futhi.</string>
+    <string name="rw_home_retry">Zama futhi</string>
+    <string name="rw_home_quick_stats">Izibalo ezisheshayo</string>
+    <string name="rw_home_recently_added">Ezisanda kwengezwa</string>
+    <string name="rw_home_see_all">Bona konke</string>
+    <string name="rw_stat_items">Izinto</string>
+    <string name="rw_stat_outfits">Izembatho</string>
+    <string name="rw_stat_wears">Ukugqoka</string>
+    <string name="rw_stat_value">Inani</string>
+
+    <!--Profile-->
+    <string name="rw_profile_member_since">Ilungu kusukela ngo-%1$s</string>
+    <string name="rw_profile_insights">Imininingwane</string>
+    <string name="rw_profile_swap_market">Imakethe yokushintshana</string>
+    <string name="rw_profile_my_listings">Uhlu lwami</string>
+    <string name="rw_profile_notifications">Izaziso</string>
+    <string name="rw_profile_laundry">Ubhasikidi wokuwasha</string>
+
+    <!--Outfit builder-->
+    <string name="rw_builder_new_title">Isembatho esisha</string>
+    <string name="rw_builder_edit_title">Hlela isembatho</string>
+    <string name="rw_builder_hint">Hudula izingubo ukuze uhlele isembatho</string>
+    <string name="rw_builder_save">Londoloza isembatho</string>
+    <string name="rw_builder_saving">Iyalondoloza…</string>
+    <string name="rw_builder_saved">Isembatho silondoloziwe</string>
+    <string name="rw_builder_default_name">Isembatho esisha</string>
+    <string name="rw_builder_empty_title">Qala ngengubo eyodwa</string>
+    <string name="rw_builder_empty_body">Khetha okuthile ekhabetheni lakho ngezansi futhi kuzofika lapha.</string>
+    <string name="rw_builder_layer_up">Letha phambili</string>
+    <string name="rw_builder_layer_down">Thumela emuva</string>
+    <string name="rw_builder_remove">Susa kukhanvasi</string>
+    <string name="rw_builder_size">Usayizi</string>
+    <string name="rw_builder_rotate">Jikisa</string>
+    <string name="rw_builder_name">Igama</string>
+    <string name="rw_builder_name_placeholder">Isibonelo: Isidlo sakusihlwa ngoLwesihlanu</string>
+    <string name="rw_builder_occasion">Umcimbi</string>
+    <string name="rw_builder_add_pieces">Engeza izingubo</string>
+    <string name="rw_builder_add_new">Into entsha</string>
+    <string name="rw_builder_tray_empty">Akukho lutho kulesi sigaba okwamanje.</string>
+    <string name="rw_builder_load_failed_title">Asikwazanga ukuvula lesi sembatho</string>
+    <string name="rw_builder_load_failed_body">Hlola uxhumano lwakho bese uzama futhi.</string>
+    <string name="rw_occasion_casual">Okwejwayelekile</string>
+    <string name="rw_occasion_work">Umsebenzi</string>
+    <string name="rw_occasion_evening">Kusihlwa</string>
+    <string name="rw_occasion_sport">Ezemidlalo</string>
+    <string name="rw_occasion_formal">Okusemthethweni</string>
+
+    <!--Planner-->
+    <string name="rw_outfits_tab_outfits">Izembatho</string>
+    <string name="rw_outfits_tab_planner">Umhleli</string>
+    <string name="rw_outfits_new">Isembatho esisha</string>
+    <string name="rw_outfits_failed_title">Asikwazanga ukulayisha izembatho zakho</string>
+    <string name="rw_outfits_failed_body">Hlola uxhumano lwakho bese uzama futhi.</string>
+    <string name="rw_outfits_empty_body_builder">Yakha esisodwa ngezingubo ezisekhabetheni lakho.</string>
+    <plurals name="rw_outfits_pieces">
+        <item quantity="one">Ingubo engu-%d</item>
+        <item quantity="other">Izingubo ezingu-%d</item>
+    </plurals>
+    <string name="rw_planner_previous_month">Inyanga edlule</string>
+    <string name="rw_planner_next_month">Inyanga ezayo</string>
+    <string name="rw_planner_upcoming">Okuzayo</string>
+    <string name="rw_planner_nothing_upcoming">Akukabi khona okuhleliwe. Thepha usuku ukuze uhlele isembatho.</string>
+    <string name="rw_planner_failed_title">Asikwazanga ukulayisha umhleli wakho</string>
+    <string name="rw_planner_failed_body">Hlola uxhumano lwakho bese uzama futhi.</string>
+    <string name="rw_plan_today">Namuhla</string>
+    <string name="rw_plan_tomorrow">Kusasa</string>
+    <string name="rw_plan_nothing_title">Akukho okuhleliwe</string>
+    <string name="rw_plan_nothing_body">Khetha isembatho salolu suku.</string>
+    <string name="rw_plan_pick">Khetha isembatho</string>
+    <string name="rw_plan_change">Shintsha isembatho</string>
+    <string name="rw_plan_clear">Sula usuku</string>
+    <string name="rw_plan_cleared">Usuku lusuliwe</string>
+    <string name="rw_plan_planned_for">Kuhlelelwe: %1$s</string>
+    <string name="rw_plan_replaces">Esikhundleni se-%1$s</string>
+    <string name="rw_plan_schedule_title">Hlelela lesi sembatho usuku</string>
+    <string name="rw_plan_no_outfits_title">Azikabi khona izembatho ongazihlela</string>
+    <string name="rw_plan_no_outfits_body">Londoloza isembatho kuqala, bese usihlela lapha.</string>
+    <string name="rw_plan_load_failed">Asikwazanga ukulayisha lokhu. Hlola uxhumano lwakho bese uzama futhi.</string>
+    <string name="rw_plan_saving">Iyalondoloza…</string>
+    <string name="rw_home_planned_today">Kuhlelelwe namuhla</string>
+    <string name="rw_outfit_schedule">Hlelela usuku</string>
+    <string name="rw_outfit_edit">Hlela isembatho</string>
+
+    <string name="rw_outfit_load_failed_title">Asikwazanga ukuvula lesi sembatho</string>
+    <string name="rw_outfit_load_failed_body">Hlola uxhumano lwakho bese uzama futhi.</string>
+
+    <!--Errors shown in a toast-->
+    <string name="rw_error_timeout">Iseva ithathe isikhathi eside kakhulu ukuphendula. Sicela uzame futhi.</string>
+    <string name="rw_error_offline_queued">Awuxhunyiwe ku-inthanethi. Izinguquko zilondoloziwe futhi zizovumelaniswa kamuva.</string>
+    <string name="rw_error_offline">Awuxhunyiwe ku-inthanethi. Sicela uzame futhi uma usunoxhumano.</string>
+    <string name="rw_error_generic">Kukhona okungahambanga kahle. Sicela uzame futhi.</string>
+    <string name="rw_error_bad_request">Eminye imininingwane ayamukelwanga. Sicela uyihlole bese uzama futhi.</string>
+    <string name="rw_error_session_expired">Iseshini yakho iphelelwe yisikhathi. Sicela ungene futhi.</string>
+    <string name="rw_error_not_found">Leyo nto ayisekho.</string>
+    <string name="rw_error_server">Iseva inenkinga. Sicela uzame futhi maduze.</string>
+    <string name="rw_error_photo_unreadable">Leso sithombe asikwazanga ukufundwa</string>
+    <string name="rw_error_check_fields">Hlola izinkambu ezigqanyisiwe</string>
+    <string name="rw_error_item_save_failed">Asikwazanga ukulondoloza into</string>
+    <string name="rw_error_item_delete_failed">Asikwazanga ukususa into</string>
+    <string name="rw_error_wardrobe_load_failed">Asikwazanga ukulayisha ikhabethe lakho</string>
+    <string name="rw_error_name_required">Igama liyadingeka</string>
+    <string name="rw_error_category_required">Khetha isigaba</string>
+    <string name="rw_error_outfit_name_required">Nika isembatho igama</string>
+
+</resources>

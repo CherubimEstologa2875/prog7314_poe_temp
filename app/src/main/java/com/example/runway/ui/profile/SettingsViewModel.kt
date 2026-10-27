@@ -23,7 +23,7 @@ class SettingsViewModel(
     private val repository: SettingsRepository
 ) : ViewModel() {
 
-    private val actionError = MutableStateFlow<String?>(null)
+    private val actionError = MutableStateFlow<Int?>(null)
     private val syncing = MutableStateFlow(false)
 
     val uiState: StateFlow<SettingsUiState> =

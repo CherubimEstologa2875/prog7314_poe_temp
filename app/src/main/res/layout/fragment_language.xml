@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Language picker. The tick for the chosen language is added in LanguageFragment. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.profile.LanguageFragment">
+
+    <com.example.runway.ui.components.ScreenHeaderView
+        android:id="@+id/languageHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:rwTitle="@string/rw_settings_language" />
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/Widget.Runway.ScreenContent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_16"
+                android:layout_marginBottom="@dimen/rw_space_12"
+                android:text="@string/rw_language_hint"
+                android:textAppearance="@style/TextAppearance.Runway.Secondary" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Runway.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentPadding="@dimen/rw_space_12">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.example.runway.ui.components.ListRowView
+                        android:id="@+id/languageEnglish"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:rwLabel="@string/rw_settings_language_en" />
+
+                    <com.example.runway.ui.components.ListRowView
+                        android:id="@+id/languageAfrikaans"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:rwLabel="@string/rw_settings_language_af" />
+
+                    <com.example.runway.ui.components.ListRowView
+                        android:id="@+id/languageZulu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:rwLabel="@string/rw_settings_language_zu" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

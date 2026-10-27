@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.runway.R
 import com.example.runway.databinding.FragmentColourMatcherBinding
 import com.example.runway.domain.model.Item
+import com.example.runway.ui.components.Labels
 import com.example.runway.ui.navigation.NavArgs
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -104,7 +105,7 @@ class ColourMatcherFragment : Fragment() {
         val colour = state.referenceColour
         binding.matcherReferenceSwatch.isVisible = colour != null
         colour?.let { binding.matcherReferenceSwatch.swatchColor = it.argb }
-        binding.matcherReferenceColour.text = colour?.label
+        binding.matcherReferenceColour.text = Labels.colour(requireContext(), colour?.label)
             ?: getString(R.string.rw_colour_matcher_unknown_colour)
 
         loadPhoto(reference)

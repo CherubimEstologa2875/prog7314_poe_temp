@@ -19,6 +19,7 @@ import com.example.runway.domain.model.ColourPalette
 import com.example.runway.domain.model.PaletteColour
 import com.example.runway.domain.model.ItemDraft
 import com.example.runway.domain.model.RunwaySettings
+import com.example.runway.ui.components.Labels
 import com.example.runway.ui.components.RunwayToast
 import com.example.runway.ui.components.ColourPickerDialog
 import com.example.runway.ui.components.SwatchView
@@ -102,7 +103,7 @@ class TagItemFragment : Fragment() {
     private fun buildCategoryChips() = CATEGORIES.forEach { value ->
         binding.tagCategoryGroup.addView(
             Chip(requireContext(), null, com.google.android.material.R.attr.chipStyle).apply {
-                text = getString(labelFor(value))
+                text = Labels.category(requireContext(), value)
                 isCheckable = true
                 isChecked = value == category
                 setOnCheckedChangeListener { _, checked -> if (checked) category = value }
@@ -122,7 +123,7 @@ class TagItemFragment : Fragment() {
             val swatch = SwatchView(requireContext()).apply {
                 swatchColor = option.argb
                 swatchSize = size
-                contentDescription = option.label
+                contentDescription = Labels.colour(requireContext(), option.label)
                 setOnClickListener {
                     // Tapping the chosen colour again clears it, since colour is optional.
                     colour = if (colour == option) null else option
@@ -149,7 +150,7 @@ class TagItemFragment : Fragment() {
         palette.forEachIndexed { i, option ->
             (swatches.getChildAt(i) as SwatchView).picked = option == colour
         }
-        binding.tagColourName.text = colour?.label ?: getString(R.string.rw_tag_colour_none)
+        binding.tagColourName.text = Labels.colour(requireContext(), colour?.label) ?: getString(R.string.rw_tag_colour_none)
     }
 
     private fun changeWearLimit(by: Int) {
@@ -191,6 +192,7 @@ class TagItemFragment : Fragment() {
         binding.tagPriceLayout.error = when {
             ItemDraft.Problem.PRICE_NOT_A_NUMBER in problems -> getString(R.string.rw_tag_error_price_number)
             ItemDraft.Problem.PRICE_NEGATIVE in problems -> getString(R.string.rw_tag_error_price_negative)
+            ItemDraft.Problem.PRICE_TOO_HIGH in problems -> getString(R.string.rw_tag_error_price_too_high)
             else -> null
         }
 
@@ -213,14 +215,6 @@ class TagItemFragment : Fragment() {
             // started from, where the new item is already in the list.
             findNavController().popBackStack(R.id.addItemGraph, true)
         }
-    }
-
-    private fun labelFor(value: String): Int = when (value) {
-        "TOP" -> R.string.rw_category_top
-        "BOTTOM" -> R.string.rw_category_bottom
-        "OUTERWEAR" -> R.string.rw_category_outerwear
-        "SHOES" -> R.string.rw_category_shoes
-        else -> R.string.rw_category_other
     }
 
     override fun onDestroyView() {

@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Afrikaans. Anything missing here falls back to the English in values/strings.xml.-->
+<resources>
+
+    <!--Shared actions-->
+    <string name="rw_action_back">Terug</string>
+    <string name="rw_action_close">Maak toe</string>
+    <string name="rw_action_save">Stoor</string>
+    <string name="rw_action_cancel">Kanselleer</string>
+    <string name="rw_action_delete">Skrap</string>
+    <string name="rw_action_add">Voeg item by</string>
+    <string name="rw_action_edit">Wysig</string>
+    <string name="rw_action_favourite">Gunsteling</string>
+
+    <!--Navigation-->
+    <string name="rw_nav_home">Tuis</string>
+    <string name="rw_nav_wardrobe">Klerekas</string>
+    <string name="rw_nav_outfits">Uitrustings</string>
+    <string name="rw_nav_profile">Profiel</string>
+
+    <!--Authentication-->
+    <string name="rw_auth_login_title">Meld aan by Runway</string>
+    <string name="rw_auth_login_body">Gebruik jou Google-rekening om jou klerekas op al jou toestelle te sinkroniseer.</string>
+    <string name="rw_auth_fingerprint">Ontsluit volgende keer met jou vingerafdruk</string>
+    <string name="rw_auth_google_button">Gaan voort met Google</string>
+    <string name="rw_auth_terms">Deur voort te gaan, stem jy in tot Runway se bepalings en privaatheidsbeleid.</string>
+    <string name="rw_auth_sign_in_failed">Ons kon jou nie aanmeld nie. Probeer asseblief weer.</string>
+    <string name="rw_auth_cancelled">Aanmelding is gekanselleer. Probeer asseblief weer.</string>
+    <string name="rw_auth_no_account">Daar is geen Google-rekening op hierdie toestel nie. Voeg een by in Instellings en probeer dan weer.</string>
+    <string name="rw_auth_config_error">Aanmelding is tydelik nie beskikbaar nie. Probeer asseblief later weer.</string>
+    <string name="rw_auth_unregistered">Google wou nie hierdie weergawe van Runway aanvaar nie. Die ondertekeningsertifikaat moet eers in die Firebase-projek geregistreer word voordat aanmelding op hierdie toestel sal werk.</string>
+    <string name="rw_auth_network_error">Ons kon Google nie bereik nie. Gaan jou verbinding na en probeer weer.</string>
+    <string name="rw_auth_invalid_account">Google het \'n onvolledige rekening teruggestuur. Kies asseblief \'n ander rekening.</string>
+    <string name="rw_auth_sign_out_failed">Jy is op hierdie toestel afgemeld, maar Google-afmelding kon nie voltooi word nie.</string>
+    <string name="rw_auth_no_session">Jou sessie is nie meer beskikbaar nie. Meld asseblief weer aan.</string>
+    <string name="rw_auth_logo_content_description">Runway-logo</string>
+    <string name="rw_auth_fingerprint_unavailable">Vingerafdruk-ontsluiting is nie op hierdie toestel beskikbaar nie.</string>
+    <string name="rw_auth_signing_in">Meld tans aan…</string>
+
+    <string name="rw_profile_sign_out">Meld af</string>
+    <string name="rw_profile_sign_out_title">Meld af by Runway?</string>
+    <string name="rw_profile_sign_out_body">Jy sal volgende keer weer jou Google-rekening moet kies.</string>
+
+    <!--Component accessibility-->
+    <plurals name="rw_star_rating">
+        <item quantity="one">%d ster</item>
+        <item quantity="other">%d sterre</item>
+    </plurals>
+    <string name="rw_rating_current">Gegradeer: %1$d uit %2$d</string>
+
+    <!--Sync banner-->
+    <string name="rw_sync_offline">Jy is vanlyn</string>
+    <plurals name="rw_sync_queued">
+        <item quantity="one">Vanlyn: %d verandering wag</item>
+        <item quantity="other">Vanlyn: %d veranderinge wag</item>
+    </plurals>
+    <string name="rw_sync_syncing">Sinkroniseer tans…</string>
+
+    <!--Stub screens-->
+    <string name="rw_stub_wardrobe_title">Klerekas</string>
+    <string name="rw_stub_wardrobe_body">Jou klerekasrooster, soektog en filters kom hier.</string>
+    <string name="rw_stub_outfits_title">Uitrustings</string>
+    <string name="rw_stub_outfits_body">Gestoorde uitrustings, die bouer en die weeklikse beplanner kom hier.</string>
+    <string name="rw_stub_profile_title">Profiel</string>
+    <string name="rw_stub_profile_body">Jou statistieke, ruillysies en instellings kom hier.</string>
+    <string name="rw_stub_add">Item byvoeg: kamera, uitsny en etikettering.</string>
+
+    <!--Onboarding-->
+    <string name="rw_onboarding_title">Welkom by Runway</string>
+    <string name="rw_onboarding_body">Jou digitale klerekas. Neem foto\'s van jou klere, beplan uitrustings en wonder nooit weer wat om aan te trek nie. Die drie inleidingskyfies kom hier.</string>
+    <string name="rw_onboarding_continue">Begin</string>
+
+    <!--Biometric unlock-->
+    <string name="rw_biometric_title">Ontsluit Runway</string>
+    <string name="rw_biometric_body">Gebruik jou vingerafdruk of gesig om te bevestig dat dit jy is.</string>
+    <string name="rw_biometric_continue">Ontsluit</string>
+    <string name="rw_biometric_helper">Raak die sensor om te bevestig dat dit jy is.</string>
+    <string name="rw_biometric_use_account">Gebruik eerder jou rekening</string>
+    <string name="rw_biometric_failed">Ons kon nie jou vingerafdruk bevestig nie. Probeer weer of gebruik jou rekening.</string>
+    <string name="rw_biometric_not_enrolled">Stel vingerafdruk- of gesigontsluiting op in jou toestel se Instellings en probeer dan weer.</string>
+    <string name="rw_biometric_locked_out">Biometriese ontsluiting is tydelik gesluit. Gebruik jou rekening of probeer later weer.</string>
+    <string name="rw_biometric_use_account_hint">Gebruik jou Google-rekening om voort te gaan.</string>
+    <string name="rw_biometric_avatar_content_description">Aangemelde rekening</string>
+
+    <!--Home tab pushes-->
+    <string name="rw_stub_coming_soon">Kom binnekort</string>
+    <string name="rw_stub_weather_title">Weervoorstelle</string>
+    <string name="rw_stub_weather_body">Uitrustingvoorstelle volgens vandag se weervoorspelling kom hier.</string>
+
+    <!--Wardrobe tab pushes-->
+    <string name="rw_stub_item_detail_title">Itembesonderhede</string>
+    <string name="rw_stub_item_detail_body">Foto\'s, etikette, aantal kere gedra en koste per dra kom hier.</string>
+    <string name="rw_item_detail_loading">Laai tans item…</string>
+    <string name="rw_item_detail_not_found">Hierdie item kon nie gevind word nie.</string>
+
+    <!--Item detail-->
+    <string name="rw_item_detail_size">grootte %1$s</string>
+    <string name="rw_item_detail_wears">Kere gedra</string>
+    <string name="rw_item_detail_cost_per_wear">Koste per dra</string>
+    <string name="rw_item_detail_paid">Betaal R%1$.2f</string>
+    <string name="rw_item_detail_use_in_outfit">Gebruik in \'n uitrusting</string>
+    <string name="rw_item_detail_find_matches">Vind passende items</string>
+    <string name="rw_item_detail_delete">Verwyder uit klerekas</string>
+    <string name="rw_item_detail_delete_title">Verwyder hierdie item?</string>
+    <string name="rw_item_detail_delete_body">Dit sal op elke toestel uit jou klerekas verwyder word.</string>
+    <string name="rw_stub_item_edit_title">Wysig item</string>
+    <string name="rw_stub_item_edit_body">Kategorie, kleur, handelsmerk, grootte, materiaal en prys wysig kom hier.</string>
+
+    <!--Smart colour matcher-->
+    <string name="rw_colour_matcher_title">Slim kleurpasser</string>
+    <string name="rw_colour_matcher_lead">Stukke in jou klerekas wat by %1$s pas.</string>
+    <string name="rw_colour_matcher_empty_title">Nog geen passings nie</string>
+    <string name="rw_colour_matcher_empty_body">Voeg meer items by en hul kleure sal met hierdie een vergelyk word.</string>
+    <string name="rw_colour_matcher_score">%1$d%% passing</string>
+    <string name="rw_colour_matcher_use_in_outfit">Gebruik in uitrusting</string>
+    <string name="rw_colour_matcher_unknown_colour">Kleur nie beskikbaar nie</string>
+    <string name="rw_colour_matcher_unknown_body">Hierdie item het nie \'n herkende kleur nie, dus kan dit nie gepas word nie. Wysig die item om \'n ondersteunde kleur by te voeg.</string>
+
+    <string name="rw_stub_laundry_title">Wasgoedmandjie</string>
+    <string name="rw_stub_laundry_body">Draagrense en washerinneringe kom hier.</string>
+
+    <!--Add-item modal flow-->
+    <string name="rw_stub_camera_title">Kamera</string>
+    <string name="rw_stub_camera_body">\'n Klerefoto neem, of een uit die galery kies, kom hier.</string>
+    <string name="rw_camera_continue">Gebruik foto</string>
+    <string name="rw_stub_cutout_title">Uitsnyvoorskou</string>
+    <string name="rw_stub_cutout_body">Die outomatiese voorskou sonder agtergrond kom hier.</string>
+    <string name="rw_cutout_continue">Lyk goed</string>
+    <string name="rw_stub_tag_item_title">Etiketteer item</string>
+    <string name="rw_stub_tag_item_body">Velde vir kategorie, kleur, handelsmerk, grootte, materiaal en prys kom hier.</string>
+    <string name="rw_tag_item_continue">Stoor item</string>
+
+    <!--Add-item flow-->
+    <string name="rw_camera_title">Neem \'n foto van die item</string>
+    <string name="rw_camera_take">Neem \'n foto</string>
+    <string name="rw_camera_retake">Neem nog een</string>
+    <string name="rw_camera_pick">Kies \'n foto</string>
+    <string name="rw_camera_empty">Lê die kledingstuk plat neer, of hang dit teen \'n gewone muur, en neem \'n foto.</string>
+    <string name="rw_camera_preview_description">Die foto wat jy pas geneem het</string>
+
+    <string name="rw_cutout_title">Gaan die uitsny na</string>
+    <string name="rw_cutout_use">Gebruik die uitsny in plaas van die foto</string>
+    <string name="rw_cutout_failed">Die agtergrond kon nie verwyder word nie. Die foto sal gestoor word soos dit is.</string>
+    <string name="rw_cutout_retry">Probeer weer</string>
+    <string name="rw_cutout_preview_description">Die kledingstuk met sy agtergrond verwyder</string>
+
+    <string name="rw_tag_item_title">Etiketteer die item</string>
+    <string name="rw_tag_name">Naam</string>
+    <string name="rw_tag_category">Kategorie</string>
+    <string name="rw_tag_colour">Kleur</string>
+    <string name="rw_tag_brand">Handelsmerk</string>
+    <string name="rw_tag_size">Grootte</string>
+    <string name="rw_tag_price">Prys</string>
+
+    <string name="rw_tag_name_label">Naam</string>
+    <string name="rw_tag_colour_label">Kleur</string>
+    <string name="rw_tag_brand_label">Handelsmerk</string>
+    <string name="rw_tag_size_label">Grootte</string>
+    <string name="rw_tag_price_label">Prys</string>
+
+    <string name="rw_tag_name_example">Byvoorbeeld: Blou oxford-hemp</string>
+    <string name="rw_colour_picker_add">Eie</string>
+    <string name="rw_colour_picker_title">Meng \'n kleur</string>
+    <string name="rw_colour_picker_save">Voeg by palet</string>
+    <string name="rw_colour_picker_name">Gee hierdie kleur \'n naam</string>
+    <string name="rw_colour_picker_name_required">Gee die kleur \'n naam</string>
+    <string name="rw_colour_picker_hue">Kleurtoon</string>
+    <string name="rw_colour_picker_saturation">Versadiging</string>
+    <string name="rw_colour_picker_lightness">Ligtheid</string>
+    <string name="rw_tag_colour_none">Kies die naaste kleur</string>
+    <string name="rw_tag_hint">Net die naam is verpligtend</string>
+    <string name="rw_tag_wear_limit">Kere gedra voor was</string>
+    <string name="rw_tag_wear_limit_hint">Jy kry \'n washerinnering sodra dit soveel keer gedra is.</string>
+    <string name="rw_tag_wear_less">Minder kere</string>
+    <string name="rw_tag_wear_more">Meer kere</string>
+    <string name="rw_tag_name_required">Verpligtend</string>
+    <string name="rw_tag_error_name_long">Hou die naam korter as %1$d karakters</string>
+    <string name="rw_tag_error_price_number">Gebruik net syfers, soos 349.99</string>
+    <string name="rw_tag_error_price_negative">\'n Prys kan nie negatief wees nie</string>
+    <string name="rw_tag_error_price_too_high">Hou die prys onder R1 000 000</string>
+    <string name="rw_tag_brand_example">Byvoorbeeld: Uniqlo</string>
+    <string name="rw_tag_size_example">Byvoorbeeld: M of 32</string>
+    <string name="rw_tag_price_example">Byvoorbeeld: 349.99</string>
+    <string name="rw_tag_save">Stoor item</string>
+    <string name="rw_tag_saving">Stoor tans…</string>
+    <string name="rw_tag_saved">Item by jou klerekas gevoeg</string>
+
+    <string name="rw_category_top">Bostuk</string>
+    <string name="rw_category_bottom">Onderstuk</string>
+    <string name="rw_category_outerwear">Buiteklere</string>
+    <string name="rw_category_shoes">Skoene</string>
+    <string name="rw_category_dress">Rok</string>
+    <string name="rw_category_other">Ander</string>
+
+    <!--Built in colour names-->
+    <string name="rw_colour_white">Wit</string>
+    <string name="rw_colour_cream">Room</string>
+    <string name="rw_colour_beige">Beige</string>
+    <string name="rw_colour_taupe">Grysbruin</string>
+    <string name="rw_colour_tan">Ligbruin</string>
+    <string name="rw_colour_camel">Kameel</string>
+    <string name="rw_colour_brown">Bruin</string>
+    <string name="rw_colour_black">Swart</string>
+    <string name="rw_colour_charcoal">Houtskool</string>
+    <string name="rw_colour_grey">Grys</string>
+    <string name="rw_colour_navy">Vlootblou</string>
+    <string name="rw_colour_blue">Blou</string>
+    <string name="rw_colour_light_blue">Ligblou</string>
+    <string name="rw_colour_teal">Blougroen</string>
+    <string name="rw_colour_green">Groen</string>
+    <string name="rw_colour_sage">Saliegroen</string>
+    <string name="rw_colour_olive">Olyfgroen</string>
+    <string name="rw_colour_yellow">Geel</string>
+    <string name="rw_colour_mustard">Mosterd</string>
+    <string name="rw_colour_orange">Oranje</string>
+    <string name="rw_colour_red">Rooi</string>
+    <string name="rw_colour_burgundy">Wynrooi</string>
+    <string name="rw_colour_pink">Pienk</string>
+    <string name="rw_colour_purple">Pers</string>
+    <string name="rw_colour_lilac">Lila</string>
+
+    <!--Wardrobe tab-->
+    <string name="rw_wardrobe_refresh">Herlaai</string>
+    <string name="rw_wardrobe_empty_title">Jou klerekas is leeg</string>
+    <string name="rw_wardrobe_empty_body">Tik op die + knoppie om jou eerste kledingstuk af te neem.</string>
+    <string name="rw_wardrobe_cost_per_wear">R%1$.2f per dra</string>
+    <string name="rw_wardrobe_worn">%1$d keer gedra</string>
+    <string name="rw_wardrobe_never_worn">Nog nie gedra nie</string>
+    <string name="rw_wardrobe_pending">Nie gesinkroniseer nie</string>
+    <string name="rw_wardrobe_unsynced">Sommige items is tot dusver net op hierdie foon.</string>
+    <string name="rw_wardrobe_item_image">Foto van hierdie kledingstuk</string>
+    <string name="rw_wardrobe_search">Soek op naam, handelsmerk of kleur</string>
+    <string name="rw_wardrobe_filter">Filtreer klerekas</string>
+    <string name="rw_wardrobe_sort">Sorteer klerekas</string>
+    <string name="rw_wardrobe_no_matches">Geen items pas by jou soektog of kategorie nie.</string>
+    <string name="rw_wardrobe_filter_all">Alles</string>
+    <string name="rw_wardrobe_filter_tops">Bostukke</string>
+    <string name="rw_wardrobe_filter_bottoms">Onderstukke</string>
+    <string name="rw_wardrobe_filter_outerwear">Buiteklere</string>
+    <string name="rw_wardrobe_filter_dresses">Rokke</string>
+    <string name="rw_wardrobe_filter_shoes">Skoene</string>
+    <string name="rw_wardrobe_filter_other">Ander</string>
+
+    <plurals name="rw_wardrobe_count">
+        <item quantity="one">%1$d item</item>
+        <item quantity="other">%1$d items</item>
+    </plurals>
+
+    <!--Outfits tab pushes-->
+    <string name="rw_stub_outfit_detail_title">Uitrustingbesonderhede</string>
+    <string name="rw_stub_outfit_detail_body">Uitrustingstukke, draagopsporing en die selfvertroue-gradering kom hier.</string>
+
+    <!--Profile tab pushes-->
+    <string name="rw_stub_stats_title">Statistieke en insigte</string>
+    <string name="rw_stub_stats_body">Mees en minste gedra, en koste per dra, kom hier.</string>
+    <string name="rw_stub_notifications_title">Kennisgewings</string>
+    <string name="rw_stub_notifications_body">Washerinneringe en ruilversoeke kom hier.</string>
+    <string name="rw_stub_settings_title">Instellings</string>
+    <string name="rw_stub_settings_body">Tema, biometrie, vanlyn-sinkronisering en taal is hier.</string>
+    <string name="rw_stub_language_title">Taal</string>
+    <string name="rw_stub_language_body">Engels, Afrikaans en isiZulu kom hier.</string>
+
+    <!--Swap market-->
+    <string name="rw_stub_swap_market_title">Ruilmark</string>
+    <string name="rw_stub_swap_market_body">Items wat vir ruil of skenking gelys is, kom hier.</string>
+    <string name="rw_stub_listing_detail_title">Lysbesonderhede</string>
+    <string name="rw_stub_listing_detail_body">Foto\'s, toestand en ruilversoeke van die lysie kom hier.</string>
+    <string name="rw_stub_my_listings_title">My lysies</string>
+    <string name="rw_stub_my_listings_body">Items wat jy gelys het, en versoeke daarop, kom hier.</string>
+    <string name="rw_stub_create_listing_title">Lys vir ruil</string>
+    <string name="rw_stub_create_listing_body">\'n Item kies en dit vir ruil of skenking lys, kom hier.</string>
+
+    <!--Bottom sheets-->
+    <string name="rw_sheet_filter_title">Filtreer</string>
+    <string name="rw_sheet_filter_body">Kategorie, kleur en ander klerekasfilters kom hier.</string>
+    <string name="rw_sheet_sort_title">Sorteer</string>
+    <string name="rw_sheet_sort_body">Sorteeropsies kom hier.</string>
+    <string name="rw_sheet_day_detail_title">Dagbesonderhede</string>
+    <string name="rw_sheet_pick_outfit_title">Kies \'n uitrusting</string>
+    <string name="rw_sheet_confidence_title">Gradeer vandag se selfvertroue</string>
+    <string name="rw_sheet_confidence_body">Die selfvertroue-gradering kom hier.</string>
+    <string name="rw_sheet_confirm_title">Is jy seker?</string>
+    <string name="rw_sheet_confirm_body">\'n Algemene bevestig of kanselleer aksie kom hier.</string>
+
+    <!--Settings-->
+    <string name="rw_settings_title">Instellings</string>
+
+    <string name="rw_settings_appearance">Voorkoms</string>
+    <string name="rw_settings_theme">Tema</string>
+    <string name="rw_settings_theme_day">Dag</string>
+    <string name="rw_settings_theme_night">Nag</string>
+    <string name="rw_settings_theme_system">Stelsel</string>
+    <string name="rw_settings_theme_confirm_title">Verander tema?</string>
+    <string name="rw_settings_theme_confirm_day">Die app sal na die dagtema oorskakel.</string>
+    <string name="rw_settings_theme_confirm_night">Die app sal na die nagtema oorskakel.</string>
+    <string name="rw_settings_theme_confirm_system">Die app sal jou toestel se tema volg.</string>
+    <string name="rw_settings_theme_apply">Pas toe</string>
+
+    <string name="rw_settings_language">Taal</string>
+    <string name="rw_language_hint">Kies die taal waarin Runway gewys word.</string>
+    <string name="rw_language_selected">Gekies</string>
+
+    <string name="rw_settings_security">Sekuriteit</string>
+    <string name="rw_settings_biometrics">Biometriese ontsluiting</string>
+    <string name="rw_settings_biometrics_hint">Gebruik jou vingerafdruk of gesig om Runway oop te maak.</string>
+    <string name="rw_settings_biometrics_off_title">Skakel biometriese ontsluiting af?</string>
+    <string name="rw_settings_biometrics_off_body">Jy sal eerder met jou Google-rekening aanmeld.</string>
+    <string name="rw_settings_biometrics_off_confirm">Skakel af</string>
+    <string name="rw_settings_biometrics_on">Biometriese ontsluiting aan</string>
+    <string name="rw_settings_biometrics_setup">Stel eers vingerafdruk- of gesigontsluiting op in jou toestel se Instellings.</string>
+    <string name="rw_settings_biometrics_setup_title">Bevestig biometriese ontsluiting</string>
+    <string name="rw_settings_biometrics_setup_body">Bevestig jou identiteit om biometriese ontsluiting vir Runway aan te skakel.</string>
+    <string name="rw_settings_biometrics_setup_cancelled">Biometriese ontsluiting is nie aangeskakel nie.</string>
+
+    <string name="rw_settings_notifications">Kennisgewings</string>
+    <string name="rw_settings_notify_wash">Washerinneringe</string>
+    <string name="rw_settings_notify_swap">Ruilversoeke</string>
+    <string name="rw_settings_notify_weather">Weervoorstelle</string>
+    <string name="rw_settings_notify_on">%1$s aan</string>
+    <string name="rw_settings_notify_off">%1$s af</string>
+
+    <string name="rw_settings_wardrobe">Klerekas</string>
+    <string name="rw_settings_wear_limit">Verstek-draagrens</string>
+    <string name="rw_settings_wear_limit_hint">Hoeveel kere \'n item gedra word voordat dit in die wasgoedmandjie beland.</string>
+    <string name="rw_settings_wear_limit_less">Verlaag draagrens</string>
+    <string name="rw_settings_wear_limit_more">Verhoog draagrens</string>
+
+    <string name="rw_settings_about">Oor</string>
+    <string name="rw_settings_version">Runway-weergawe %1$s</string>
+    <string name="rw_settings_reset">Stel terug na verstek</string>
+    <string name="rw_settings_reset_title">Stel alle instellings terug?</string>
+    <string name="rw_settings_reset_body">Elke instelling gaan terug na hoe dit begin het. Jou klerekas word nie geraak nie.</string>
+    <string name="rw_settings_reset_done">Instellings teruggestel</string>
+
+    <!--Outfits tab and the outfit editor-->
+    <string name="rw_outfits_empty_title">Nog geen gestoorde uitrustings nie</string>
+    <string name="rw_outfit_loading">Laai tans uitrusting…</string>
+    <string name="rw_outfit_no_preview">Voeg kledingstukke by om hierdie uitrusting uitgelê te sien.</string>
+    <string name="rw_outfit_name">Naam</string>
+    <string name="rw_outfit_garments">Kledingstukke</string>
+    <string name="rw_outfit_no_garments">Daar is geen kledingstukke meer in hierdie uitrusting nie.</string>
+    <string name="rw_outfit_save_changes">Stoor veranderinge</string>
+    <string name="rw_outfit_saving">Stoor tans…</string>
+    <string name="rw_outfit_saved">Uitrusting opgedateer</string>
+    <string name="rw_outfit_delete">Skrap uitrusting</string>
+    <string name="rw_outfit_delete_title">Skrap hierdie uitrusting?</string>
+    <string name="rw_outfit_delete_body">Die uitrusting word oral verwyder. Jou kledingstukke bly in jou klerekas.</string>
+
+    <plurals name="rw_outfit_garment_count">
+        <item quantity="one">%1$d kledingstuk</item>
+        <item quantity="other">%1$d kledingstukke</item>
+    </plurals>
+
+    <!--Confidence rating-->
+    <string name="rw_confidence_prompt">Hoe het jy in %1$s gevoel?</string>
+    <string name="rw_confidence_prompt_generic">Hoe het jy in hierdie uitrusting gevoel?</string>
+    <string name="rw_confidence_note_label">Nota</string>
+    <string name="rw_confidence_note_hint">Opsioneel</string>
+    <string name="rw_confidence_later">Nie nou nie</string>
+    <string name="rw_confidence_save">Stoor gradering</string>
+    <string name="rw_confidence_saving">Stoor tans…</string>
+    <string name="rw_confidence_saved">Gradering gestoor</string>
+    <string name="rw_confidence_1">Nie op my beste nie</string>
+    <string name="rw_confidence_2">\'n Bietjie af</string>
+    <string name="rw_confidence_3">Gemaklik</string>
+    <string name="rw_confidence_4">Selfversekerd</string>
+    <string name="rw_confidence_5">Onkeerbaar</string>
+
+    <!--Wearing an outfit-->
+    <string name="rw_outfit_wear">Vandag gedra</string>
+    <string name="rw_outfit_wear_logged">Dra aangeteken</string>
+    <string name="rw_outfit_confidence">Selfvertroue</string>
+    <string name="rw_outfit_confidence_failed">Graderings kon nie gelaai word nie. Trek af of maak weer oop om weer te probeer.</string>
+    <string name="rw_outfit_confidence_none">Nog nie gegradeer nie</string>
+    <plurals name="rw_outfit_confidence_count">
+        <item quantity="one">%1$s uit %2$d gradering</item>
+        <item quantity="other">%1$s uit %2$d graderings</item>
+    </plurals>
+
+    <!--Home-->
+    <string name="rw_home_greeting_morning">Goeiemôre</string>
+    <string name="rw_home_greeting_afternoon">Goeiemiddag</string>
+    <string name="rw_home_greeting_evening">Goeienaand</string>
+    <string name="rw_home_notifications">Kennisgewings</string>
+    <string name="rw_home_weather_title">Weervoorstelle</string>
+    <string name="rw_home_weather_body">Kyk wat om vir vandag se weer aan te trek</string>
+    <plurals name="rw_home_laundry_alert">
+        <item quantity="one">%d item moet gewas word</item>
+        <item quantity="other">%d items moet gewas word</item>
+    </plurals>
+    <string name="rw_home_laundry_body">Tik om jou wasgoedmandjie oop te maak</string>
+    <string name="rw_home_todays_pick">Vandag se keuse</string>
+    <plurals name="rw_home_pieces">
+        <item quantity="one">%d stuk</item>
+        <item quantity="other">%d stukke</item>
+    </plurals>
+    <string name="rw_home_suggest_another">Stel nog een voor</string>
+    <string name="rw_home_wear_this">Dra hierdie</string>
+    <string name="rw_home_wearing">Teken tans aan…</string>
+    <string name="rw_home_empty_wardrobe_title">Jou klerekas is leeg</string>
+    <string name="rw_home_empty_wardrobe_body">Voeg jou eerste stuk by om uitrustingvoorstelle te begin kry.</string>
+    <string name="rw_home_add_first_item">Voeg jou eerste item by</string>
+    <string name="rw_home_no_outfits_title">Nog geen uitrustings nie</string>
+    <string name="rw_home_no_outfits_body">Stel \'n uitrusting saam en dit sal hier as \'n daaglikse keuse verskyn.</string>
+    <string name="rw_home_go_to_outfits">Gaan na uitrustings</string>
+    <string name="rw_home_outfits_failed_title">Kon nie jou uitrustings laai nie</string>
+    <string name="rw_home_outfits_failed_body">Gaan jou verbinding na en probeer weer.</string>
+    <string name="rw_home_retry">Probeer weer</string>
+    <string name="rw_home_quick_stats">Vinnige statistieke</string>
+    <string name="rw_home_recently_added">Onlangs bygevoeg</string>
+    <string name="rw_home_see_all">Sien alles</string>
+    <string name="rw_stat_items">Items</string>
+    <string name="rw_stat_outfits">Uitrustings</string>
+    <string name="rw_stat_wears">Kere gedra</string>
+    <string name="rw_stat_value">Waarde</string>
+
+    <!--Profile-->
+    <string name="rw_profile_member_since">Lid sedert %1$s</string>
+    <string name="rw_profile_insights">Insigte</string>
+    <string name="rw_profile_swap_market">Ruilmark</string>
+    <string name="rw_profile_my_listings">My lysies</string>
+    <string name="rw_profile_notifications">Kennisgewings</string>
+    <string name="rw_profile_laundry">Wasgoedmandjie</string>
+
+    <!--Outfit builder-->
+    <string name="rw_builder_new_title">Nuwe uitrusting</string>
+    <string name="rw_builder_edit_title">Wysig uitrusting</string>
+    <string name="rw_builder_hint">Sleep stukke rond om die uitrusting uit te lê</string>
+    <string name="rw_builder_save">Stoor uitrusting</string>
+    <string name="rw_builder_saving">Stoor tans…</string>
+    <string name="rw_builder_saved">Uitrusting gestoor</string>
+    <string name="rw_builder_default_name">Nuwe uitrusting</string>
+    <string name="rw_builder_empty_title">Begin met \'n stuk</string>
+    <string name="rw_builder_empty_body">Kies iets uit jou klerekas hieronder en dit verskyn hier.</string>
+    <string name="rw_builder_layer_up">Bring vorentoe</string>
+    <string name="rw_builder_layer_down">Stuur agtertoe</string>
+    <string name="rw_builder_remove">Haal van die doek af</string>
+    <string name="rw_builder_size">Grootte</string>
+    <string name="rw_builder_rotate">Draai</string>
+    <string name="rw_builder_name">Naam</string>
+    <string name="rw_builder_name_placeholder">Byvoorbeeld: Vrydagaand se ete</string>
+    <string name="rw_builder_occasion">Geleentheid</string>
+    <string name="rw_builder_add_pieces">Voeg stukke by</string>
+    <string name="rw_builder_add_new">Nuwe item</string>
+    <string name="rw_builder_tray_empty">Nog niks in hierdie kategorie nie.</string>
+    <string name="rw_builder_load_failed_title">Kon nie hierdie uitrusting oopmaak nie</string>
+    <string name="rw_builder_load_failed_body">Gaan jou verbinding na en probeer weer.</string>
+    <string name="rw_occasion_casual">Informeel</string>
+    <string name="rw_occasion_work">Werk</string>
+    <string name="rw_occasion_evening">Aand</string>
+    <string name="rw_occasion_sport">Sport</string>
+    <string name="rw_occasion_formal">Formeel</string>
+
+    <!--Planner-->
+    <string name="rw_outfits_tab_outfits">Uitrustings</string>
+    <string name="rw_outfits_tab_planner">Beplanner</string>
+    <string name="rw_outfits_new">Nuwe uitrusting</string>
+    <string name="rw_outfits_failed_title">Kon nie jou uitrustings laai nie</string>
+    <string name="rw_outfits_failed_body">Gaan jou verbinding na en probeer weer.</string>
+    <string name="rw_outfits_empty_body_builder">Bou een uit die kledingstukke in jou klerekas.</string>
+    <plurals name="rw_outfits_pieces">
+        <item quantity="one">%d stuk</item>
+        <item quantity="other">%d stukke</item>
+    </plurals>
+    <string name="rw_planner_previous_month">Vorige maand</string>
+    <string name="rw_planner_next_month">Volgende maand</string>
+    <string name="rw_planner_upcoming">Komende</string>
+    <string name="rw_planner_nothing_upcoming">Nog niks beplan nie. Tik op \'n dag om \'n uitrusting te beplan.</string>
+    <string name="rw_planner_failed_title">Kon nie jou beplanner laai nie</string>
+    <string name="rw_planner_failed_body">Gaan jou verbinding na en probeer weer.</string>
+    <string name="rw_plan_today">Vandag</string>
+    <string name="rw_plan_tomorrow">Môre</string>
+    <string name="rw_plan_nothing_title">Niks beplan nie</string>
+    <string name="rw_plan_nothing_body">Kies \'n uitrusting vir hierdie dag.</string>
+    <string name="rw_plan_pick">Kies \'n uitrusting</string>
+    <string name="rw_plan_change">Verander uitrusting</string>
+    <string name="rw_plan_clear">Maak dag skoon</string>
+    <string name="rw_plan_cleared">Dag skoongemaak</string>
+    <string name="rw_plan_planned_for">Beplan vir %1$s</string>
+    <string name="rw_plan_replaces">Vervang %1$s</string>
+    <string name="rw_plan_schedule_title">Skeduleer hierdie uitrusting</string>
+    <string name="rw_plan_no_outfits_title">Nog geen uitrustings om te beplan nie</string>
+    <string name="rw_plan_no_outfits_body">Stoor eers \'n uitrusting en beplan dit dan hier.</string>
+    <string name="rw_plan_load_failed">Kon dit nie laai nie. Gaan jou verbinding na en probeer weer.</string>
+    <string name="rw_plan_saving">Stoor tans…</string>
+    <string name="rw_home_planned_today">Beplan vir vandag</string>
+    <string name="rw_outfit_schedule">Skeduleer</string>
+    <string name="rw_outfit_edit">Wysig uitrusting</string>
+
+    <string name="rw_outfit_load_failed_title">Kon nie hierdie uitrusting oopmaak nie</string>
+    <string name="rw_outfit_load_failed_body">Gaan jou verbinding na en probeer weer.</string>
+
+    <!--Errors shown in a toast-->
+    <string name="rw_error_timeout">Die bediener het te lank geneem om te antwoord. Probeer asseblief weer.</string>
+    <string name="rw_error_offline_queued">Jy is vanlyn. Veranderinge is gestoor en sal later sinkroniseer.</string>
+    <string name="rw_error_offline">Jy is vanlyn. Probeer asseblief weer sodra jy \'n verbinding het.</string>
+    <string name="rw_error_generic">Iets het verkeerd geloop. Probeer asseblief weer.</string>
+    <string name="rw_error_bad_request">Sommige van die besonderhede is nie aanvaar nie. Gaan dit asseblief na en probeer weer.</string>
+    <string name="rw_error_session_expired">Jou sessie het verval. Meld asseblief weer aan.</string>
+    <string name="rw_error_not_found">Daardie item bestaan nie meer nie.</string>
+    <string name="rw_error_server">Die bediener sukkel tans. Probeer asseblief binnekort weer.</string>
+    <string name="rw_error_photo_unreadable">Daardie foto kon nie gelees word nie</string>
+    <string name="rw_error_check_fields">Gaan die gemerkte velde na</string>
+    <string name="rw_error_item_save_failed">Kon nie die item stoor nie</string>
+    <string name="rw_error_item_delete_failed">Kon nie die item skrap nie</string>
+    <string name="rw_error_wardrobe_load_failed">Kon nie jou klerekas laai nie</string>
+    <string name="rw_error_name_required">\'n Naam is verpligtend</string>
+    <string name="rw_error_category_required">Kies \'n kategorie</string>
+    <string name="rw_error_outfit_name_required">Gee die uitrusting \'n naam</string>
+
+</resources>

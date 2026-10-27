@@ -135,7 +135,8 @@
                 android:id="@+id/tagBrandInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:maxLength="60" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -159,7 +160,8 @@
                 android:id="@+id/tagSizeInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textCapCharacters" />
+                android:inputType="textCapCharacters"
+                android:maxLength="20" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView

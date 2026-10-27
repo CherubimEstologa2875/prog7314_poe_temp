@@ -2,6 +2,7 @@ package com.example.runway.ui.outfits
 
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputFilter
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
@@ -21,9 +22,11 @@ import com.google.android.material.datepicker.DateValidatorPointForward
 import com.google.android.material.datepicker.MaterialDatePicker
 import java.time.Instant
 import java.time.ZoneOffset
+import com.example.runway.domain.model.Outfit
 import com.example.runway.domain.model.RatingSummary
 import com.example.runway.ui.navigation.NavArgs
 import com.example.runway.ui.sheets.ConfidenceSheet
+import com.example.runway.ui.components.Labels
 import com.example.runway.ui.components.RunwayDialogs
 import com.example.runway.ui.components.RunwayToast
 import com.google.android.material.chip.Chip
@@ -59,6 +62,7 @@ class OutfitDetailFragment : Fragment() {
         binding.outfitDetailHeader.setShowBack(true)
         binding.outfitDetailHeader.onBackClick { findNavController().navigateUp() }
 
+        binding.outfitNameInput.filters = arrayOf(InputFilter.LengthFilter(Outfit.MAX_NAME))
         binding.outfitNameInput.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, a: Int, b: Int, c: Int) = Unit
             override fun onTextChanged(s: CharSequence?, a: Int, b: Int, c: Int) = Unit
@@ -114,7 +118,7 @@ class OutfitDetailFragment : Fragment() {
             binding.outfitNameInput.setText(state.name)
         }
 
-        binding.outfitDetailHeader.subtitle = state.outfit?.occasion
+        binding.outfitDetailHeader.subtitle = Labels.occasion(requireContext(), state.outfit?.occasion)
 
         binding.outfitLoadFailed.isVisible = state.loadFailed
         if (state.loadFailed) binding.outfitDetailHeader.title = getString(R.string.rw_outfit_load_failed_title)

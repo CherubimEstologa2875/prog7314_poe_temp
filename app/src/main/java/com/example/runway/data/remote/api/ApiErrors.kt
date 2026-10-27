@@ -1,22 +1,33 @@
 package com.example.runway.data.remote.api
 
+import android.util.Log
+import androidx.annotation.StringRes
+import com.example.runway.R
 import kotlinx.serialization.json.Json
 import java.io.IOException
 import retrofit2.HttpException
 import java.net.SocketTimeoutException
 
+private const val TAG = "ApiErrors"
+
 private val json = Json { ignoreUnknownKeys = true }
 
 // Only wardrobe items queue in Room, so only those callers may promise a later sync.
-fun Throwable.toUserMessage(queuesOffline: Boolean = false): String = when (this) {
-    is SocketTimeoutException -> "The server took too long to answer. Please try again."
+// Returns a string resource so the screen can show it in the user's language.
+@StringRes
+fun Throwable.toUserMessage(queuesOffline: Boolean = false): Int = when (this) {
+    is SocketTimeoutException -> R.string.rw_error_timeout
     is IOException -> if (queuesOffline) {
-        "You are offline. Changes are saved and will sync later."
+        R.string.rw_error_offline_queued
     } else {
-        "You are offline. Please try again once you have a connection."
+        R.string.rw_error_offline
     }
-    is HttpException -> serverMessage() ?: statusMessage(code())
-    else -> "Something went wrong. Please try again."
+    is HttpException -> {
+        // The server only answers in English, so its message goes to the log and the user gets ours.
+        serverMessage()?.let { Log.w(TAG, "Server said: $it") }
+        statusMessage(code())
+    }
+    else -> R.string.rw_error_generic
 }
 
 private fun HttpException.serverMessage(): String? {
@@ -27,11 +38,13 @@ private fun HttpException.serverMessage(): String? {
 }
 
 // Umbraco (n.d.)
-private fun statusMessage(code: Int): String = when (code) {
-    401 -> "Your session has expired. Please sign in again."
-    404 -> "That item no longer exists."
-    in 500..599 -> "The server is having trouble. Please try again shortly."
-    else -> "Something went wrong. Please try again."
+@StringRes
+private fun statusMessage(code: Int): Int = when (code) {
+    400 -> R.string.rw_error_bad_request
+    401 -> R.string.rw_error_session_expired
+    404 -> R.string.rw_error_not_found
+    in 500..599 -> R.string.rw_error_server
+    else -> R.string.rw_error_generic
 }
 
 // References:

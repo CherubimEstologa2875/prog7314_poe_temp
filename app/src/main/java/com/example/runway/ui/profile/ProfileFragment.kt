@@ -16,9 +16,9 @@ import com.example.runway.RunwayApplication
 import com.example.runway.databinding.FragmentProfileBinding
 import com.example.runway.ui.components.RunwayDialogs
 import com.example.runway.ui.components.RunwayToast
+import com.example.runway.ui.outfits.PlanDates
 import kotlinx.coroutines.launch
 import java.time.format.DateTimeFormatter
-import java.util.Locale
 
 /** Profile tab: who is signed in, the wardrobe totals, and where everything else lives. */
 class ProfileFragment : Fragment() {
@@ -80,7 +80,7 @@ class ProfileFragment : Fragment() {
 
         binding.profileMemberSince.isVisible = state.memberSince != null
         state.memberSince?.let {
-            val month = it.format(DateTimeFormatter.ofPattern("MMMM yyyy", Locale.getDefault()))
+            val month = it.format(DateTimeFormatter.ofPattern("MMMM yyyy", PlanDates.locale(requireContext())))
             binding.profileMemberSince.text = getString(R.string.rw_profile_member_since, month)
         }
 

@@ -1,6 +1,7 @@
 package com.example.runway.ui.outfits
 
 import android.os.Bundle
+import android.text.InputFilter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,8 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.runway.R
 import com.example.runway.databinding.FragmentOutfitBuilderBinding
+import com.example.runway.domain.model.Outfit
+import com.example.runway.ui.components.Labels
 import com.example.runway.ui.components.RunwayToast
 import com.example.runway.ui.home.RecentItemsAdapter
 import com.example.runway.ui.navigation.NavArgs
@@ -59,6 +62,7 @@ class OutfitBuilderFragment : Fragment() {
         binding.builderRemove.setOnClickListener { viewModel.onRemoveSelected() }
 
         binding.builderName.placeholder = getString(R.string.rw_builder_name_placeholder)
+        binding.builderName.editText.filters = arrayOf(InputFilter.LengthFilter(Outfit.MAX_NAME))
         binding.builderName.onTextChanged { viewModel.onNameChanged(it) }
 
         buildOccasionChips()
@@ -91,7 +95,7 @@ class OutfitBuilderFragment : Fragment() {
     private fun buildOccasionChips() = OutfitBuilderViewModel.OCCASIONS.forEach { value ->
         binding.builderOccasions.addView(
             Chip(requireContext(), null, com.google.android.material.R.attr.chipStyle).apply {
-                text = getString(occasionLabel(value))
+                text = Labels.occasion(requireContext(), value)
                 tag = value
                 isCheckable = true
                 setOnCheckedChangeListener { _, checked -> if (checked) viewModel.onOccasionChanged(value) }
@@ -102,7 +106,7 @@ class OutfitBuilderFragment : Fragment() {
     private fun buildCategoryChips() = OutfitBuilderViewModel.CATEGORIES.forEach { value ->
         binding.builderCategories.addView(
             Chip(requireContext(), null, com.google.android.material.R.attr.chipStyle).apply {
-                text = getString(categoryLabel(value))
+                text = Labels.category(requireContext(), value)
                 tag = value
                 isCheckable = true
                 setOnCheckedChangeListener { _, checked -> if (checked) viewModel.onTrayCategoryChanged(value) }
@@ -184,22 +188,6 @@ class OutfitBuilderFragment : Fragment() {
             val chip = group.getChildAt(i) as Chip
             if (chip.tag == value && !chip.isChecked) chip.isChecked = true
         }
-    }
-
-    private fun occasionLabel(value: String): Int = when (value) {
-        "Work" -> R.string.rw_occasion_work
-        "Evening" -> R.string.rw_occasion_evening
-        "Sport" -> R.string.rw_occasion_sport
-        "Formal" -> R.string.rw_occasion_formal
-        else -> R.string.rw_occasion_casual
-    }
-
-    private fun categoryLabel(value: String): Int = when (value) {
-        "TOP" -> R.string.rw_category_top
-        "BOTTOM" -> R.string.rw_category_bottom
-        "OUTERWEAR" -> R.string.rw_category_outerwear
-        "SHOES" -> R.string.rw_category_shoes
-        else -> R.string.rw_category_other
     }
 
     override fun onDestroyView() {

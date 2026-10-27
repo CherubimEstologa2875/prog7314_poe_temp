@@ -26,5 +26,8 @@ data class RatingSummary(
     companion object {
         const val MIN_SCORE = 1
         const val MAX_SCORE = 5
+
+        // Same limit the API enforces, a longer note gets the whole rating rejected.
+        const val MAX_NOTE = 280
     }
 }
