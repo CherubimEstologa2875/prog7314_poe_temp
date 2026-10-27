@@ -392,6 +392,7 @@
     <string name="rw_weather_advice_jacket">Dra vandag \'n baadjie</string>
     <string name="rw_weather_advice_light">Dra vandag iets lig</string>
     <string name="rw_weather_advice_mild">Geen baadjie nodig vandag nie</string>
+    <string name="rw_weather_failed">Kon nie die weer laai nie</string>
     <plurals name="rw_home_laundry_alert">
         <item quantity="one">%d item moet gewas word</item>
         <item quantity="other">%d items moet gewas word</item>

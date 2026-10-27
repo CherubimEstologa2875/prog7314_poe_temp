@@ -490,6 +490,8 @@
     <string name="rw_weather_advice_jacket">Wear a jacket today</string>
     <string name="rw_weather_advice_light">Wear something light today</string>
     <string name="rw_weather_advice_mild">No jacket needed today</string>
+    <string name="rw_weather_temperature" translatable="false">%1$d°C</string>
+    <string name="rw_weather_failed">Could not load the weather</string>
     <plurals name="rw_home_laundry_alert">
         <item quantity="one">%d item needs a wash</item>
         <item quantity="other">%d items need a wash</item>

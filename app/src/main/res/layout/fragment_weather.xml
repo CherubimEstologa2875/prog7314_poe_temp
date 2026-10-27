@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.example.runway.ui.components.ScreenHeaderView
+        android:id="@+id/weatherHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:rwLarge="true"
+        app:rwShowBack="true"
+        app:rwTitle="@string/rw_home_weather_title" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/weatherLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginVertical="@dimen/rw_space_24"
+        android:indeterminate="true"
+        app:indicatorColor="?attr/colorPrimary" />
+
+    <LinearLayout
+        android:id="@+id/weatherFailed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/rw_space_24"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rw_weather_failed"
+            android:textAppearance="@style/TextAppearance.Runway.Secondary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/weatherRetry"
+            style="@style/Widget.Runway.Button.Secondary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/rw_space_16"
+            android:text="@string/rw_home_retry" />
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/weatherCard"
+        style="@style/Widget.Runway.Card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/rw_space_16"
+        android:layout_marginTop="@dimen/rw_space_16"
+        android:visibility="gone"
+        app:contentPadding="@dimen/rw_space_16">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/weatherTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Runway.Display" />
+
+            <TextView
+                android:id="@+id/weatherCondition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Runway.Secondary" />
+
+            <TextView
+                android:id="@+id/weatherAdvice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_8" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/weatherItems"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingHorizontal="12dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="88dp" />
+
+</LinearLayout>
