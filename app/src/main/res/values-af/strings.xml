@@ -385,6 +385,14 @@
     <string name="rw_home_notifications">Kennisgewings</string>
     <string name="rw_home_weather_title">Weervoorstelle</string>
     <string name="rw_home_weather_body">Kyk wat om vir vandag se weer aan te trek</string>
+    <string name="rw_weather_sunny">Sonnig</string>
+    <string name="rw_weather_cloudy">Bewolk</string>
+    <string name="rw_weather_rainy">Reënerig</string>
+    <string name="rw_weather_stormy">Stormagtig</string>
+    <string name="rw_weather_advice_jacket">Dra vandag \'n baadjie</string>
+    <string name="rw_weather_advice_light">Dra vandag iets lig</string>
+    <string name="rw_weather_advice_mild">Geen baadjie nodig vandag nie</string>
+    <string name="rw_weather_failed">Kon nie die weer laai nie</string>
     <plurals name="rw_home_laundry_alert">
         <item quantity="one">%d item moet gewas word</item>
         <item quantity="other">%d items moet gewas word</item>
