@@ -148,6 +148,7 @@ object Collections {
     const val CONFIDENCE_RATINGS = "confidenceRatings"
     const val LISTINGS = "listings"
     const val LISTING_REQUESTS = "listingRequests"
+    const val DEVICE_TOKENS = "deviceTokens"
 }
 
 // Field names used in queries.

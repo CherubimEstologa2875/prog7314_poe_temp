@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One alert in the Notifications screen's recent list. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingVertical="@dimen/rw_space_10">
+
+        <ImageView
+            android:id="@+id/notificationIcon"
+            android:layout_width="@dimen/rw_space_20"
+            android:layout_height="@dimen/rw_space_20"
+            android:layout_gravity="top"
+            android:layout_marginEnd="@dimen/rw_space_12"
+            android:importantForAccessibility="no"
+            tools:src="@drawable/ic_rw_droplet" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/notificationTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Runway.Body"
+                tools:text="Time for a wash" />
+
+            <TextView
+                android:id="@+id/notificationBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_2"
+                android:textAppearance="@style/TextAppearance.Runway.Secondary"
+                tools:text="Black wool coat has reached its wear limit." />
+
+            <TextView
+                android:id="@+id/notificationTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_4"
+                android:textAppearance="@style/TextAppearance.Runway.Micro"
+                tools:text="5 minutes ago" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/notificationDivider"
+        style="@style/Widget.Runway.Divider" />
+</LinearLayout>

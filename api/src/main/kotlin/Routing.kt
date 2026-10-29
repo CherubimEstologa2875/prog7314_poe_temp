@@ -17,6 +17,7 @@ fun Application.configureRouting() {
         ratingRoutes()
         planRoutes()
         userRoutes()
+        notificationRoutes()
     }
 }
 

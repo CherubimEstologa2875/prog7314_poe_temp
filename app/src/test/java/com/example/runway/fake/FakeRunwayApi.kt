@@ -2,6 +2,7 @@ package com.example.runway.fake
 
 import com.example.runway.data.remote.api.CreateItemDto
 import com.example.runway.data.remote.api.CreateRatingDto
+import com.example.runway.data.remote.api.DeviceTokenDto
 import com.example.runway.data.remote.api.ItemDto
 import com.example.runway.data.remote.api.LogOutfitWearDto
 import com.example.runway.data.remote.api.LogWearDto
@@ -12,8 +13,10 @@ import com.example.runway.data.remote.api.PlanDto
 import com.example.runway.data.remote.api.RatingDto
 import com.example.runway.data.remote.api.RatingSummaryDto
 import com.example.runway.data.remote.api.RunwayApi
+import com.example.runway.data.remote.api.SendReportDto
 import com.example.runway.data.remote.api.SetPlanDto
 import com.example.runway.data.remote.api.SettingsDto
+import com.example.runway.data.remote.api.TestNotificationDto
 import com.example.runway.data.remote.api.UpdateItemDto
 import com.example.runway.data.remote.api.UpdateOutfitDto
 import com.example.runway.data.remote.api.UserDto
@@ -111,6 +114,27 @@ class FakeRunwayApi : RunwayApi {
     override suspend fun getProfile(): UserDto = unused()
     override suspend fun getSettings(): SettingsDto = unused()
     override suspend fun saveSettings(body: SettingsDto): SettingsDto = unused()
+
+    // Push notifications
+    val registeredTokens = mutableListOf<String>()
+    val removedTokens = mutableListOf<String>()
+    var testReport = SendReportDto(sent = 1)
+    var pushError: Throwable? = null
+
+    override suspend fun registerDeviceToken(body: DeviceTokenDto) {
+        pushError?.let { throw it }
+        registeredTokens += body.token
+    }
+
+    override suspend fun removeDeviceToken(body: DeviceTokenDto) {
+        pushError?.let { throw it }
+        removedTokens += body.token
+    }
+
+    override suspend fun sendTestNotification(body: TestNotificationDto): SendReportDto {
+        pushError?.let { throw it }
+        return testReport
+    }
 
     private fun unused(): Nothing = throw UnsupportedOperationException("Not set up in this test")
 }

@@ -161,6 +161,26 @@ data class SettingsDto(
     val defaultWearLimit: Int = 3,
 )
 
+// This device's FCM token, sent so the API can push to it (SCRUM-161).
+@Serializable
+data class DeviceTokenDto(
+    val token: String,
+    val platform: String = "android",
+)
+
+@Serializable
+data class TestNotificationDto(
+    val type: String = "general",
+)
+
+// How a push went across the user's devices. "removed" counts tokens FCM no longer knew.
+@Serializable
+data class SendReportDto(
+    val sent: Int = 0,
+    val removed: Int = 0,
+    val failed: Int = 0,
+)
+
 // One page of results.
 @Serializable
 data class PageDto<T>(

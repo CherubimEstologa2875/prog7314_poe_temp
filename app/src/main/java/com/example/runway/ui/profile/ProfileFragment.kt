@@ -95,6 +95,10 @@ class ProfileFragment : Fragment() {
     private fun signOut() {
         application.container.authSessionStore.clearSession()
         viewLifecycleOwner.lifecycleScope.launch {
+            // Before Firebase sign-out: the API call needs this user's ID token (SCRUM-161).
+            application.container.pushTokenRepository.unregister()
+            // The next person to sign in on this phone should not see these.
+            application.container.notificationInbox.clear()
             val cleared = application.container.googleAuthClient.signOut()
             val currentBinding = _binding
             if (!cleared && currentBinding != null) {

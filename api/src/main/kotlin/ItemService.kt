@@ -8,7 +8,13 @@ import java.time.Instant
 
 // Firestore data access for clothing items (IIE, 2026).
 
-class ItemService(firestore: Firestore? = null) {
+class ItemService(
+    firestore: Firestore? = null,
+    // Told when a wear pushes a garment over its limit, so the owner gets a wash reminder (SCRUM-162).
+    private val onWashDue: (uid: String, itemName: String) -> Unit = { uid, name ->
+        NotificationService().washDue(uid, name)
+    },
+) {
     private val db: Firestore by lazy { firestore ?: FirebaseAdmin.db }
 
     private val items get() = db.collection(Collections.CLOTHING_ITEMS)
@@ -143,6 +149,11 @@ class ItemService(firestore: Firestore? = null) {
             )
         )
         batch.commit().await()
+
+        // Only on the wear that crosses the limit, so the owner is not reminded on every wear after it.
+        if (justReachedWashLimit(item.wearCount, item.wearLimit)) {
+            onWashDue(uid, item.name)
+        }
 
         return WearResponse(
             id = wearRef.id,

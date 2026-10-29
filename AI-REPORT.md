@@ -25,6 +25,7 @@ In both cases the diagnosis was confirmed against the running system before anyt
 
 After the team replaced a planned feature with a different one, AI was used to help track down what the removed feature had left behind: unused imports, strings, resources and dependencies that nothing referenced any more. It was also used to review our own code for repetition worth extracting into a shared helper. Suggested changes were read, compiled and put through the full test suite before any of them were kept.
 
+
 ## Limits the team set
 
 - No feature was generated wholesale and accepted unread. Anything suggested was reviewed line by line by the developer responsible for that area.

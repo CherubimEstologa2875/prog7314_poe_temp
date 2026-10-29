@@ -10,6 +10,9 @@ import com.example.runway.data.local.PreferencesSettingsStore
 import com.example.runway.data.local.RunwayDatabase
 import com.example.runway.data.local.SyncPreferences
 import com.example.runway.data.network.ConnectivityObserver
+import com.example.runway.data.notifications.NotificationInbox
+import com.example.runway.data.notifications.PushTokenRepository
+import com.example.runway.data.notifications.RunwayNotifier
 import com.example.runway.data.remote.api.ApiClient
 import com.example.runway.data.repository.ApiOutfitRepository
 import com.example.runway.data.repository.ApiPlanRepository
@@ -25,6 +28,9 @@ import com.example.runway.domain.repository.RatingRepository
 import com.example.runway.domain.repository.SettingsRepository
 import com.example.runway.domain.repository.WardrobeRepository
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 
 // Manual dependency container for the Runway app.
 
@@ -105,5 +111,22 @@ class AppContainer(context: Context) {
 
     val settingsRepository: SettingsRepository by lazy {
         PreferencesSettingsStore(appContext)
+    }
+
+    // Work that must finish even after the screen that started it has gone,
+    // like registering for push right after sign-in navigates away.
+    val appScope: CoroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+
+    // Push notifications (SCRUM-161, SCRUM-162).
+    val pushTokenRepository: PushTokenRepository by lazy {
+        PushTokenRepository(ApiClient.api)
+    }
+
+    val notificationInbox: NotificationInbox by lazy {
+        NotificationInbox(appContext)
+    }
+
+    val notifier: RunwayNotifier by lazy {
+        RunwayNotifier(appContext, settingsRepository, notificationInbox)
     }
 }

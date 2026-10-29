@@ -254,8 +254,6 @@
     <!--Profile tab pushes-->
     <string name="rw_stub_stats_title">Statistieke en insigte</string>
     <string name="rw_stub_stats_body">Mees en minste gedra, en koste per dra, kom hier.</string>
-    <string name="rw_stub_notifications_title">Kennisgewings</string>
-    <string name="rw_stub_notifications_body">Washerinneringe en ruilversoeke kom hier.</string>
     <string name="rw_stub_settings_title">Instellings</string>
     <string name="rw_stub_settings_body">Tema, biometrie, vanlyn-sinkronisering en taal is hier.</string>
     <string name="rw_stub_language_title">Taal</string>
@@ -516,5 +514,36 @@
     <string name="rw_error_name_required">\'n Naam is verpligtend</string>
     <string name="rw_error_category_required">Kies \'n kategorie</string>
     <string name="rw_error_outfit_name_required">Gee die uitrusting \'n naam</string>
+
+    <!-- Notifications screen and channels (SCRUM-162) -->
+    <string name="rw_notifications_title">Kennisgewings</string>
+    <string name="rw_notifications_on_title">Kennisgewings is aan</string>
+    <string name="rw_notifications_on_body">Jy sal die waarskuwings kry wat hieronder aangeskakel is.</string>
+    <string name="rw_notifications_off_title">Kennisgewings is geblokkeer</string>
+    <string name="rw_notifications_off_body">Android sal nie Runway se waarskuwings wys nie. Nuwes verskyn steeds in die lys hieronder.</string>
+    <string name="rw_notifications_allow">Laat kennisgewings toe</string>
+    <string name="rw_notifications_open_settings">Maak Android-instellings oop</string>
+    <string name="rw_notifications_denied">Kennisgewings bly af. Jy kan dit hier enige tyd aanskakel.</string>
+    <string name="rw_notifications_types">Soorte waarskuwings</string>
+    <string name="rw_notifications_edit">Wysig</string>
+    <string name="rw_notifications_type_on">Aan</string>
+    <string name="rw_notifications_type_off">Af</string>
+    <string name="rw_notifications_type_muted">Gedemp in Android</string>
+    <string name="rw_notifications_test">Stuur \'n toetskennisgewing</string>
+    <string name="rw_notifications_test_sending">Stuur tans…</string>
+    <string name="rw_notifications_test_sent">Toets gestuur. Dit behoort binne \'n paar sekondes te kom.</string>
+    <string name="rw_notifications_test_failed">Firebase kon nie die toets aflewer nie. Probeer weer oor \'n rukkie.</string>
+    <string name="rw_notifications_test_no_device">Hierdie foon is nog nie vir waarskuwings geregistreer nie. Gaan jou verbinding na en probeer weer.</string>
+    <string name="rw_notifications_recent">Onlangs</string>
+    <string name="rw_notifications_clear">Vee uit</string>
+    <string name="rw_notifications_clear_title">Vee onlangse waarskuwings uit?</string>
+    <string name="rw_notifications_clear_body">Dit maak net die lys op hierdie foon leeg.</string>
+    <string name="rw_notifications_empty_title">Nog geen waarskuwings nie</string>
+    <string name="rw_notifications_empty_body">Washerinneringe en ruilversoeke sal hier verskyn.</string>
+    <string name="rw_channel_general">Rekening en opdaterings</string>
+    <string name="rw_channel_general_desc">Boodskappe oor jou rekening, en toetskennisgewings.</string>
+    <string name="rw_channel_wash_desc">Wanneer \'n kledingstuk sy draaglimiet bereik.</string>
+    <string name="rw_channel_swap_desc">Wanneer iemand met jou wil ruil.</string>
+    <string name="rw_channel_weather_desc">Uitrustingidees vir vandag se weer.</string>
 
 </resources>
