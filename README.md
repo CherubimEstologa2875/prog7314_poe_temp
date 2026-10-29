@@ -23,8 +23,9 @@ The problem is a full wardrobe with nothing to wear: clothes that were bought, w
 | Planner | A month grid: schedule an outfit to a day, or clear it |
 | Confidence ratings | Rate an outfit after wearing it |
 | Offline | Wardrobe changes queue locally and sync on reconnect |
+| Notifications | Push alerts through Firebase Cloud Messaging: wash reminders when a garment hits its wear limit, plus swap and weather alert types |
 
-**Scope.** Part 2 is a working Android client against our own REST API, with real authentication, offline support and automated tests. Some screens are deliberate placeholders for Part 3 and say so on screen: weather suggestions, the swap market, laundry, insights, notifications, language switching, onboarding, and editing an item after it is added.
+**Scope.** Part 2 is a working Android client against our own REST API, with real authentication, offline support and automated tests. Some screens are deliberate placeholders for Part 3 and say so on screen: weather suggestions, the swap market, laundry, insights, language switching, onboarding, and editing an item after it is added.
 
 ## Screenshots
 
@@ -209,12 +210,28 @@ The hosted API sleeps when idle on Render's free tier, so the first request afte
 
 | Suite | Count | Command |
 |---|---|---|
-| Android unit tests | 180 | `./gradlew :app:testDebugUnitTest` |
-| API unit tests | 39 | `cd api && ./gradlew test` |
+| Android unit tests | 208 | `./gradlew :app:testDebugUnitTest` |
+| API unit tests | 58 | `cd api && ./gradlew test` |
 
 They cover the pure rules (`ItemDraft`, `OutfitCanvas`, `ColourMatcher`), the repositories and their mappers, and the ViewModels behind the wardrobe, outfits, builder and planner.
 
 The API documents itself at `http://localhost:8080/swagger`, generated from `api/src/main/resources/openapi/documentation.yaml`. Everything except `/health` needs a Firebase ID token, pasted into **Authorize** (Swagger adds the word Bearer itself).
+
+## Notifications
+
+Push notifications run on Firebase Cloud Messaging (SCRUM-161 to SCRUM-163). The app sends its FCM token to the API after sign-in, and the API pushes wash reminders when a garment reaches its wear limit.
+
+- Messages are data-only, so the app decides how every alert looks, whether it is open or closed.
+- A token belongs to whoever signed in on that phone last, and pushes are ignored while signed out.
+- When FCM reports a token as no longer registered, the API deletes it.
+
+| Endpoint | Purpose |
+|---|---|
+| `PUT /api/v1/users/me/device-token` | Register this device |
+| `DELETE /api/v1/users/me/device-token` | Unregister it on sign-out |
+| `POST /api/v1/notifications/test` | Push a test to the caller's own devices |
+
+Automated tests: `NotificationRulesTest` and `PushTokenRepositoryTest` (app), `NotificationTest` (API). The manual test plan is in [docs/notifications-testing.md](docs/notifications-testing.md).
 
 ## Version control
 

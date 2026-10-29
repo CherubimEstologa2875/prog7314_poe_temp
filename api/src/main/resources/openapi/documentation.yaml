@@ -25,6 +25,7 @@ tags:
   - name: Planner
   - name: Wardrobe
   - name: Users
+  - name: Notifications
 
 paths:
 
@@ -506,6 +507,68 @@ paths:
               schema: { $ref: '#/components/schemas/Settings' }
         '400': { $ref: '#/components/responses/BadRequest' }
 
+  /api/v1/users/me/device-token:
+    put:
+      tags: [Notifications]
+      summary: Register this device for push notifications
+      description: >
+        Stores the device's Firebase Cloud Messaging token under the token holder.
+        Sending the same token again only refreshes it.
+      security:
+        - firebaseAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/DeviceToken' }
+      responses:
+        '204':
+          description: The token is registered
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+    delete:
+      tags: [Notifications]
+      summary: Stop push notifications to this device
+      description: Called on sign-out. The token is in the body so it stays out of URLs and logs.
+      security:
+        - firebaseAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/DeviceToken' }
+      responses:
+        '204':
+          description: The token is removed
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+
+  /api/v1/notifications/test:
+    post:
+      tags: [Notifications]
+      summary: Send a test push to the caller's own devices
+      description: >
+        Tokens that Firebase reports as no longer registered are deleted and
+        counted in "removed".
+      security:
+        - firebaseAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type: { type: string, enum: [general, wash, swap, weather], default: general }
+      responses:
+        '200':
+          description: What happened on each device
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SendReport' }
+        '400': { $ref: '#/components/responses/BadRequest' }
+        '401': { $ref: '#/components/responses/Unauthorized' }
+
 components:
 
   schemas:
@@ -614,6 +677,23 @@ components:
           minimum: 1
           maximum: 60
           description: Applied to a new item that does not name its own limit.
+
+    DeviceToken:
+      type: object
+      required: [token]
+      properties:
+        token: { type: string, example: dQw4w9WgXcQ:APA91bH... }
+        platform: { type: string, enum: [android], default: android }
+
+    SendReport:
+      type: object
+      properties:
+        sent: { type: integer, example: 1 }
+        removed:
+          type: integer
+          example: 0
+          description: Tokens Firebase no longer recognised, now deleted.
+        failed: { type: integer, example: 0 }
 
     WardrobeSummary:
       type: object

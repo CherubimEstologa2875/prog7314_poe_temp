@@ -254,8 +254,6 @@
     <!--Profile tab pushes-->
     <string name="rw_stub_stats_title">Izibalo nemininingwane</string>
     <string name="rw_stub_stats_body">Ezigqokwe kakhulu nezigqokwe kancane, kanye nezindleko ngokugqoka, kuzofika lapha.</string>
-    <string name="rw_stub_notifications_title">Izaziso</string>
-    <string name="rw_stub_notifications_body">Izikhumbuzi zokuwasha nezaziso zezicelo zokushintshana kuzofika lapha.</string>
     <string name="rw_stub_settings_title">Izilungiselelo</string>
     <string name="rw_stub_settings_body">Itimu, i-biometric, ukuvumelanisa ungaxhunyiwe nolimi kutholakala lapha.</string>
     <string name="rw_stub_language_title">Ulimi</string>
@@ -516,5 +514,36 @@
     <string name="rw_error_name_required">Igama liyadingeka</string>
     <string name="rw_error_category_required">Khetha isigaba</string>
     <string name="rw_error_outfit_name_required">Nika isembatho igama</string>
+
+    <!-- Notifications screen and channels (SCRUM-162) -->
+    <string name="rw_notifications_title">Izaziso</string>
+    <string name="rw_notifications_on_title">Izaziso zivuliwe</string>
+    <string name="rw_notifications_on_body">Uzothola izaziso ezivulwe ngezansi.</string>
+    <string name="rw_notifications_off_title">Izaziso zivinjiwe</string>
+    <string name="rw_notifications_off_body">I-Android ngeke ikhombise izaziso ze-Runway. Ezintsha zisazovela ohlwini olungezansi.</string>
+    <string name="rw_notifications_allow">Vumela izaziso</string>
+    <string name="rw_notifications_open_settings">Vula izilungiselelo ze-Android</string>
+    <string name="rw_notifications_denied">Izaziso zihlala zivaliwe. Ungazivula lapha noma nini.</string>
+    <string name="rw_notifications_types">Izinhlobo zezaziso</string>
+    <string name="rw_notifications_edit">Hlela</string>
+    <string name="rw_notifications_type_on">Kuvuliwe</string>
+    <string name="rw_notifications_type_off">Kuvaliwe</string>
+    <string name="rw_notifications_type_muted">Kuthulisiwe ku-Android</string>
+    <string name="rw_notifications_test">Thumela isaziso sokuhlola</string>
+    <string name="rw_notifications_test_sending">Iyathumela…</string>
+    <string name="rw_notifications_test_sent">Ukuhlola kuthunyelwe. Kufanele kufike emizuzwaneni embalwa.</string>
+    <string name="rw_notifications_test_failed">I-Firebase ayikwazanga ukuthumela ukuhlola. Zama futhi maduze.</string>
+    <string name="rw_notifications_test_no_device">Le foni ayikabhaliswa ukuthola izaziso. Hlola uxhumano lwakho bese uzama futhi.</string>
+    <string name="rw_notifications_recent">Okwakamuva</string>
+    <string name="rw_notifications_clear">Sula</string>
+    <string name="rw_notifications_clear_title">Sula izaziso zakamuva?</string>
+    <string name="rw_notifications_clear_body">Lokhu kusula uhlu kule foni kuphela.</string>
+    <string name="rw_notifications_empty_title">Azikho izaziso okwamanje</string>
+    <string name="rw_notifications_empty_body">Izikhumbuzi zokuwasha nezicelo zokushintshana zizovela lapha.</string>
+    <string name="rw_channel_general">I-akhawunti nezibuyekezo</string>
+    <string name="rw_channel_general_desc">Imilayezo mayelana ne-akhawunti yakho, nezaziso zokuhlola.</string>
+    <string name="rw_channel_wash_desc">Uma ingubo ifinyelela umkhawulo wayo wokugqokwa.</string>
+    <string name="rw_channel_swap_desc">Uma othile efuna ukushintshana nawe.</string>
+    <string name="rw_channel_weather_desc">Imibono yezingubo yesimo sezulu sanamuhla.</string>
 
 </resources>

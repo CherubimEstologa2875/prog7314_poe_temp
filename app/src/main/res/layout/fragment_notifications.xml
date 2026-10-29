@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Notifications screen (SCRUM-162): whether Android shows Runway alerts, which kinds are on, a test button and recent alerts. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.profile.NotificationsFragment">
+
+    <com.example.runway.ui.components.ScreenHeaderView
+        android:id="@+id/notificationsHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:rwLarge="true"
+        app:rwShowBack="true"
+        app:rwTitle="@string/rw_notifications_title" />
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/Widget.Runway.ScreenContent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Permission status -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Runway.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentPadding="@dimen/rw_space_16">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/notificationsStatusTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="@dimen/rw_space_8"
+                        android:gravity="center_vertical"
+                        android:textAppearance="@style/TextAppearance.Runway.Body"
+                        tools:text="@string/rw_notifications_on_title" />
+
+                    <TextView
+                        android:id="@+id/notificationsStatusBody"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/rw_space_4"
+                        android:textAppearance="@style/TextAppearance.Runway.Secondary"
+                        tools:text="@string/rw_notifications_on_body" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/notificationsStatusAction"
+                        style="@style/Widget.Runway.Button.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/rw_space_12"
+                        android:visibility="gone"
+                        tools:text="@string/rw_notifications_allow"
+                        tools:visibility="visible" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Which kinds of alert are on. Changed on the Settings screen. -->
+            <com.example.runway.ui.components.SectionHeaderView
+                android:id="@+id/notificationsTypesHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwActionText="@string/rw_notifications_edit"
+                app:rwTitle="@string/rw_notifications_types" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Runway.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentPadding="@dimen/rw_space_12">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.example.runway.ui.components.ListRowView
+                        android:id="@+id/notificationsWashRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:rwIcon="@drawable/ic_rw_droplet"
+                        app:rwLabel="@string/rw_settings_notify_wash" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        style="@style/Widget.Runway.Divider" />
+
+                    <com.example.runway.ui.components.ListRowView
+                        android:id="@+id/notificationsSwapRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:rwIcon="@drawable/ic_rw_swap"
+                        app:rwLabel="@string/rw_settings_notify_swap" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        style="@style/Widget.Runway.Divider" />
+
+                    <com.example.runway.ui.components.ListRowView
+                        android:id="@+id/notificationsWeatherRow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:rwIcon="@drawable/ic_rw_cloud"
+                        app:rwLabel="@string/rw_settings_notify_weather" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/notificationsTestButton"
+                style="@style/Widget.Runway.Button.Outline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_16"
+                android:text="@string/rw_notifications_test"
+                app:icon="@drawable/ic_rw_bell" />
+
+            <!-- Recent alerts, kept on this phone -->
+            <com.example.runway.ui.components.SectionHeaderView
+                android:id="@+id/notificationsRecentHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwActionText="@string/rw_notifications_clear"
+                app:rwTitle="@string/rw_notifications_recent" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/notificationsListCard"
+                style="@style/Widget.Runway.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentPadding="@dimen/rw_space_12">
+
+                <LinearLayout
+                    android:id="@+id/notificationsList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.example.runway.ui.components.EmptyStateView
+                android:id="@+id/notificationsEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rwBody="@string/rw_notifications_empty_body"
+                app:rwIcon="@drawable/ic_rw_bell"
+                app:rwTitle="@string/rw_notifications_empty_title" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

@@ -263,8 +263,6 @@
     <!--Profile tab pushes-->
     <string name="rw_stub_stats_title">Stats &amp; insights</string>
     <string name="rw_stub_stats_body">Most/least worn and cost-per-wear insights land here.</string>
-    <string name="rw_stub_notifications_title">Notifications</string>
-    <string name="rw_stub_notifications_body">Wash reminders and swap-request alerts land here.</string>
     <string name="rw_stub_settings_title">Settings</string>
     <string name="rw_stub_settings_body">Theme, biometrics, offline sync and language live here.</string>
     <string name="rw_stub_language_title">Language</string>
@@ -616,5 +614,36 @@
     <string name="rw_error_name_required">A name is required</string>
     <string name="rw_error_category_required">Choose a category</string>
     <string name="rw_error_outfit_name_required">Give the outfit a name</string>
+
+    <!-- Notifications screen and channels (SCRUM-162) -->
+    <string name="rw_notifications_title">Notifications</string>
+    <string name="rw_notifications_on_title">Notifications are on</string>
+    <string name="rw_notifications_on_body">You will get the alerts that are switched on below.</string>
+    <string name="rw_notifications_off_title">Notifications are blocked</string>
+    <string name="rw_notifications_off_body">Android will not show Runway alerts. New ones still appear in the list below.</string>
+    <string name="rw_notifications_allow">Allow notifications</string>
+    <string name="rw_notifications_open_settings">Open Android settings</string>
+    <string name="rw_notifications_denied">Notifications stay off. You can turn them on here at any time.</string>
+    <string name="rw_notifications_types">Alert types</string>
+    <string name="rw_notifications_edit">Edit</string>
+    <string name="rw_notifications_type_on">On</string>
+    <string name="rw_notifications_type_off">Off</string>
+    <string name="rw_notifications_type_muted">Muted in Android</string>
+    <string name="rw_notifications_test">Send a test notification</string>
+    <string name="rw_notifications_test_sending">Sending…</string>
+    <string name="rw_notifications_test_sent">Test sent. It should arrive in a few seconds.</string>
+    <string name="rw_notifications_test_failed">Firebase could not deliver the test. Try again shortly.</string>
+    <string name="rw_notifications_test_no_device">This phone is not registered for alerts yet. Check your connection and try again.</string>
+    <string name="rw_notifications_recent">Recent</string>
+    <string name="rw_notifications_clear">Clear</string>
+    <string name="rw_notifications_clear_title">Clear recent alerts?</string>
+    <string name="rw_notifications_clear_body">This only empties the list on this phone.</string>
+    <string name="rw_notifications_empty_title">No alerts yet</string>
+    <string name="rw_notifications_empty_body">Wash reminders and swap requests will show up here.</string>
+    <string name="rw_channel_general">Account and updates</string>
+    <string name="rw_channel_general_desc">Messages about your account, and test notifications.</string>
+    <string name="rw_channel_wash_desc">When a garment reaches its wear limit.</string>
+    <string name="rw_channel_swap_desc">When someone asks to swap with you.</string>
+    <string name="rw_channel_weather_desc">Outfit ideas for today\'s weather.</string>
 
 </resources>

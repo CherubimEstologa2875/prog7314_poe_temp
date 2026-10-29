@@ -3,6 +3,7 @@ package com.example.runway.data.remote.api
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
+import retrofit2.http.HTTP
 import retrofit2.http.PATCH
 import retrofit2.http.POST
 import retrofit2.http.PUT
@@ -87,6 +88,15 @@ interface RunwayApi {
     @PUT("api/v1/users/me/settings")
     suspend fun saveSettings(@Body body: SettingsDto): SettingsDto
 
+    // Push notifications (SCRUM-161). Retrofit's @DELETE cannot carry a body, hence @HTTP.
+    @PUT("api/v1/users/me/device-token")
+    suspend fun registerDeviceToken(@Body body: DeviceTokenDto)
+
+    @HTTP(method = "DELETE", path = "api/v1/users/me/device-token", hasBody = true)
+    suspend fun removeDeviceToken(@Body body: DeviceTokenDto)
+
+    @POST("api/v1/notifications/test")
+    suspend fun sendTestNotification(@Body body: TestNotificationDto): SendReportDto
 
 }
 

@@ -286,6 +286,10 @@ fun validateWearLimit(limit: Int?) {
 fun needsWash(wearCount: Long, wearLimit: Long): Boolean =
     wearLimit > 0 && wearCount >= wearLimit
 
+// True when one more wear takes a garment from clean to due a wash.
+fun justReachedWashLimit(wearCountBefore: Long, wearLimit: Long): Boolean =
+    !needsWash(wearCountBefore, wearLimit) && needsWash(wearCountBefore + 1, wearLimit)
+
 // The average shown on the outfit screen, rounded to one decimal place.
 fun averageScore(scores: List<Long>): Double? =
     if (scores.isEmpty()) null

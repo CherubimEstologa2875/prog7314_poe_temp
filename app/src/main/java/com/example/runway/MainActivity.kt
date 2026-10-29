@@ -1,8 +1,10 @@
 package com.example.runway
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -17,6 +19,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.runway.databinding.ActivityMainBinding
 import com.example.runway.data.auth.AuthDestination
 import com.example.runway.data.auth.AuthFlow
+import com.example.runway.data.notifications.NotificationPermission
 import com.example.runway.domain.model.RunwaySettings
 import com.example.runway.ui.AppLanguage
 import com.example.runway.ui.components.SyncBannerView
@@ -33,6 +36,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
 
+    // Set when a notification was tapped; acted on once the user is past sign-in.
+    private var pendingOpenNotifications = false
+
+    private val notificationPermissionRequest =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+            Log.d(TAG, "notification permission granted=$granted")
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate")
@@ -46,6 +57,43 @@ class MainActivity : AppCompatActivity() {
         setUpNavigation(isFreshStart = savedInstanceState == null)
         setUpFab()
         watchConnection()
+        // Only on a fresh start: after rotation the same intent would open the screen again.
+        if (savedInstanceState == null) handleNotificationTap(intent)
+    }
+
+    // A notification tapped while the activity is already running (SCRUM-162).
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        handleNotificationTap(intent)
+    }
+
+    private fun handleNotificationTap(intent: Intent?) {
+        if (intent?.action != ACTION_OPEN_NOTIFICATIONS) return
+        Log.d(TAG, "opened from a notification")
+        pendingOpenNotifications = true
+        openPendingNotifications()
+    }
+
+    // Waits until sign-in and the biometric check are done, so a tap cannot skip them.
+    private fun openPendingNotifications() {
+        if (!pendingOpenNotifications) return
+        val current = navController.currentDestination?.id ?: return
+        if (current in AUTH_DESTINATIONS) return
+        pendingOpenNotifications = false
+        if (current != R.id.notificationsFragment) {
+            // Posted so we never navigate from inside a destination-changed callback.
+            binding.root.post { navController.navigate(R.id.notificationsFragment) }
+        }
+    }
+
+    // Asks once, the first time the user reaches Home. Asking on the sign-in screen,
+    // before they have seen the app, gets far more refusals (Android Developers, 2026).
+    private fun askForNotificationsOnce() {
+        if (!NotificationPermission.needsRuntimeRequest) return
+        if (NotificationPermission.isAllowed(this) || NotificationPermission.hasAskedBefore(this)) return
+        NotificationPermission.markAsked(this)
+        notificationPermissionRequest.launch(NotificationPermission.PERMISSION)
     }
 
     // The language can also be changed from Android's own settings, so the saved setting follows what is showing.
@@ -125,6 +173,9 @@ class MainActivity : AppCompatActivity() {
             val showChrome = destination.id !in CHROMELESS_DESTINATIONS
             binding.bottomNav.isVisible = showChrome
             binding.addFab.isVisible = showChrome
+
+            if (destination.id == R.id.homeFragment) askForNotificationsOnce()
+            openPendingNotifications()
         }
     }
 
@@ -187,13 +238,23 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "onDestroy - isFinishing=$isFinishing")
     }
 
-    private companion object {
-        const val TAG = "MainActivity"
+    companion object {
+        /** The action on the intent behind every Runway notification. */
+        const val ACTION_OPEN_NOTIFICATIONS = "com.example.runway.action.OPEN_NOTIFICATIONS"
+
+        private const val TAG = "MainActivity"
+
+        /** Screens a notification tap must not skip past. */
+        private val AUTH_DESTINATIONS = setOf(
+            R.id.onboardingFragment,
+            R.id.signInFragment,
+            R.id.biometricFragment,
+        )
 
         /** Destinations that are not part of the four-tab shell: auth and the add-item
          * modal flow. The bottom bar and FAB are hidden on these, matching the mockup
          * (TabBar only renders inside TabShell, after AppGate hands off). */
-        val CHROMELESS_DESTINATIONS = setOf(
+        private val CHROMELESS_DESTINATIONS = setOf(
             R.id.onboardingFragment,
             R.id.signInFragment,
             R.id.biometricFragment,
@@ -203,3 +264,7 @@ class MainActivity : AppCompatActivity() {
         )
     }
 }
+
+/* Reference List
+Android Developers, 2026. Notification runtime permission. [online] Available at: <https://developer.android.com/develop/ui/views/notifications/notification-permission> [Accessed 29 October 2026].
+*/

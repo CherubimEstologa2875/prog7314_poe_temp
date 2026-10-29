@@ -14,6 +14,12 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <!--
+        Android 13+ asks the user before an app may post notifications. Asked once after
+        sign-in, and again from the Notifications screen (SCRUM-162).
+    -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <application
         android:name=".RunwayApplication"
         android:allowBackup="true"
@@ -59,6 +65,26 @@
             android:exported="false"
             android:label="@string/rw_catalog_title"
             android:parentActivityName=".MainActivity" />
+
+        <!--
+            Receives Firebase Cloud Messaging pushes and new tokens (SCRUM-161). Not exported:
+            only Google Play services delivers to it.
+        -->
+        <service
+            android:name=".data.notifications.RunwayMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- Used when FCM shows a console test message itself while the app is in the background. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="general" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_rw_notification" />
 
         <!-- Lets AppCompat remember the app language on Android 12 and older. Newer versions remember it themselves. -->
         <service
