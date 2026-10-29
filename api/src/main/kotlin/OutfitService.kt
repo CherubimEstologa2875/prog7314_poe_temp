@@ -7,7 +7,14 @@ import com.google.cloud.firestore.Query
 
 // Firestore data access for outfits and their item placements (IIE, 2026).
 
-class OutfitService(firestore: Firestore? = null) {
+class OutfitService(
+    firestore: Firestore? = null,
+    // Told when wearing an outfit takes one of its garments to its wear limit (SCRUM-162).
+    // This is the path the app uses, so it is where most wash reminders come from.
+    private val onWashDue: (uid: String, itemName: String) -> Unit = { uid, name ->
+        NotificationService().washDue(uid, name)
+    },
+) {
     private val db: Firestore by lazy { firestore ?: FirebaseAdmin.db }
 
     private val outfits get() = db.collection(Collections.OUTFITS)
@@ -150,8 +157,14 @@ class OutfitService(firestore: Firestore? = null) {
 
         // Read back afterwards so the counts returned are the stored ones.
         val responses = wears.map { (wearId, clothingItemId) ->
-            val count = itemsCollection.document(clothingItemId).get().await()
-                .toObject(ClothingItemDocument::class.java)?.wearCount ?: 0
+            val item = itemsCollection.document(clothingItemId).get().await()
+                .toObject(ClothingItemDocument::class.java)
+            val count = item?.wearCount ?: 0
+
+            // Only on the wear that crosses the limit, so the owner is not reminded on every wear after it.
+            if (item != null && justReachedWashLimit(count - 1, item.wearLimit)) {
+                onWashDue(uid, item.name)
+            }
 
             WearResponse(
                 id = wearId,
