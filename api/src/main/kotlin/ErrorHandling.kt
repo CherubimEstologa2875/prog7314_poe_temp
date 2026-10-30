@@ -11,11 +11,9 @@ import io.ktor.server.response.respond
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.Serializable
 
-// Central error handling for the Runway REST API (IIE, 2026).
-// Failures are returned as HTTP status codes with one JSON shape (Rouse, 2019; Rouse, 2020).
+// Converts expected failures to consistent JSON responses.
 
-// Every failure the API returns uses this one shape, so the Android client can write a single parser instead of one per endpoint.
-// Built on the Ktor server framework (Ktor, 2026).
+// The Android client can therefore parse errors in one place.
 @Serializable
 data class ApiError(
     val code: String,
@@ -41,7 +39,7 @@ fun Application.configureErrorHandling() {
             )
         }
 
-        // A body that cannot be parsed at all - a missing required field, a string where a number belongs, truncated JSON.
+        // Covers malformed JSON and values that cannot be converted to the DTO type.
         exception<ContentConvertException> { call, cause ->
             call.respond(
                 HttpStatusCode.BadRequest,
@@ -78,7 +76,7 @@ fun Application.configureErrorHandling() {
         }
 
         exception<Throwable> { call, cause ->
-            // Log the detail for us, return a generic message to the caller:
+            // Keep internal details in server logs while avoiding information leakage to clients.
             call.application.log.error("Unhandled exception", cause)
             call.respond(
                 HttpStatusCode.InternalServerError,
@@ -88,7 +86,13 @@ fun Application.configureErrorHandling() {
     }
 }
 
-// Turns a parser exception into something a client developer can act on.
+/* Reference List
+IIE, 2026. PROG7314 Module Manual. The Independent Institute of Education (Pty) Ltd.
+Ktor, 2026. Ktor server documentation. [online] Available at: <https://ktor.io/docs/server-create-and-configure.html> [Accessed 11 September 2026].
+Rouse, M., 2019. HTTP (Hypertext Transfer Protocol). [online] Available at: <https://whatis.techtarget.com/definition/HTTP-Hypertext-Transfer-Protocol> [Accessed 31 July 2023].
+Rouse, M., 2020. RESTful API (REST API). [online] Available at: <https://searchapparchitecture.techtarget.com/definition/RESTful-API> [Accessed 31 July 2023].
+*/
+// Extracts a short, safe description from a parser exception.
 private fun describeParseFailure(cause: Throwable): String {
     val root = generateSequence(cause) { it.cause }.last()
 
@@ -100,10 +104,3 @@ private fun describeParseFailure(cause: Throwable): String {
 
     return cleaned.ifBlank { "The request body could not be read as JSON" }.take(200)
 }
-
-/* Reference List
-IIE, 2026. PROG7314 Module Manual. The Independent Institute of Education (Pty) Ltd.
-Ktor, 2026. Ktor server documentation. [online] Available at: <https://ktor.io/docs/server-create-and-configure.html> [Accessed 11 September 2026].
-Rouse, M., 2019. HTTP (Hypertext Transfer Protocol). [online] Available at: <https://whatis.techtarget.com/definition/HTTP-Hypertext-Transfer-Protocol> [Accessed 31 July 2023].
-Rouse, M., 2020. RESTful API (REST API). [online] Available at: <https://searchapparchitecture.techtarget.com/definition/RESTful-API> [Accessed 31 July 2023].
-*/

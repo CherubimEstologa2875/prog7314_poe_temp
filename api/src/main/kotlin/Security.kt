@@ -9,11 +9,7 @@ import io.ktor.server.auth.bearer
 import io.ktor.server.auth.principal
 import io.ktor.server.routing.RoutingCall
 
-// Bearer authentication for the Runway REST API (IIE, 2026).
-// The token travels in the Authorization header over HTTPS (Seobility, n.d.; Google, 2020).
-
-// The verified identity behind one request.
-// Built on the Ktor server framework (Ktor, 2026).
+// The verified identity attached to an authenticated request.
 data class RunwayPrincipal(
     val uid: String,
     val email: String?,
@@ -42,7 +38,7 @@ fun Application.configureSecurity() {
     }
 }
 
-// The uid of the signed-in caller.
+// Fails closed if a route is reached without a verified principal.
 fun RoutingCall.uid(): String =
     principal<RunwayPrincipal>()?.uid ?: throw UnauthorizedException()
 

@@ -6,17 +6,12 @@ import io.ktor.server.application.install
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import kotlinx.serialization.json.Json
 
-// JSON content negotiation for the Runway REST API (IIE, 2026; Freeman, 2019).
-// DTO classes are marked with serialisation annotations (Kotlin Foundation, 2023).
-
-// Teaches the server to speak JSON.
-// Built on the Ktor server framework (Ktor, 2026).
-// JSON encoding is provided by kotlinx.serialization (JetBrains, 2026).
+// Configures the JSON format shared by all API requests and responses.
 fun Application.configureSerialization() {
     install(ContentNegotiation) {
         json(
             Json {
-                // Readable responses while marking; harmless in production at this scale.
+                // Keep responses readable for API consumers and manual testing.
                 prettyPrint = true
 
                 ignoreUnknownKeys = true

@@ -9,10 +9,9 @@ import java.io.File
 import java.io.InputStream
 import java.util.Base64
 
-// Firebase Admin SDK initialisation for the Runway REST API (IIE, 2026).
-// The service account key is kept on the server, never in the app (CodePath Android Cliffnotes, n.d.).
+// Creates the single server-side Firestore client used by all API services.
+// Credentials come from the deployment environment and are never bundled in the Android app.
 object FirebaseAdmin {
-    // The Firestore handle every service uses.
     lateinit var db: Firestore
         private set
 
@@ -31,7 +30,7 @@ object FirebaseAdmin {
         db = FirestoreClient.getFirestore()
     }
 
-    // Two ways to reach the same credentials.
+    // Hosted deployments use the environment variable; local development can use the ignored file.
     private fun credentialStream(): InputStream {
         val encoded = System.getenv("FIREBASE_CREDENTIALS")
 

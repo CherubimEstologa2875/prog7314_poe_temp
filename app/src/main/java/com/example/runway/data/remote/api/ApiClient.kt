@@ -9,8 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import java.util.concurrent.TimeUnit
 
-// Builds the single Retrofit client used by the app (IIE, 2026; Square, Inc., n.d.).
-// The release build talks to the API over HTTPS (Google, 2020).
+// Builds the single Retrofit client used by every API repository.
 
 object ApiClient {
     private val json = Json {
@@ -23,10 +22,10 @@ object ApiClient {
         .addInterceptor(AuthInterceptor())
         .apply {
             if (BuildConfig.DEBUG) {
-                // Request and response headers in Logcat while developing.
+                // Headers help diagnose endpoint/authentication issues without logging bodies.
                 addInterceptor(
                     HttpLoggingInterceptor().apply {
-                        // HEADERS, not BODY: response bodies are long and Logcat truncates them anyway.
+                        // Never log bodies; they may contain personal wardrobe data.
                         level = HttpLoggingInterceptor.Level.HEADERS
                         redactHeader("Authorization")
                     }

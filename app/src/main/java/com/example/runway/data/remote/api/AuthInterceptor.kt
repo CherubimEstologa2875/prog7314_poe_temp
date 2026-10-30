@@ -6,8 +6,7 @@ import com.google.firebase.auth.FirebaseAuth
 import okhttp3.Interceptor
 import okhttp3.Response
 
-// Attaches the Firebase ID token to every outgoing request (IIE, 2026; Seobility, n.d.).
-// The token is never written to a log or shipped in the APK (CodePath Android Cliffnotes, n.d.).
+// Attaches the current Firebase ID token to each API request without logging it.
 
 class AuthInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
@@ -16,7 +15,7 @@ class AuthInterceptor : Interceptor {
             ?: return chain.proceed(chain.request())
 
         val token = try {
-            // false means "reuse the cached token unless it has expired".
+            // Firebase refreshes the token when the cached value is expired.
             Tasks.await(user.getIdToken(false)).token
         } catch (e: Exception) {
             Log.w(TAG, "Could not obtain a Firebase ID token: ${e.message}")
