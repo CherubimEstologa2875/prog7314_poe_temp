@@ -10,8 +10,7 @@ import retrofit2.http.PUT
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-// Retrofit interface describing the Runway REST API (IIE, 2026; Square, Inc., n.d.).
-// Endpoints follow REST conventions (Rouse, 2020).
+// HTTP contract shared by the Android client and the Ktor API.
 
 interface RunwayApi {
     @GET("api/v1/items")
@@ -31,7 +30,7 @@ interface RunwayApi {
     @PATCH("api/v1/items/{id}")
     suspend fun updateItem(@Path("id") id: String, @Body body: UpdateItemDto): ItemDto
 
-    // A soft delete.
+    // The server marks the item deleted so incremental sync can reconcile it.
     @DELETE("api/v1/items/{id}")
     suspend fun deleteItem(@Path("id") id: String)
 

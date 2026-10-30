@@ -8,8 +8,7 @@ import io.ktor.server.request.httpMethod
 import io.ktor.server.request.path
 import org.slf4j.event.Level
 
-// Request logging and cross-origin configuration (IIE, 2026; Rouse, 2019).
-// Built on the Ktor server framework (Ktor, 2026).
+// Logs request outcomes and permits the browser-based API documentation to call the API.
 
 fun Application.configureMonitoring() {
     install(CallLogging) {

@@ -4,8 +4,7 @@ import io.ktor.server.application.Application
 import io.ktor.server.plugins.swagger.swaggerUI
 import io.ktor.server.routing.routing
 
-// Route registration for the Runway REST API (IIE, 2026; RESTfulAPI.net, n.d.).
-// Built on the Ktor server framework (Ktor, 2026).
+// Registers public health/documentation routes and protected API routes.
 fun Application.configureRouting() {
     routing {
         swaggerUI(path = "swagger", swaggerFile = "openapi/documentation.yaml")

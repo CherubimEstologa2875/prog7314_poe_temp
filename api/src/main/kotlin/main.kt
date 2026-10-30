@@ -1,8 +1,5 @@
 package com.example
 
-// Entry point for the Runway REST API (IIE, 2026).
-// Built on the Ktor server framework (Ktor, 2026).
-
 fun main(args: Array<String>) {
     io.ktor.server.netty.EngineMain.main(args)
 }

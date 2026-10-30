@@ -4,8 +4,7 @@ import io.ktor.server.response.respond
 import io.ktor.server.routing.Route
 import io.ktor.server.routing.get
 
-// Unauthenticated liveness endpoint (IIE, 2026; Rouse, 2019).
-// Built on the Ktor server framework (Ktor, 2026).
+// Unauthenticated liveness endpoint for deployment health checks.
 
 fun Route.healthRoutes() {
     get("/health") {
@@ -13,7 +12,7 @@ fun Route.healthRoutes() {
     }
 }
 
-// Bumped on every deployable change.
+// Displayed by /health so a deployed client can identify the API version.
 const val API_VERSION = "1.0.1"
 
 /* Reference List
