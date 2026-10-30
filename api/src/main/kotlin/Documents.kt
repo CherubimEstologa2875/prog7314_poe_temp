@@ -152,9 +152,9 @@ object Collections {
 }
 
 // Field names used in queries.
-// Wears before a garment needs washing, when neither the item nor the user's
-// settings specify one.
-// TODO: confirm this value against the original - see the note in the chat.
+// Wears before a garment needs washing when neither the item nor the user's
+// settings specify a limit. The API validation range and the Android UI use
+// the same rule, so a newly created item behaves consistently across clients.
 const val DEFAULT_WEAR_LIMIT: Long = 3
 
 object Fields {
