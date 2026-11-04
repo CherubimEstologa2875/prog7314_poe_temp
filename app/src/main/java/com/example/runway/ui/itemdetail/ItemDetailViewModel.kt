@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.runway.RunwayApplication
+import com.example.runway.domain.model.Item
 import com.example.runway.domain.repository.ItemRepository
 import com.example.runway.ui.navigation.NavArgs
 import kotlinx.coroutines.flow.SharingStarted
@@ -17,7 +18,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
-// ViewModel for one garment's detail screen.
+// ViewModel for one garment's detail and edit screens.
 
 class ItemDetailViewModel(
     savedStateHandle: SavedStateHandle,
@@ -34,6 +35,13 @@ class ItemDetailViewModel(
             started = SharingStarted.WhileSubscribed(5_000),
             initialValue = ItemDetailUiState()
         )
+
+    fun onSave(item: Item, onSaved: () -> Unit) {
+        viewModelScope.launch {
+            repository.save(item)
+            onSaved()
+        }
+    }
 
     fun onDelete(onDeleted: () -> Unit) {
         viewModelScope.launch {
