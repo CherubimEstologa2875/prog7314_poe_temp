@@ -90,6 +90,15 @@
             android:text="@string/rw_item_detail_find_matches" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/detailEditButton"
+            style="@style/Widget.Runway.Button.Secondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/rw_item_detail_edit" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/detailDeleteButton"
             style="@style/Widget.Runway.Button.Secondary"
             android:layout_width="match_parent"

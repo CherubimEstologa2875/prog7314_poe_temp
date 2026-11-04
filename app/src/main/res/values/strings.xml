@@ -111,8 +111,10 @@
     <string name="rw_item_detail_delete">Remove from wardrobe</string>
     <string name="rw_item_detail_delete_title">Remove this item?</string>
     <string name="rw_item_detail_delete_body">It will be taken out of your wardrobe on every device.</string>
-    <string name="rw_stub_item_edit_title">Edit item</string>
-    <string name="rw_stub_item_edit_body">Editing category, colour, brand, size, material and price lands here.</string>
+    <string name="rw_item_detail_edit">Edit item</string>
+    <string name="rw_item_edit_title">Edit item</string>
+    <string name="rw_item_edit_save">Save changes</string>
+    <string name="rw_item_edit_saved">Changes saved</string>
     <!-- Smart colour matcher. -->
     <string name="rw_colour_matcher_title">Smart colour matcher</string>
     <string name="rw_colour_matcher_lead">Pieces in your wardrobe that complement %1$s.</string>

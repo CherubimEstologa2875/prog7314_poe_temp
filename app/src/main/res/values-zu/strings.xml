@@ -104,8 +104,10 @@
     <string name="rw_item_detail_delete">Susa ekhabetheni</string>
     <string name="rw_item_detail_delete_title">Susa le nto?</string>
     <string name="rw_item_detail_delete_body">Izosuswa ekhabetheni lakho kuwo wonke amadivayisi.</string>
-    <string name="rw_stub_item_edit_title">Hlela into</string>
-    <string name="rw_stub_item_edit_body">Ukuhlela isigaba, umbala, ibhrendi, usayizi, indwangu nentengo kuzofika lapha.</string>
+    <string name="rw_item_detail_edit">Hlela into</string>
+    <string name="rw_item_edit_title">Hlela into</string>
+    <string name="rw_item_edit_save">Londoloza izinguquko</string>
+    <string name="rw_item_edit_saved">Izinguquko zilondoloziwe</string>
 
     <!--Smart colour matcher-->
     <string name="rw_colour_matcher_title">Isifanisi sombala esihlakaniphile</string>

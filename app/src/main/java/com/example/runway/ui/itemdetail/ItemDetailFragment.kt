@@ -64,12 +64,14 @@ class ItemDetailFragment : Fragment() {
             )
             binding.detailUseInOutfitButton.isEnabled = false
             binding.detailFindMatchesButton.isEnabled = false
+            binding.detailEditButton.isEnabled = false
             binding.detailDeleteButton.isEnabled = false
             return
         }
 
         binding.detailUseInOutfitButton.isEnabled = true
         binding.detailFindMatchesButton.isEnabled = true
+        binding.detailEditButton.isEnabled = true
         binding.detailDeleteButton.isEnabled = true
 
         binding.detailHeader.title = item.name
@@ -99,6 +101,12 @@ class ItemDetailFragment : Fragment() {
 
         binding.detailUseInOutfitButton.setOnClickListener { useInOutfit(item) }
         binding.detailFindMatchesButton.setOnClickListener { findMatches(item) }
+        binding.detailEditButton.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_itemDetail_to_itemEdit,
+                bundleOf(NavArgs.ITEM_ID to item.id),
+            )
+        }
         binding.detailDeleteButton.setOnClickListener { confirmDelete(item) }
     }
 

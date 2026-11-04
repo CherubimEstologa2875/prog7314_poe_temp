@@ -104,8 +104,10 @@
     <string name="rw_item_detail_delete">Verwyder uit klerekas</string>
     <string name="rw_item_detail_delete_title">Verwyder hierdie item?</string>
     <string name="rw_item_detail_delete_body">Dit sal op elke toestel uit jou klerekas verwyder word.</string>
-    <string name="rw_stub_item_edit_title">Wysig item</string>
-    <string name="rw_stub_item_edit_body">Kategorie, kleur, handelsmerk, grootte, materiaal en prys wysig kom hier.</string>
+    <string name="rw_item_detail_edit">Wysig item</string>
+    <string name="rw_item_edit_title">Wysig item</string>
+    <string name="rw_item_edit_save">Stoor veranderinge</string>
+    <string name="rw_item_edit_saved">Veranderinge gestoor</string>
 
     <!--Smart colour matcher-->
     <string name="rw_colour_matcher_title">Slim kleurpasser</string>

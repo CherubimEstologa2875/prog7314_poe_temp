@@ -57,6 +57,16 @@ data class ItemDraft(
         wearLimit = wearLimit,
     )
 
+    fun applyTo(item: Item): Item = item.copy(
+        name = name.trim(),
+        category = category,
+        colour = colour?.label,
+        brand = brand.trim().ifEmpty { null },
+        size = size.trim().ifEmpty { null },
+        purchasePrice = price,
+        wearLimit = wearLimit,
+    )
+
     companion object {
         // Same limit the API enforces.
         const val MAX_NAME = 120

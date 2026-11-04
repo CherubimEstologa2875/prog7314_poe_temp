@@ -222,12 +222,12 @@ class TagItemFragment : Fragment() {
         _binding = null
     }
 
-    private companion object {
+    companion object {
         // The four the model preview can draw, plus a catch-all.
         val CATEGORIES = listOf("TOP", "BOTTOM", "OUTERWEAR", "SHOES", "OTHER")
 
-        const val KEY_CATEGORY = "category"
-        const val KEY_COLOUR = "colour"
-        const val KEY_WEAR_LIMIT = "wearLimit"
+        private const val KEY_CATEGORY = "category"
+        private const val KEY_COLOUR = "colour"
+        private const val KEY_WEAR_LIMIT = "wearLimit"
     }
 }
