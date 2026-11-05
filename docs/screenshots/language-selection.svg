@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="365" height="852" viewBox="0 0 365 852">
+  <rect width="365" height="852" fill="#fff"/>
+  <path d="M28 36h18M28 36l8-8M28 36l8 8" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="64" y="43" font-family="Arial,sans-serif" font-size="22" fill="#222">Language</text>
+  <text x="16" y="112" font-family="Arial,sans-serif" font-size="14" fill="#6e6e73">Choose the language Runway is shown in.</text>
+  <rect x="16" y="136" width="333" height="190" rx="14" fill="#fff" stroke="#dedee3"/>
+  <line x1="28" y1="199" x2="337" y2="199" stroke="#ececf0"/><line x1="28" y1="263" x2="337" y2="263" stroke="#ececf0"/>
+  <text x="32" y="178" font-family="Arial,sans-serif" font-size="17" fill="#222">English</text>
+  <text x="32" y="242" font-family="Arial,sans-serif" font-size="17" fill="#222">Afrikaans</text>
+  <text x="32" y="306" font-family="Arial,sans-serif" font-size="17" fill="#222">isiZulu</text>
+  <circle cx="320" cy="169" r="11" fill="#d20a3c"/>
+  <path d="M314 169l4 4 8-9" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="16" y="810" font-family="Arial,sans-serif" font-size="12" fill="#999">Runway final POE • language selection</text>
+</svg>
