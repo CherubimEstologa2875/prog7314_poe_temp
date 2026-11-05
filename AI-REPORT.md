@@ -1,6 +1,6 @@
 # AI Report
 
-**Runway, PROG7314 POE Part 2, Group 11**
+**Runway, PROG7314 Final POE, Group 11**
 
 Generative AI was used in a limited supporting role on this project. It did not design or write the application: every screen, endpoint and test was specified and implemented by the team. The uses below are the complete list.
 
@@ -30,4 +30,4 @@ After the team replaced a planned feature with a different one, AI was used to h
 
 - No feature was generated wholesale and accepted unread. Anything suggested was reviewed line by line by the developer responsible for that area.
 - **No external AI service is called by the app or the API at runtime.** The only model in the running product is ML Kit subject segmentation, which removes the background from a garment photo on the device itself and is a standard Android platform capability.
-- Every AI-assisted change had to compile and pass the existing 210 unit tests before it was committed.
+- Every AI-assisted change had to be reviewed by a developer and verified against the project test suites before it was committed.
