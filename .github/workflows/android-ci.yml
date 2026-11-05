@@ -1,0 +1,102 @@
+# SCRUM-173: builds the Runway app and API and runs every unit test on GitHub.
+# The POE requires GitHub Actions to build the app and run the unit tests on every push,
+# so the code is shown to work outside a developer's own machine (IIE, 2026).
+name: Runway CI
+
+on:
+  # Every push to any branch, and every pull request into main.
+  push:
+    branches: [ '**' ]
+  pull_request:
+    branches: [ main ]
+  # Adds a "Run workflow" button on the Actions tab.
+  workflow_dispatch:
+
+# A newer push to the same branch cancels the run still in progress (GitHub, 2026b).
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  app:
+    name: Build app and run unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      # JDK 21 runs Gradle and the Android build (GitHub, 2026a).
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      # Caches Gradle and its dependencies between runs (GitHub, 2026a).
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
+      - name: Run unit tests
+        run: ./gradlew :app:testDebugUnitTest --stacktrace
+
+      - name: Build debug APK
+        run: ./gradlew :app:assembleDebug --stacktrace
+
+      # Uploaded even when a test fails, so the failure can be read without rebuilding (GitHub, 2026c).
+      - name: Upload app test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-test-report
+          path: app/build/reports/tests/testDebugUnitTest/
+          retention-days: 14
+
+      - name: Upload debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: runway-debug-apk
+          path: app/build/outputs/apk/debug/*.apk
+          retention-days: 14
+
+  api:
+    name: Run API tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        # The API is its own Gradle build with its own wrapper.
+        working-directory: api
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Make gradlew executable
+        run: chmod +x gradlew
+
+      - name: Run API tests
+        run: ./gradlew test --stacktrace
+
+      - name: Upload API test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-test-report
+          path: api/build/reports/tests/test/
+          retention-days: 14
+
+# Reference List
+# GitHub, 2026a. Building and testing Java with Gradle. [online] Available at: <https://docs.github.com/en/actions/tutorials/build-and-test-code/building-and-testing-java-with-gradle> [Accessed 4 November 2026].
+# GitHub, 2026b. Control the concurrency of workflows and jobs. [online] Available at: <https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency> [Accessed 4 November 2026].
+# GitHub, 2026c. Store and share data with workflow artifacts. [online] Available at: <https://docs.github.com/en/actions/tutorials/store-and-share-data> [Accessed 4 November 2026].
+# IIE, 2026. PROG7314/OPSC7312 POE (Paper and Marking Rubric). The Independent Institute of Education (Pty) Ltd.
