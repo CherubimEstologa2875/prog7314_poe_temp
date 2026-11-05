@@ -15,7 +15,7 @@ build/
 *.log
 *.hprof
 
-# Signing material - keystores stay out by default
+# Signing material - never commit a release keystore
 *.jks
 *.keystore
 keystore.properties
@@ -44,7 +44,3 @@ Thumbs.db
 
 # The signed production APK is committed on purpose: the POE asks for it on GitHub (SCRUM-176).
 !release/Runway-1.0.apk
-
-# The release keystore is committed on purpose so the team can rebuild the signed APK.
-# This is only safe because the repository is private. Its password is never committed.
-!keystore/runway-release.jks

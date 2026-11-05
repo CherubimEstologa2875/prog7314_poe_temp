@@ -246,7 +246,7 @@ SCRUM-134 splash screen
 SCRUM-136, SCRUM-140
 ```
 
-`app/google-services.json` and the shared debug keystore are committed on purpose: the project will not build without the first, and a debug keystore is not a secret, so a fresh clone signs with a certificate Firebase already knows. The release keystore (`keystore/runway-release.jks`) and the signed production APK (`release/Runway-1.0.apk`) are also committed, so the team can rebuild and the lecturer can install the app. This is only safe because the repository is private, and the keystore password is shared privately, never committed. The Firebase Admin key (`api/serviceAccountKey.json`), `keystore.properties`, `local.properties` and other build output are never committed.
+`app/google-services.json` and the shared debug keystore are committed on purpose: the project will not build without the first, and a debug keystore is not a secret, so a fresh clone signs with a certificate Firebase already knows. The signed production APK (`release/Runway-1.0.apk`) is committed so the lecturer can install the app. The release keystore that signs it is shared privately within the team and never committed, along with the Firebase Admin key (`api/serviceAccountKey.json`), `keystore.properties`, `local.properties` and other build output.
 
 ## Continuous integration
 
