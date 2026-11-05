@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   Single nav graph, hosted by MainActivity's NavHostFragment (see activity_main.xml).
-  There is no separate auth Activity/graph: splash -> onboarding -> sign in -> biometric
+  There is no separate auth Activity/graph: sign in and biometric unlock
   all live here too, and MainActivity hides the bottom bar/FAB for those (and for the
   add-item modal graph) via a destination-changed listener - see MainActivity.CHROMELESS_DESTINATIONS.
 
@@ -15,16 +15,6 @@
     app:startDestination="@id/signInFragment">
 
     <!-- ============================= Auth ============================= -->
-
-    <fragment
-        android:id="@+id/onboardingFragment"
-        android:name="com.example.runway.ui.auth.OnboardingFragment"
-        android:label="Onboarding"
-        tools:layout="@layout/fragment_stub">
-        <action
-            android:id="@+id/action_onboarding_to_signIn"
-            app:destination="@id/signInFragment" />
-    </fragment>
 
     <fragment
         android:id="@+id/signInFragment"
@@ -74,17 +64,11 @@
             android:id="@+id/action_home_to_notifications"
             app:destination="@id/notificationsFragment" />
         <action
-            android:id="@+id/action_home_to_laundry"
-            app:destination="@id/laundryFragment" />
-        <action
             android:id="@+id/action_home_to_itemDetail"
             app:destination="@id/itemDetailFragment" />
         <action
             android:id="@+id/action_home_to_outfitDetail"
             app:destination="@id/outfitDetailFragment" />
-        <action
-            android:id="@+id/action_home_to_stats"
-            app:destination="@id/statsFragment" />
         <!-- "Wear this" on today's pick asks for a confidence rating. -->
         <action
             android:id="@+id/action_home_to_confidenceSheet"
@@ -95,7 +79,7 @@
         android:id="@+id/weatherFragment"
         android:name="com.example.runway.ui.home.WeatherFragment"
         android:label="Weather Suggestions"
-        tools:layout="@layout/fragment_stub" />
+        tools:layout="@layout/fragment_weather" />
 
     <!-- ============================= Wardrobe tab ============================= -->
 
@@ -107,12 +91,6 @@
         <action
             android:id="@+id/action_wardrobe_to_itemDetail"
             app:destination="@id/itemDetailFragment" />
-        <action
-            android:id="@+id/action_wardrobe_to_filterSheet"
-            app:destination="@id/filterSheet" />
-        <action
-            android:id="@+id/action_wardrobe_to_sortSheet"
-            app:destination="@id/sortSheet" />
     </fragment>
 
     <fragment
@@ -134,12 +112,6 @@
         <action
             android:id="@+id/action_itemDetail_to_colourMatcher"
             app:destination="@id/colourMatcherFragment" />
-        <action
-            android:id="@+id/action_itemDetail_to_createListing"
-            app:destination="@id/createListingFragment" />
-        <action
-            android:id="@+id/action_itemDetail_to_laundry"
-            app:destination="@id/laundryFragment" />
     </fragment>
 
     <fragment
@@ -169,12 +141,6 @@
             android:id="@+id/action_colourMatcher_to_builder"
             app:destination="@id/outfitBuilderFragment" />
     </fragment>
-
-    <fragment
-        android:id="@+id/laundryFragment"
-        android:name="com.example.runway.ui.wardrobe.LaundryFragment"
-        android:label="Laundry Basket"
-        tools:layout="@layout/fragment_stub" />
 
     <!-- ============================= Add-item modal flow ============================= -->
     <!-- Entered from MainActivity's FAB via navController.navigate(R.id.addItemGraph).
@@ -286,23 +252,11 @@
         android:label="@string/rw_nav_profile"
         tools:layout="@layout/fragment_profile">
         <action
-            android:id="@+id/action_profile_to_stats"
-            app:destination="@id/statsFragment" />
-        <action
-            android:id="@+id/action_profile_to_swapMarket"
-            app:destination="@id/swapMarketFragment" />
-        <action
-            android:id="@+id/action_profile_to_myListings"
-            app:destination="@id/myListingsFragment" />
-        <action
             android:id="@+id/action_profile_to_notifications"
             app:destination="@id/notificationsFragment" />
         <action
             android:id="@+id/action_profile_to_settings"
             app:destination="@id/settingsFragment" />
-        <action
-            android:id="@+id/action_profile_to_laundry"
-            app:destination="@id/laundryFragment" />
         <!-- Sign-out clears the whole back stack and returns to the sign-in screen. -->
         <action
             android:id="@+id/action_profile_signOut_to_signIn"
@@ -310,12 +264,6 @@
             app:popUpTo="@id/runway_nav_graph"
             app:popUpToInclusive="true" />
     </fragment>
-
-    <fragment
-        android:id="@+id/statsFragment"
-        android:name="com.example.runway.ui.profile.StatsFragment"
-        android:label="Stats &amp; Insights"
-        tools:layout="@layout/fragment_stub" />
 
     <fragment
         android:id="@+id/notificationsFragment"
@@ -339,63 +287,7 @@
         android:label="Language"
         tools:layout="@layout/fragment_language" />
 
-    <!-- ============================= Swap market ============================= -->
-
-    <fragment
-        android:id="@+id/swapMarketFragment"
-        android:name="com.example.runway.ui.swap.SwapMarketFragment"
-        android:label="Swap Market"
-        tools:layout="@layout/fragment_stub">
-        <action
-            android:id="@+id/action_swapMarket_to_listingDetail"
-            app:destination="@id/listingDetailFragment" />
-        <action
-            android:id="@+id/action_swapMarket_to_createListing"
-            app:destination="@id/createListingFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/listingDetailFragment"
-        android:name="com.example.runway.ui.swap.ListingDetailFragment"
-        android:label="Listing Detail"
-        tools:layout="@layout/fragment_stub">
-        <argument
-            android:name="listingId"
-            app:argType="string" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/myListingsFragment"
-        android:name="com.example.runway.ui.swap.MyListingsFragment"
-        android:label="My Listings"
-        tools:layout="@layout/fragment_stub">
-        <action
-            android:id="@+id/action_myListings_to_listingDetail"
-            app:destination="@id/listingDetailFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/createListingFragment"
-        android:name="com.example.runway.ui.swap.CreateListingFragment"
-        android:label="List For Swap"
-        tools:layout="@layout/fragment_stub">
-        <argument
-            android:name="itemId"
-            app:argType="long"
-            android:defaultValue="-1L" />
-    </fragment>
-
     <!-- ============================= Bottom sheets ============================= -->
-
-    <dialog
-        android:id="@+id/filterSheet"
-        android:name="com.example.runway.ui.sheets.FilterSheet"
-        android:label="Filter" />
-
-    <dialog
-        android:id="@+id/sortSheet"
-        android:name="com.example.runway.ui.sheets.SortSheet"
-        android:label="Sort" />
 
     <dialog
         android:id="@+id/dayDetailSheet"
@@ -431,11 +323,4 @@
             android:name="outfitId"
             app:argType="string" />
     </dialog>
-
-    <dialog
-        android:id="@+id/confirmSheet"
-        android:name="com.example.runway.ui.sheets.ConfirmSheet"
-        android:label="Confirm" />
-
-
 </navigation>

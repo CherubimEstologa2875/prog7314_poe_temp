@@ -30,6 +30,7 @@
                 style="@style/Widget.Runway.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/rw_space_12"
                 app:contentPadding="@dimen/rw_space_16">
 
                 <LinearLayout
@@ -91,26 +92,6 @@
                         android:layout_height="wrap_content"
                         app:rwIcon="@drawable/ic_rw_droplet"
                         app:rwLabel="@string/rw_settings_notify_wash" />
-
-                    <com.google.android.material.divider.MaterialDivider
-                        style="@style/Widget.Runway.Divider" />
-
-                    <com.example.runway.ui.components.ListRowView
-                        android:id="@+id/notificationsSwapRow"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:rwIcon="@drawable/ic_rw_swap"
-                        app:rwLabel="@string/rw_settings_notify_swap" />
-
-                    <com.google.android.material.divider.MaterialDivider
-                        style="@style/Widget.Runway.Divider" />
-
-                    <com.example.runway.ui.components.ListRowView
-                        android:id="@+id/notificationsWeatherRow"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:rwIcon="@drawable/ic_rw_cloud"
-                        app:rwLabel="@string/rw_settings_notify_weather" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 

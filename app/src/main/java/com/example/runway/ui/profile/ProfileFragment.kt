@@ -41,11 +41,7 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.profileInsightsRow.onClick { findNavController().navigate(R.id.action_profile_to_stats) }
-        binding.profileSwapRow.onClick { findNavController().navigate(R.id.action_profile_to_swapMarket) }
-        binding.profileListingsRow.onClick { findNavController().navigate(R.id.action_profile_to_myListings) }
         binding.profileNotificationsRow.onClick { findNavController().navigate(R.id.action_profile_to_notifications) }
-        binding.profileLaundryRow.onClick { findNavController().navigate(R.id.action_profile_to_laundry) }
         binding.profileSettingsRow.onClick { findNavController().navigate(R.id.action_profile_to_settings) }
 
         binding.profileSignOutRow.onClick {
@@ -88,8 +84,6 @@ class ProfileFragment : Fragment() {
         binding.profileStatItems.value = summary.itemCount.toString()
         binding.profileStatOutfits.value = summary.outfitCount?.toString() ?: getString(R.string.rw_stat_unknown)
         binding.profileStatValue.value = getString(R.string.rw_wardrobe_price, summary.totalValue)
-
-        binding.profileLaundryRow.value = state.needsWashCount.takeIf { it > 0 }?.toString()
     }
 
     private fun signOut() {

@@ -27,8 +27,8 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 
 /**
- * The app's single Activity. Hosts the whole nav graph - auth (splash / onboarding /
- * sign in / biometric), the four-tab shell and the add-item modal flow all live in one
+ * The app's single Activity. Hosts the whole nav graph - auth (sign in /
+ * biometric), the four-tab shell and the add-item modal flow all live in one
  * NavHostFragment here - and owns the bottom bar, the add-item FAB and the sync banner.
  */
 class MainActivity : AppCompatActivity() {
@@ -246,7 +246,6 @@ class MainActivity : AppCompatActivity() {
 
         /** Screens a notification tap must not skip past. */
         private val AUTH_DESTINATIONS = setOf(
-            R.id.onboardingFragment,
             R.id.signInFragment,
             R.id.biometricFragment,
         )
@@ -255,7 +254,6 @@ class MainActivity : AppCompatActivity() {
          * modal flow. The bottom bar and FAB are hidden on these, matching the mockup
          * (TabBar only renders inside TabShell, after AppGate hands off). */
         private val CHROMELESS_DESTINATIONS = setOf(
-            R.id.onboardingFragment,
             R.id.signInFragment,
             R.id.biometricFragment,
             R.id.cameraFragment,
