@@ -42,8 +42,6 @@ class SettingsFragment : Fragment() {
 
     private lateinit var biometricsSwitch: MaterialSwitch
     private lateinit var washSwitch: MaterialSwitch
-    private lateinit var swapSwitch: MaterialSwitch
-    private lateinit var weatherSwitch: MaterialSwitch
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -81,8 +79,6 @@ class SettingsFragment : Fragment() {
     private fun addSwitches() {
         biometricsSwitch = newSwitch(binding.biometricsRow)
         washSwitch = newSwitch(binding.notifyWashRow)
-        swapSwitch = newSwitch(binding.notifySwapRow)
-        weatherSwitch = newSwitch(binding.notifyWeatherRow)
     }
 
     private fun newSwitch(row: ListRowView): MaterialSwitch {
@@ -119,18 +115,6 @@ class SettingsFragment : Fragment() {
             toastToggle(R.string.rw_settings_notify_wash, checked)
         }
 
-        swapSwitch.setOnCheckedChangeListener { _, checked ->
-            if (checked == savedSettings().notifySwap) return@setOnCheckedChangeListener
-            viewModel.onNotifySwapChanged(checked)
-            toastToggle(R.string.rw_settings_notify_swap, checked)
-        }
-
-        weatherSwitch.setOnCheckedChangeListener { _, checked ->
-            if (checked == savedSettings().notifyWeather) return@setOnCheckedChangeListener
-            viewModel.onNotifyWeatherChanged(checked)
-            toastToggle(R.string.rw_settings_notify_weather, checked)
-        }
-
         binding.wearLimitMinus.setOnClickListener { stepWearLimit(-1) }
         binding.wearLimitPlus.setOnClickListener { stepWearLimit(1) }
 
@@ -142,8 +126,6 @@ class SettingsFragment : Fragment() {
         binding.languageRow.value = getString(languageLabel(settings.language))
         biometricsSwitch.isChecked = settings.biometricsEnabled
         washSwitch.isChecked = settings.notifyWash
-        swapSwitch.isChecked = settings.notifySwap
-        weatherSwitch.isChecked = settings.notifyWeather
         binding.wearLimitValue.text = settings.defaultWearLimit.toString()
     }
 

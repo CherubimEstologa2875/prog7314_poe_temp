@@ -57,14 +57,6 @@
     </plurals>
     <string name="rw_sync_syncing">Iyavumelanisa…</string>
 
-    <!--Stub screens-->
-    <string name="rw_stub_wardrobe_title">Ikhabethe</string>
-    <string name="rw_stub_wardrobe_body">Igridi yekhabethe lakho, ukusesha nezihlungi kuzofika lapha.</string>
-    <string name="rw_stub_outfits_title">Izembatho</string>
-    <string name="rw_stub_outfits_body">Izembatho ezilondoloziwe, umakhi nomhleli wesonto kuzofika lapha.</string>
-    <string name="rw_stub_profile_title">Iphrofayela</string>
-    <string name="rw_stub_profile_body">Izibalo zakho, uhlu lokushintshana nezilungiselelo kuzofika lapha.</string>
-    <string name="rw_stub_add">Ukwengeza into: ikhamera, ukusika nokubeka amathegi.</string>
 
     <!--Onboarding-->
     <string name="rw_onboarding_title">Siyakwamukela ku-Runway</string>
@@ -84,13 +76,8 @@
     <string name="rw_biometric_avatar_content_description">I-akhawunti engenile</string>
 
     <!--Home tab pushes-->
-    <string name="rw_stub_coming_soon">Kuyeza maduze</string>
-    <string name="rw_stub_weather_title">Iziphakamiso zesimo sezulu</string>
-    <string name="rw_stub_weather_body">Izembatho eziphakanyiswa ngokwesimo sezulu sanamuhla zizofika lapha.</string>
 
     <!--Wardrobe tab pushes-->
-    <string name="rw_stub_item_detail_title">Imininingwane yento</string>
-    <string name="rw_stub_item_detail_body">Izithombe, amathegi, izikhathi egqokwe ngazo nezindleko ngokugqoka kuzofika lapha.</string>
     <string name="rw_item_detail_loading">Ilayisha into…</string>
     <string name="rw_item_detail_not_found">Le nto ayitholakalanga.</string>
 
@@ -119,18 +106,10 @@
     <string name="rw_colour_matcher_unknown_colour">Umbala awutholakali</string>
     <string name="rw_colour_matcher_unknown_body">Le nto ayinawo umbala owaziwayo, ngakho ukufanisa akutholakali. Hlela into ukuze wengeze umbala osekelwayo.</string>
 
-    <string name="rw_stub_laundry_title">Ubhasikidi wokuwasha</string>
-    <string name="rw_stub_laundry_body">Imikhawulo yokugqoka nezikhumbuzi zokuwasha kuzofika lapha.</string>
 
     <!--Add-item modal flow-->
-    <string name="rw_stub_camera_title">Ikhamera</string>
-    <string name="rw_stub_camera_body">Ukuthatha isithombe sengubo, noma ukukhetha esisodwa egalari, kuzofika lapha.</string>
     <string name="rw_camera_continue">Sebenzisa isithombe</string>
-    <string name="rw_stub_cutout_title">Ukubuka okusikiwe</string>
-    <string name="rw_stub_cutout_body">Ukubuka kuqala ingemuva lisusiwe ngokuzenzakalelayo kuzofika lapha.</string>
     <string name="rw_cutout_continue">Kubukeka kahle</string>
-    <string name="rw_stub_tag_item_title">Beka amathegi</string>
-    <string name="rw_stub_tag_item_body">Izinkambu zesigaba, umbala, ibhrendi, usayizi, indwangu nentengo kuzofika lapha.</string>
     <string name="rw_tag_item_continue">Londoloza into</string>
 
     <!--Add-item flow-->
@@ -250,26 +229,10 @@
     </plurals>
 
     <!--Outfits tab pushes-->
-    <string name="rw_stub_outfit_detail_title">Imininingwane yesembatho</string>
-    <string name="rw_stub_outfit_detail_body">Izingubo zesembatho, ukulandelela ukugqoka nesilinganiso sokuzethemba kuzofika lapha.</string>
 
     <!--Profile tab pushes-->
-    <string name="rw_stub_stats_title">Izibalo nemininingwane</string>
-    <string name="rw_stub_stats_body">Ezigqokwe kakhulu nezigqokwe kancane, kanye nezindleko ngokugqoka, kuzofika lapha.</string>
-    <string name="rw_stub_settings_title">Izilungiselelo</string>
-    <string name="rw_stub_settings_body">Itimu, i-biometric, ukuvumelanisa ungaxhunyiwe nolimi kutholakala lapha.</string>
-    <string name="rw_stub_language_title">Ulimi</string>
-    <string name="rw_stub_language_body">IsiNgisi, isiBhunu nesiZulu kuzofika lapha.</string>
 
     <!--Swap market-->
-    <string name="rw_stub_swap_market_title">Imakethe yokushintshana</string>
-    <string name="rw_stub_swap_market_body">Izinto ezifakwe ohlwini ukuze zishintshwe noma zinikelwe zizofika lapha.</string>
-    <string name="rw_stub_listing_detail_title">Imininingwane yohlu</string>
-    <string name="rw_stub_listing_detail_body">Izithombe, isimo nezicelo zokushintshana kuzofika lapha.</string>
-    <string name="rw_stub_my_listings_title">Uhlu lwami</string>
-    <string name="rw_stub_my_listings_body">Izinto ozifake ohlwini, nezicelo ngazo, kuzofika lapha.</string>
-    <string name="rw_stub_create_listing_title">Faka ukuze kushintshwane</string>
-    <string name="rw_stub_create_listing_body">Ukukhetha into nokuyifaka ohlwini ukuze ishintshwe noma inikelwe kuzofika lapha.</string>
 
     <!--Bottom sheets-->
     <string name="rw_sheet_filter_title">Hlunga</string>
@@ -397,7 +360,6 @@
         <item quantity="one">Into engu-%d idinga ukuwashwa</item>
         <item quantity="other">Izinto ezingu-%d zidinga ukuwashwa</item>
     </plurals>
-    <string name="rw_home_laundry_body">Thepha ukuze uvule ubhasikidi wakho wokuwasha</string>
     <string name="rw_home_todays_pick">Okukhethwe namuhla</string>
     <plurals name="rw_home_pieces">
         <item quantity="one">Ingubo engu-%d</item>

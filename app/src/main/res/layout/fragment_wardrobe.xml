@@ -35,22 +35,6 @@
                 android:textColor="@color/rw_muted"
                 android:textSize="12sp" />
         </LinearLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/wardrobeFilterButton"
-            style="@style/Widget.Runway.Button.Icon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:contentDescription="@string/rw_wardrobe_filter"
-            app:icon="@drawable/ic_rw_filter" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/wardrobeSortButton"
-            style="@style/Widget.Runway.Button.Icon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:contentDescription="@string/rw_wardrobe_sort"
-            app:icon="@drawable/ic_rw_sort" />
     </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
