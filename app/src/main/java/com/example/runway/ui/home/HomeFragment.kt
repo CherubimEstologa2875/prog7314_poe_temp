@@ -49,16 +49,10 @@ class HomeFragment : Fragment() {
         binding.homeWeatherCard.setOnClickListener {
             findNavController().navigate(R.id.action_home_to_weather)
         }
-        binding.homeLaundryCard.setOnClickListener {
-            findNavController().navigate(R.id.action_home_to_laundry)
-        }
 
         binding.homeSuggestButton.setOnClickListener { viewModel.onSuggestAnother() }
         binding.homeWearButton.setOnClickListener { viewModel.onWearToday() }
 
-        binding.homeStatsHeader.onActionClick {
-            findNavController().navigate(R.id.action_home_to_stats)
-        }
         binding.homeRecentHeader.onActionClick { switchTab(R.id.wardrobeFragment) }
 
         recentAdapter = RecentItemsAdapter(viewLifecycleOwner.lifecycleScope) { item ->

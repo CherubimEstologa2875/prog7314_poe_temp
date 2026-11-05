@@ -129,8 +129,6 @@ class NotificationsFragment : Fragment() {
     private fun renderTypes(settings: RunwaySettings) {
         if (_binding == null) return
         renderType(binding.notificationsWashRow, NotificationType.WASH, settings)
-        renderType(binding.notificationsSwapRow, NotificationType.SWAP, settings)
-        renderType(binding.notificationsWeatherRow, NotificationType.WEATHER, settings)
     }
 
     private fun renderType(row: ListRowView, type: NotificationType, settings: RunwaySettings) {

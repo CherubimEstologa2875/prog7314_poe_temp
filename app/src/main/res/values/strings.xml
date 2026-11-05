@@ -60,16 +60,8 @@
     </plurals>
     <string name="rw_sync_syncing">Syncing…</string>
 
-    <!--Stub screens-->
     <!-- Placeholders proving the shell works. Each is replaced by the teammate
          who owns that screen's ticket. -->
-    <string name="rw_stub_wardrobe_title">Wardrobe</string>
-    <string name="rw_stub_wardrobe_body">Your wardrobe grid, search and filters land here.</string>
-    <string name="rw_stub_outfits_title">Outfits</string>
-    <string name="rw_stub_outfits_body">Saved outfits, the builder and the weekly planner land here.</string>
-    <string name="rw_stub_profile_title">Profile</string>
-    <string name="rw_stub_profile_body">Your stats, swap listings and settings land here.</string>
-    <string name="rw_stub_add">Add-item flow: camera, cutout and tagging.</string>
 
     <!--Onboarding-->
     <string name="rw_onboarding_title">Welcome to Runway</string>
@@ -89,13 +81,8 @@
     <string name="rw_biometric_avatar_content_description">Signed-in account</string>
 
     <!--Home tab pushes-->
-    <string name="rw_stub_coming_soon">Coming soon</string>
-    <string name="rw_stub_weather_title">Weather suggestions</string>
-    <string name="rw_stub_weather_body">Outfit picks based on today\'s forecast land here.</string>
 
     <!--Wardrobe tab pushes-->
-    <string name="rw_stub_item_detail_title">Item detail</string>
-    <string name="rw_stub_item_detail_body">Photos, tags, wear count and cost-per-wear land here.</string>
     <string name="rw_item_detail_loading">Loading item…</string>
     <string name="rw_item_detail_not_found">This item could not be found.</string>
 
@@ -111,8 +98,10 @@
     <string name="rw_item_detail_delete">Remove from wardrobe</string>
     <string name="rw_item_detail_delete_title">Remove this item?</string>
     <string name="rw_item_detail_delete_body">It will be taken out of your wardrobe on every device.</string>
-    <string name="rw_stub_item_edit_title">Edit item</string>
-    <string name="rw_stub_item_edit_body">Editing category, colour, brand, size, material and price lands here.</string>
+    <string name="rw_item_detail_edit">Edit item</string>
+    <string name="rw_item_edit_title">Edit item</string>
+    <string name="rw_item_edit_save">Save changes</string>
+    <string name="rw_item_edit_saved">Changes saved</string>
     <!-- Smart colour matcher. -->
     <string name="rw_colour_matcher_title">Smart colour matcher</string>
     <string name="rw_colour_matcher_lead">Pieces in your wardrobe that complement %1$s.</string>
@@ -123,18 +112,10 @@
     <string name="rw_colour_matcher_unknown_colour">Colour unavailable</string>
     <string name="rw_colour_matcher_unknown_body">This item has no recognised colour, so matching is unavailable. Edit the item to add a supported colour.</string>
 
-    <string name="rw_stub_laundry_title">Laundry basket</string>
-    <string name="rw_stub_laundry_body">Wear limits and wash reminders land here.</string>
 
     <!--Add-item modal flow-->
-    <string name="rw_stub_camera_title">Camera</string>
-    <string name="rw_stub_camera_body">Capturing a clothing photo, or picking one from the gallery, lands here.</string>
     <string name="rw_camera_continue">Use photo</string>
-    <string name="rw_stub_cutout_title">Cutout preview</string>
-    <string name="rw_stub_cutout_body">The automatic background-removal preview lands here.</string>
     <string name="rw_cutout_continue">Looks good</string>
-    <string name="rw_stub_tag_item_title">Tag item</string>
-    <string name="rw_stub_tag_item_body">Category, colour, brand, size, material and price fields land here.</string>
     <string name="rw_tag_item_continue">Save item</string>
 
     <!-- Add-item flow: photograph the garment, cut it out, tag it, save it. -->
@@ -257,26 +238,10 @@
     </plurals>
 
     <!--Outfits tab pushes-->
-    <string name="rw_stub_outfit_detail_title">Outfit detail</string>
-    <string name="rw_stub_outfit_detail_body">Outfit pieces, wear tracking and the confidence rating land here.</string>
 
     <!--Profile tab pushes-->
-    <string name="rw_stub_stats_title">Stats &amp; insights</string>
-    <string name="rw_stub_stats_body">Most/least worn and cost-per-wear insights land here.</string>
-    <string name="rw_stub_settings_title">Settings</string>
-    <string name="rw_stub_settings_body">Theme, biometrics, offline sync and language live here.</string>
-    <string name="rw_stub_language_title">Language</string>
-    <string name="rw_stub_language_body">English, Afrikaans and isiZulu land here.</string>
 
     <!--Swap market-->
-    <string name="rw_stub_swap_market_title">Swap market</string>
-    <string name="rw_stub_swap_market_body">Items listed for swap or donation land here.</string>
-    <string name="rw_stub_listing_detail_title">Listing detail</string>
-    <string name="rw_stub_listing_detail_body">Listing photos, condition and swap requests land here.</string>
-    <string name="rw_stub_my_listings_title">My listings</string>
-    <string name="rw_stub_my_listings_body">Items you have listed, and requests on them, land here.</string>
-    <string name="rw_stub_create_listing_title">List for swap</string>
-    <string name="rw_stub_create_listing_body">Choosing an item and listing it for swap or donation lands here.</string>
 
     <!--Bottom sheets-->
     <string name="rw_sheet_filter_title">Filter</string>
@@ -494,7 +459,6 @@
         <item quantity="one">%d item needs a wash</item>
         <item quantity="other">%d items need a wash</item>
     </plurals>
-    <string name="rw_home_laundry_body">Tap to open your laundry basket</string>
     <string name="rw_home_todays_pick">Today\'s pick</string>
     <plurals name="rw_home_pieces">
         <item quantity="one">%d piece</item>

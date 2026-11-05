@@ -86,8 +86,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/rw_space_12"
-                android:clickable="true"
-                android:focusable="true"
                 android:visibility="gone"
                 app:cardBackgroundColor="?attr/rwAccentSoft"
                 app:contentPaddingBottom="@dimen/rw_space_12"
@@ -124,20 +122,7 @@
                             android:textAppearance="@style/TextAppearance.Runway.Body"
                             android:textColor="?attr/colorPrimary"
                             tools:text="3 items need a wash" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/rw_home_laundry_body"
-                            android:textAppearance="@style/TextAppearance.Runway.Caption" />
                     </LinearLayout>
-
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:importantForAccessibility="no"
-                        android:src="@drawable/ic_rw_chevron_right"
-                        app:tint="?attr/colorPrimary" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -257,7 +242,6 @@
                 android:id="@+id/homeStatsHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:rwActionText="@string/rw_home_see_all"
                 app:rwTitle="@string/rw_home_quick_stats" />
 
             <LinearLayout

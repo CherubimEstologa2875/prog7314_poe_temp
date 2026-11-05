@@ -58,12 +58,6 @@ class WardrobeFragment : Fragment() {
 
         buildCategoryChips()
         binding.wardrobeSearch.doAfterTextChanged { query = it?.toString().orEmpty(); render(viewModel.uiState.value) }
-        binding.wardrobeFilterButton.setOnClickListener {
-            findNavController().navigate(R.id.action_wardrobe_to_filterSheet)
-        }
-        binding.wardrobeSortButton.setOnClickListener {
-            findNavController().navigate(R.id.action_wardrobe_to_sortSheet)
-        }
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {

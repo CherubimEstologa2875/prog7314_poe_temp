@@ -57,14 +57,6 @@
     </plurals>
     <string name="rw_sync_syncing">Sinkroniseer tans…</string>
 
-    <!--Stub screens-->
-    <string name="rw_stub_wardrobe_title">Klerekas</string>
-    <string name="rw_stub_wardrobe_body">Jou klerekasrooster, soektog en filters kom hier.</string>
-    <string name="rw_stub_outfits_title">Uitrustings</string>
-    <string name="rw_stub_outfits_body">Gestoorde uitrustings, die bouer en die weeklikse beplanner kom hier.</string>
-    <string name="rw_stub_profile_title">Profiel</string>
-    <string name="rw_stub_profile_body">Jou statistieke, ruillysies en instellings kom hier.</string>
-    <string name="rw_stub_add">Item byvoeg: kamera, uitsny en etikettering.</string>
 
     <!--Onboarding-->
     <string name="rw_onboarding_title">Welkom by Runway</string>
@@ -84,13 +76,8 @@
     <string name="rw_biometric_avatar_content_description">Aangemelde rekening</string>
 
     <!--Home tab pushes-->
-    <string name="rw_stub_coming_soon">Kom binnekort</string>
-    <string name="rw_stub_weather_title">Weervoorstelle</string>
-    <string name="rw_stub_weather_body">Uitrustingvoorstelle volgens vandag se weervoorspelling kom hier.</string>
 
     <!--Wardrobe tab pushes-->
-    <string name="rw_stub_item_detail_title">Itembesonderhede</string>
-    <string name="rw_stub_item_detail_body">Foto\'s, etikette, aantal kere gedra en koste per dra kom hier.</string>
     <string name="rw_item_detail_loading">Laai tans item…</string>
     <string name="rw_item_detail_not_found">Hierdie item kon nie gevind word nie.</string>
 
@@ -104,8 +91,10 @@
     <string name="rw_item_detail_delete">Verwyder uit klerekas</string>
     <string name="rw_item_detail_delete_title">Verwyder hierdie item?</string>
     <string name="rw_item_detail_delete_body">Dit sal op elke toestel uit jou klerekas verwyder word.</string>
-    <string name="rw_stub_item_edit_title">Wysig item</string>
-    <string name="rw_stub_item_edit_body">Kategorie, kleur, handelsmerk, grootte, materiaal en prys wysig kom hier.</string>
+    <string name="rw_item_detail_edit">Wysig item</string>
+    <string name="rw_item_edit_title">Wysig item</string>
+    <string name="rw_item_edit_save">Stoor veranderinge</string>
+    <string name="rw_item_edit_saved">Veranderinge gestoor</string>
 
     <!--Smart colour matcher-->
     <string name="rw_colour_matcher_title">Slim kleurpasser</string>
@@ -117,18 +106,10 @@
     <string name="rw_colour_matcher_unknown_colour">Kleur nie beskikbaar nie</string>
     <string name="rw_colour_matcher_unknown_body">Hierdie item het nie \'n herkende kleur nie, dus kan dit nie gepas word nie. Wysig die item om \'n ondersteunde kleur by te voeg.</string>
 
-    <string name="rw_stub_laundry_title">Wasgoedmandjie</string>
-    <string name="rw_stub_laundry_body">Draagrense en washerinneringe kom hier.</string>
 
     <!--Add-item modal flow-->
-    <string name="rw_stub_camera_title">Kamera</string>
-    <string name="rw_stub_camera_body">\'n Klerefoto neem, of een uit die galery kies, kom hier.</string>
     <string name="rw_camera_continue">Gebruik foto</string>
-    <string name="rw_stub_cutout_title">Uitsnyvoorskou</string>
-    <string name="rw_stub_cutout_body">Die outomatiese voorskou sonder agtergrond kom hier.</string>
     <string name="rw_cutout_continue">Lyk goed</string>
-    <string name="rw_stub_tag_item_title">Etiketteer item</string>
-    <string name="rw_stub_tag_item_body">Velde vir kategorie, kleur, handelsmerk, grootte, materiaal en prys kom hier.</string>
     <string name="rw_tag_item_continue">Stoor item</string>
 
     <!--Add-item flow-->
@@ -248,26 +229,10 @@
     </plurals>
 
     <!--Outfits tab pushes-->
-    <string name="rw_stub_outfit_detail_title">Uitrustingbesonderhede</string>
-    <string name="rw_stub_outfit_detail_body">Uitrustingstukke, draagopsporing en die selfvertroue-gradering kom hier.</string>
 
     <!--Profile tab pushes-->
-    <string name="rw_stub_stats_title">Statistieke en insigte</string>
-    <string name="rw_stub_stats_body">Mees en minste gedra, en koste per dra, kom hier.</string>
-    <string name="rw_stub_settings_title">Instellings</string>
-    <string name="rw_stub_settings_body">Tema, biometrie, vanlyn-sinkronisering en taal is hier.</string>
-    <string name="rw_stub_language_title">Taal</string>
-    <string name="rw_stub_language_body">Engels, Afrikaans en isiZulu kom hier.</string>
 
     <!--Swap market-->
-    <string name="rw_stub_swap_market_title">Ruilmark</string>
-    <string name="rw_stub_swap_market_body">Items wat vir ruil of skenking gelys is, kom hier.</string>
-    <string name="rw_stub_listing_detail_title">Lysbesonderhede</string>
-    <string name="rw_stub_listing_detail_body">Foto\'s, toestand en ruilversoeke van die lysie kom hier.</string>
-    <string name="rw_stub_my_listings_title">My lysies</string>
-    <string name="rw_stub_my_listings_body">Items wat jy gelys het, en versoeke daarop, kom hier.</string>
-    <string name="rw_stub_create_listing_title">Lys vir ruil</string>
-    <string name="rw_stub_create_listing_body">\'n Item kies en dit vir ruil of skenking lys, kom hier.</string>
 
     <!--Bottom sheets-->
     <string name="rw_sheet_filter_title">Filtreer</string>
@@ -395,7 +360,6 @@
         <item quantity="one">%d item moet gewas word</item>
         <item quantity="other">%d items moet gewas word</item>
     </plurals>
-    <string name="rw_home_laundry_body">Tik om jou wasgoedmandjie oop te maak</string>
     <string name="rw_home_todays_pick">Vandag se keuse</string>
     <plurals name="rw_home_pieces">
         <item quantity="one">%d stuk</item>

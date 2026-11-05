@@ -42,4 +42,5 @@ runway-part2-group11-firebase-adminsdk-fbsvc-4a2a622864.json
 .DS_Store
 Thumbs.db
 
-
+# The signed production APK is committed on purpose: the POE asks for it on GitHub (SCRUM-176).
+!release/Runway-1.0.apk

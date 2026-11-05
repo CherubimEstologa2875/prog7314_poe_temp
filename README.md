@@ -165,7 +165,21 @@ The test source is under `app/src/test` and `api/src/test`. The notification man
 
 The formal release history is in [`RELEASE-NOTES.md`](RELEASE-NOTES.md).
 
-## Repository and delivery controls
+```
+SCRUM-134 splash screen
+SCRUM-136, SCRUM-140
+```
+
+`app/google-services.json` and the shared debug keystore are committed on purpose: the project will not build without the first, and a debug keystore is not a secret, so a fresh clone signs with a certificate Firebase already knows. The signed production APK (`release/Runway-1.0.apk`) is committed so the lecturer can install the app. The release keystore that signs it is shared privately within the team and never committed, along with the Firebase Admin key (`api/serviceAccountKey.json`), `keystore.properties`, `local.properties` and other build output.
+
+## Continuous integration
+
+GitHub Actions builds and tests the project on every push to any branch and on every pull request into `main` (SCRUM-147). The workflow is [`.github/workflows/android-ci.yml`](.github/workflows/android-ci.yml) and has two jobs that run side by side on Ubuntu with JDK 21:
+
+| Job | What it runs |
+|---|---|
+| Build app and run unit tests | `./gradlew :app:testDebugUnitTest`, then `./gradlew :app:assembleDebug` |
+| Run API tests | `cd api && ./gradlew test` |
 
 Work was developed through feature branches and reviewed merges. Sensitive runtime credentials, local properties, release keys and build output are excluded from version control. The Firebase Admin service-account key is required locally but is intentionally not included in this repository.
 
