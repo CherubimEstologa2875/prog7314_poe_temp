@@ -4,6 +4,15 @@ Runway is an Android digital wardrobe application developed by Group 11 for the 
 
 This repository is the final POE implementation: it extends the Part 1 clickable prototype and the Part 2 working client/API foundation into a tested, authenticated and localised application.
 
+## Demonstration videos
+
+Final POE demonstration: https://youtu.be/GVWSfp7TkZo
+
+### Part 2 videos
+
+- API explanation: https://youtu.be/tZoQF8T4uEI
+- Part 2 feature walkthrough: https://youtu.be/5MOHefsDEzw
+
 ## Final feature set
 
 | Area | Final implementation |
@@ -40,8 +49,6 @@ The final UI evidence is stored in [`docs/screenshots`](docs/screenshots/). The 
 ![Outfit builder](docs/screenshots/outfit-builder.png)
 ![Planner](docs/screenshots/planner.png)
 ![Profile](docs/screenshots/profile.png)
-
-The final demonstration video link will be added here when the submission recording is available.
 
 ## Technical architecture
 
@@ -164,11 +171,6 @@ The test source is under `app/src/test` and `api/src/test`. The notification man
 | Final POE | Completed weather suggestions, multi-language support, biometric authentication, settings, FCM notifications, validation, item editing and final documentation/evidence |
 
 The formal release history is in [`RELEASE-NOTES.md`](RELEASE-NOTES.md).
-
-```
-SCRUM-134 splash screen
-SCRUM-136, SCRUM-140
-```
 
 `app/google-services.json` and the shared debug keystore are committed on purpose: the project will not build without the first, and a debug keystore is not a secret, so a fresh clone signs with a certificate Firebase already knows. The signed production APK (`release/Runway-1.0.apk`) is committed so the lecturer can install the app. The release keystore that signs it is shared privately within the team and never committed, along with the Firebase Admin key (`api/serviceAccountKey.json`), `keystore.properties`, `local.properties` and other build output.
 
